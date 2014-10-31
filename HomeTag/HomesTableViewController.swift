@@ -98,4 +98,46 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         }
     }
 
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+   
+    }
+
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+
+            let shareMenu = UIAlertController(title: nil, message: "Share Using", preferredStyle: .ActionSheet)
+            let facebookAction = UIAlertAction(title: "Facebook", style: .Default, handler: nil)
+            let emailAction = UIAlertAction(title: "Email", style: .Default, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+            shareMenu.addAction(facebookAction)
+            shareMenu.addAction(emailAction)
+            shareMenu.addAction(cancelAction)
+
+            self.presentViewController(shareMenu, animated: true, completion: nil)
+
+        })
+        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+
+            if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+
+                let homeToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
+                managedObjectContext.deleteObject(homeToDelete)
+
+                println("\(homeToDelete.streetName)")
+
+                var e: NSError?
+                if managedObjectContext.save(&e) != true {
+                    println("delete error: \(e!.localizedDescription)")
+                }
+            }
+        })
+        shareAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        return [deleteAction, shareAction]
+    }
+
+    
+
+
+
 }

@@ -22,4 +22,6 @@ class HomeCellTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+
+
 }
