@@ -19,6 +19,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 
     override func viewWillAppear(animated: Bool) {

@@ -20,6 +20,8 @@ class AddHomeTableViewController: UITableViewController, UIImagePickerController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        //UINavigationBar.appearance().barTintColor = UIColor(red: 0.302, green: 0.38, blue: 0.443, alpha: 0.25)
     }
 
     override func didReceiveMemoryWarning() {

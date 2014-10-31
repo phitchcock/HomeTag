@@ -19,14 +19,22 @@ class ShowHomeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = home.streetName
         streetAddressLabel.text = home.streetName
         imageView.image = UIImage(data: home.image)
         textView.text = home.note
-        
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "mapSegue" {
+            let destinationController = segue.destinationViewController as MapViewController
+            destinationController.home = home
+        }
     }
 
 

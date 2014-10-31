@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Add Home Table View Controller-->
+        <!--Add-->
         <scene sceneID="ZX5-nh-4L3">
             <objects>
                 <tableViewController id="2b0-4T-nmo" customClass="AddHomeTableViewController" customModule="HomeTag" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,10 +21,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="srM-19-6xP" id="p2b-jP-JOb">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Kh-cY-EX2">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="6Kh-cY-EX2">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                                    <color key="backgroundColor" red="0.30196078431372547" green="0.38039215686274508" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="hfD-5U-Pms"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="6Kh-cY-EX2" secondAttribute="trailing" id="0zC-XU-xew"/>
+                                                <constraint firstItem="6Kh-cY-EX2" firstAttribute="top" secondItem="p2b-jP-JOb" secondAttribute="top" id="4Aa-rV-kEg"/>
+                                                <constraint firstItem="6Kh-cY-EX2" firstAttribute="leading" secondItem="p2b-jP-JOb" secondAttribute="leading" id="thx-1s-3wu"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="Oma-m5-n2D">
@@ -62,7 +71,7 @@
                             <outlet property="delegate" destination="2b0-4T-nmo" id="gCs-C3-1fr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Saj-rg-s9g">
+                    <navigationItem key="navigationItem" title="Add" id="Saj-rg-s9g">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Z0D-Bm-reK">
                             <connections>
                                 <action selector="cancelAction:" destination="2b0-4T-nmo" id="Yeb-jf-EYk"/>
@@ -84,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="2235" y="238"/>
         </scene>
-        <!--Homes Table View Controller-->
+        <!--Homes-->
         <scene sceneID="MR3-hE-u63">
             <objects>
                 <tableViewController id="Z4k-GJ-0QH" customClass="HomesTableViewController" customModule="HomeTag" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +116,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hm-r3-LXm">
                                             <rect key="frame" x="8" y="171" width="584" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -132,7 +141,7 @@
                             <outlet property="delegate" destination="Z4k-GJ-0QH" id="QF3-25-tLM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KwG-YA-B7l">
+                    <navigationItem key="navigationItem" title="Homes" id="KwG-YA-B7l">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4ba-Zr-wRF">
                             <connections>
                                 <segue destination="cfv-93-38y" kind="presentation" id="00m-iT-JX6"/>
@@ -177,7 +186,6 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BDO-X1-pHJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -198,6 +206,23 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ltu-HG-Icb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ltu-HG-Icb" id="RVk-lj-hin">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh4-QD-Eun">
+                                                    <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="WCX-Gq-ng0" kind="show" identifier="mapSegue" id="Nnu-2F-AtY"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -215,6 +240,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uuy-91-13a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2235" y="950"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="W8F-QM-mLM">
+            <objects>
+                <viewController id="WCX-Gq-ng0" customClass="MapViewController" customModule="HomeTag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SBQ-cf-Bmt"/>
+                        <viewControllerLayoutGuide type="bottom" id="zjV-Kg-pod"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eIc-yV-dXz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TOk-vy-PB5">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="TOk-vy-PB5" id="axT-cQ-RYo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9D-RJ-hSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2988" y="951"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZPk-x0-Pp5">
@@ -253,4 +304,7 @@
             <point key="canvasLocation" x="1423" y="240"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add-image" width="500" height="500"/>
+    </resources>
 </document>
