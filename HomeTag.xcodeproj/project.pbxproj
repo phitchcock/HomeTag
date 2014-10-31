@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D06E7DD21A04130F00EA81E1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DD11A04130F00EA81E1 /* Home.swift */; };
 		D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B341A03ED7F005003C0 /* AppDelegate.swift */; };
 		D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B361A03ED7F005003C0 /* HomeTag.xcdatamodeld */; };
 		D0F48B3D1A03ED7F005003C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F48B3B1A03ED7F005003C0 /* Main.storyboard */; };
@@ -15,7 +16,6 @@
 		D0F48B4E1A03ED80005003C0 /* HomeTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B4D1A03ED80005003C0 /* HomeTagTests.swift */; };
 		D0F48B581A03EF88005003C0 /* HomesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B571A03EF88005003C0 /* HomesTableViewController.swift */; };
 		D0F48B5A1A03EF98005003C0 /* AddHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B591A03EF98005003C0 /* AddHomeTableViewController.swift */; };
-		D0F48B5D1A03F395005003C0 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B5C1A03F395005003C0 /* Home.swift */; };
 		D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B5E1A03F429005003C0 /* HomeCellTableViewCell.swift */; };
 		D0F48B611A03FBB7005003C0 /* ShowHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B601A03FBB7005003C0 /* ShowHomeTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D06E7DD11A04130F00EA81E1 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = SOURCE_ROOT; };
 		D0F48B2F1A03ED7F005003C0 /* HomeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F48B331A03ED7F005003C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0F48B341A03ED7F005003C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		D0F48B4D1A03ED80005003C0 /* HomeTagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTagTests.swift; sourceTree = "<group>"; };
 		D0F48B571A03EF88005003C0 /* HomesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomesTableViewController.swift; sourceTree = "<group>"; };
 		D0F48B591A03EF98005003C0 /* AddHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddHomeTableViewController.swift; sourceTree = "<group>"; };
-		D0F48B5C1A03F395005003C0 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		D0F48B5E1A03F429005003C0 /* HomeCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellTableViewCell.swift; sourceTree = "<group>"; };
 		D0F48B601A03FBB7005003C0 /* ShowHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHomeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,7 +93,7 @@
 				D0F48B3E1A03ED7F005003C0 /* Images.xcassets */,
 				D0F48B401A03ED7F005003C0 /* LaunchScreen.xib */,
 				D0F48B361A03ED7F005003C0 /* HomeTag.xcdatamodeld */,
-				D0F48B5C1A03F395005003C0 /* Home.swift */,
+				D06E7DD11A04130F00EA81E1 /* Home.swift */,
 				D0F48B321A03ED7F005003C0 /* Supporting Files */,
 			);
 			path = HomeTag;
@@ -239,7 +239,7 @@
 				D0F48B581A03EF88005003C0 /* HomesTableViewController.swift in Sources */,
 				D0F48B611A03FBB7005003C0 /* ShowHomeTableViewController.swift in Sources */,
 				D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */,
-				D0F48B5D1A03F395005003C0 /* Home.swift in Sources */,
+				D06E7DD21A04130F00EA81E1 /* Home.swift in Sources */,
 				D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */,
 				D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */,
 			);

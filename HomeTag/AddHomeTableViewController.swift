@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class AddHomeTableViewController: UITableViewController {
+class AddHomeTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var home:Home!
 
     @IBOutlet weak var streetNameTextField: UITextField!
+    @IBOutlet weak var homeImageView: UIImageView!
+    @IBOutlet weak var textView: UITextView!
 
 
     override func viewDidLoad() {
@@ -28,6 +30,8 @@ class AddHomeTableViewController: UITableViewController {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as Home
             home.streetName = streetNameTextField.text
+            home.image = UIImagePNGRepresentation(homeImageView.image)
+            home.note = textView.text
 
             var e: NSError?
             if managedObjectContext.save(&e) != true {
@@ -44,6 +48,28 @@ class AddHomeTableViewController: UITableViewController {
     }
 
     @IBAction func cancelAction(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .PhotoLibrary
+                imagePicker.delegate = self
+
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        homeImageView.image = image
+        homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        homeImageView.clipsToBounds = true
+
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

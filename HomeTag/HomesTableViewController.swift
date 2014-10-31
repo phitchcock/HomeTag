@@ -44,6 +44,9 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as HomeCellTableViewCell
         let home = homes[indexPath.row]
         cell.addressLabel.text = home.streetName
+        cell.homeImageView.image = UIImage(data: home.image)
+        //cell.homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        //cell.homeImageView.clipsToBounds = true
         return cell
     }
 

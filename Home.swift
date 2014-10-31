@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  HomeTag.swift
 //  HomeTag
 //
 //  Created by Peter Hitchcock on 10/31/14.
@@ -11,11 +11,12 @@ import CoreData
 
 class Home: NSManagedObject {
 
-    @NSManaged var image: NSData
-    @NSManaged var streetNumber: String
-    @NSManaged var streetName: String
     @NSManaged var city: String
+    @NSManaged var image: NSData
     @NSManaged var state: String
+    @NSManaged var streetName: String
+    @NSManaged var streetNumber: String
     @NSManaged var zip: String
+    @NSManaged var note: String
 
 }
