@@ -8,54 +8,77 @@
 
 import UIKit
 
-class WebViewController: UIViewController, NSXMLParserDelegate {
+class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegate {
 
-    var post:Post!
     var home:Home!
-    var address: String = String()
-    var eName: String = String()
 
+
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var webView: UIWebView!
-    @IBOutlet weak var outputLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let url = NSURL(string: "http://www.zillow.com/webservice/GetZestimate.htm?zws-id=X1-ZWz1dovjvxhiiz_4ixyf&zpid=48749425") {
-            var xmlParser = NSXMLParser(contentsOfURL: url)
-            xmlParser?.delegate = self
-            xmlParser?.parse()
-        }
-        // Do any additional setup after loading the view.
+        searchBar.delegate = self
+        searchBar.text = home.streetName
+        
+        clickBar()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: NSDictionary!) {
-        println("Element's name is \(elementName)")
-        //println("Element's attributes are \(attributeDict)")
+    @IBAction func onBackButtonPressed(sender: AnyObject) {
+        webView.goBack()
+    }
 
-        eName = elementName
-        if elementName == "address" {
-            address = String()
+    @IBAction func onForwardButtonPressed(sender: AnyObject) {
+        //webView.goForward()
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        var text = searchBar.text
+        var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+
+        if let encodeText = encodeText {
+            var url = NSURL(string: "http://www.zillow.com/homes/\(encodeText)_rb")
+            var request = NSURLRequest(URL: url!)
+            self.webView.loadRequest(request)
         }
 
-
     }
 
-    func parser(parser: NSXMLParser!, foundCharacters string: String!) {
+    func clickBar() {
+        var text = searchBar.text
+        var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
 
-    }
-
-    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
-        if elementName == "address" {
-            post.address = address
-            //outputLabel.text = post.address
+        if let encodeText = encodeText {
+            var url = NSURL(string: "http://www.zillow.com/homes/\(encodeText)_rb")
+            var request = NSURLRequest(URL: url!)
+            self.webView.loadRequest(request)
         }
-    }
-    
 
+    }
+
+    func webView(webView: UIWebView!, didFailLoadWithError error: NSError!) {
+        print("Webview fail with error \(error)");
+    }
+
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        return true
+    }
+
+    func webViewDidStartLoad(webView: UIWebView!) {
+        print("Webview started Loading")
+    }
+
+    func webViewDidFinishLoad(webView: UIWebView!) {
+        print("Webview did finish load")
+    }
+
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 }
