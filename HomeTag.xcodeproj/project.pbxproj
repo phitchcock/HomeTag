@@ -12,6 +12,8 @@
 		D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DD71A0416DA00EA81E1 /* MapViewController.swift */; };
 		D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */; };
 		D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */; };
+		D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */; };
+		D06E7DE21A0809FB00EA81E1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DE11A0809FB00EA81E1 /* Post.swift */; };
 		D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B341A03ED7F005003C0 /* AppDelegate.swift */; };
 		D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B361A03ED7F005003C0 /* HomeTag.xcdatamodeld */; };
 		D0F48B3D1A03ED7F005003C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F48B3B1A03ED7F005003C0 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		D06E7DD71A0416DA00EA81E1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleViewController.swift; sourceTree = "<group>"; };
+		D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		D06E7DE11A0809FB00EA81E1 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D0F48B2F1A03ED7F005003C0 /* HomeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F48B331A03ED7F005003C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0F48B341A03ED7F005003C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +79,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D06E7DD51A0416B700EA81E1 /* Homes */ = {
+		D06E7DD51A0416B700EA81E1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				D0F48B571A03EF88005003C0 /* HomesTableViewController.swift */,
@@ -83,7 +87,7 @@
 				D0F48B591A03EF98005003C0 /* AddHomeTableViewController.swift */,
 				D0F48B601A03FBB7005003C0 /* ShowHomeTableViewController.swift */,
 			);
-			name = Homes;
+			name = Home;
 			sourceTree = "<group>";
 		};
 		D06E7DD61A0416BF00EA81E1 /* Map */ = {
@@ -98,9 +102,18 @@
 			isa = PBXGroup;
 			children = (
 				D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */,
+				D06E7DE11A0809FB00EA81E1 /* Post.swift */,
 				D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */,
 			);
 			name = Web;
+			sourceTree = "<group>";
+		};
+		D06E7DDE1A07E17100EA81E1 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */,
+			);
+			name = Location;
 			sourceTree = "<group>";
 		};
 		D0F48B261A03ED7F005003C0 = {
@@ -165,9 +178,10 @@
 		D0F48B5B1A03EFA3005003C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D06E7DDE1A07E17100EA81E1 /* Location */,
 				D06E7DD91A0436D800EA81E1 /* Web */,
 				D06E7DD61A0416BF00EA81E1 /* Map */,
-				D06E7DD51A0416B700EA81E1 /* Homes */,
+				D06E7DD51A0416B700EA81E1 /* Home */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -280,9 +294,11 @@
 				D0F48B5A1A03EF98005003C0 /* AddHomeTableViewController.swift in Sources */,
 				D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */,
 				D0F48B581A03EF88005003C0 /* HomesTableViewController.swift in Sources */,
+				D06E7DE21A0809FB00EA81E1 /* Post.swift in Sources */,
 				D0F48B611A03FBB7005003C0 /* ShowHomeTableViewController.swift in Sources */,
 				D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */,
 				D06E7DD21A04130F00EA81E1 /* Home.swift in Sources */,
+				D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */,
 				D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */,
 				D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */,
 				D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */,
