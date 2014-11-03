@@ -35,6 +35,17 @@ class ShowHomeTableViewController: UITableViewController {
             let destinationController = segue.destinationViewController as MapViewController
             destinationController.home = home
         }
+
+        if segue.identifier == "webSegue" {
+            let destinationController = segue.destinationViewController as WebViewController
+            destinationController.home = home
+        }
+
+        if segue.identifier == "googleSegue" {
+            let destinationController = segue.destinationViewController as GoogleViewController
+            destinationController.home = home
+        }
+
     }
 
 
