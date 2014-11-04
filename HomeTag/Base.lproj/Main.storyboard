@@ -610,12 +610,36 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVX-4U-1D0">
-                                                    <rect key="frame" x="8" y="15" width="584" height="32"/>
+                                                    <rect key="frame" x="8" y="14" width="292" height="32"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6N-xv-tRz">
+                                                    <rect key="frame" x="504" y="12" width="43" height="30"/>
+                                                    <state key="normal" title="camra">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="takePhoto:" destination="iTn-QS-4Cu" eventType="touchUpInside" id="vCf-f3-e3h"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-jv-yJw">
+                                                    <rect key="frame" x="437" y="12" width="30" height="30"/>
+                                                    <state key="normal" title="roll">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="pickImage:" destination="iTn-QS-4Cu" eventType="touchUpInside" id="M8S-30-K0H"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="L6N-xv-tRz" firstAttribute="leading" secondItem="Kdd-jv-yJw" secondAttribute="trailing" constant="37" id="0gj-ho-xaA"/>
+                                                <constraint firstItem="L6N-xv-tRz" firstAttribute="top" secondItem="pY2-zx-NhV" secondAttribute="topMargin" constant="4" id="6rV-5h-h4d"/>
+                                                <constraint firstItem="L6N-xv-tRz" firstAttribute="baseline" secondItem="Kdd-jv-yJw" secondAttribute="baseline" id="PYS-XD-Yn5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="L6N-xv-tRz" secondAttribute="trailing" constant="45" id="cSV-dy-RyW"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="M7U-gP-u7u">
@@ -650,7 +674,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bf5-ST-aVF" id="E9A-1w-Ae0">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odf-Ll-gkD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odf-Ll-gkD">
                                                     <rect key="frame" x="8" y="7" width="584" height="98"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -687,7 +711,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6l-ea-ZlO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2235" y="1694"/>
+            <point key="canvasLocation" x="2235" y="1693"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZPk-x0-Pp5">

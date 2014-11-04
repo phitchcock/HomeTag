@@ -230,10 +230,10 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
-            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+            if UIImagePickerController.isSourceTypeAvailable(.Camera) {
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = false
-                imagePicker.sourceType = .PhotoLibrary
+                imagePicker.sourceType = .Camera
                 imagePicker.delegate = self
 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
@@ -250,5 +250,26 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func takePhoto(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .Camera
+            imagePicker.delegate = self
+
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func pickImage(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .PhotoLibrary
+            imagePicker.delegate = self
+
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
 
 }
