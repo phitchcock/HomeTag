@@ -155,7 +155,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Homes" id="KwG-YA-B7l">
-                        <barButtonItem key="leftBarButtonItem" title="Auto" id="ILy-XR-6as">
+                        <barButtonItem key="leftBarButtonItem" title="Tag Home" id="ILy-XR-6as">
                             <connections>
                                 <segue destination="w53-Yg-1aW" kind="presentation" id="7CE-Yl-OaC"/>
                             </connections>
@@ -467,7 +467,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="5sY-rR-mLi" kind="unwind" unwindAction="unwind:" id="6RC-ws-T9R"/>
+                                            <segue destination="5sY-rR-mLi" kind="unwind" unwindAction="unwindToShowHome:" id="Li2-Bk-gaW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -536,7 +536,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="h44-Bk-Cpr" kind="unwind" unwindAction="unwind:" id="sc5-VP-EEp"/>
+                                            <segue destination="h44-Bk-Cpr" kind="unwind" unwindAction="unwindToShowHome:" id="SCa-Hy-uRT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -618,20 +618,19 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="RBJ-MM-FUd">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RBJ-MM-FUd" id="97U-fm-j1a">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="M7U-gP-u7u">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M7U-gP-u7u" id="y70-D9-LuE">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xm-Ll-raD">
-                                                    <rect key="frame" x="8" y="7" width="89" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xm-Ll-raD">
+                                                    <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                                    <color key="backgroundColor" red="0.26274509800000001" green="0.59607843140000005" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="PGK-EU-Ae0"/>
+                                                    </constraints>
                                                     <state key="normal" title="Get Location">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -639,6 +638,11 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0xm-Ll-raD" firstAttribute="trailing" secondItem="y70-D9-LuE" secondAttribute="trailingMargin" id="OBC-ft-BjE"/>
+                                                <constraint firstItem="0xm-Ll-raD" firstAttribute="leading" secondItem="y70-D9-LuE" secondAttribute="leadingMargin" id="SGX-QC-vLd"/>
+                                                <constraint firstItem="0xm-Ll-raD" firstAttribute="top" secondItem="y70-D9-LuE" secondAttribute="topMargin" id="yp4-Ko-4ox"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="112" id="bf5-ST-aVF">
@@ -683,7 +687,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6l-ea-ZlO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2235" y="1695"/>
+            <point key="canvasLocation" x="2235" y="1694"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZPk-x0-Pp5">

@@ -33,7 +33,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
 
     @IBAction func onForwardButtonPressed(sender: AnyObject) {
         //webView.goForward()
-        navigationController?.popToRootViewControllerAnimated(true)
+        //navigationController?.popToRootViewControllerAnimated(true)
     }
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
