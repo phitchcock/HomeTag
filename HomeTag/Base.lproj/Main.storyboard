@@ -355,7 +355,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vUx-SK-dVd">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="fLk-Nv-spV">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="fLk-Nv-spV">
                             <connections>
                                 <action selector="endEditing:" destination="anT-aO-rgo" id="z1L-7w-zNX"/>
                             </connections>
@@ -367,7 +367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYZ-HJ-2cB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3822" y="-406"/>
+            <point key="canvasLocation" x="3780" y="-405"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="aED-OU-MhB">
@@ -622,14 +622,6 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RBJ-MM-FUd" id="97U-fm-j1a">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Note" translatesAutoresizingMaskIntoConstraints="NO" id="Ch9-nk-XKn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="M7U-gP-u7u">
@@ -687,7 +679,6 @@
                         <outlet property="addressLabel" destination="odf-Ll-gkD" id="zWI-y6-M8w"/>
                         <outlet property="imageView" destination="PF7-PP-eih" id="4jl-X2-E4Y"/>
                         <outlet property="messageLabel" destination="xVX-4U-1D0" id="UW7-kP-lG6"/>
-                        <outlet property="textView" destination="Ch9-nk-XKn" id="7PK-ro-Gb5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6l-ea-ZlO" userLabel="First Responder" sceneMemberID="firstResponder"/>

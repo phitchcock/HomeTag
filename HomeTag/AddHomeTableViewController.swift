@@ -33,7 +33,7 @@ class AddHomeTableViewController: UITableViewController, UIImagePickerController
             home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as Home
             home.streetName = streetNameTextField.text
             home.image = UIImagePNGRepresentation(homeImageView.image)
-
+            home.note = "Add Notes"
             var e: NSError?
             if managedObjectContext.save(&e) != true {
                 println("insert error: \(e!.localizedDescription)")

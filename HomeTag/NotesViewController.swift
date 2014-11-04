@@ -18,8 +18,9 @@ class NotesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.text = home.note
-        home.streetName = home.streetName
+
+            textView.text = home.note
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,18 +30,14 @@ class NotesViewController: UIViewController {
 
     @IBAction func endEditing(sender: AnyObject) {
         saveHome()
-        println(home.note)
     }
 
     func saveHome() {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
-            home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as Home
 
             if home != nil {
                 home.note = textView.text
-                //home.streetName = home.streetName
             }
-
 
             var e: NSError?
             if managedObjectContext.save(&e) != true {
