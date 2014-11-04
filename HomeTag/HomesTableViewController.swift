@@ -48,6 +48,9 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         cell.homeImageView.image = UIImage(data: home.image)
         //cell.homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
         //cell.homeImageView.clipsToBounds = true
+        //cell.accessoryType = !home.isFavorite.boolValue
+
+
         return cell
     }
 
@@ -112,8 +115,14 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             let shareMenu = UIAlertController(title: nil, message: "Share Using", preferredStyle: .ActionSheet)
             let facebookAction = UIAlertAction(title: "Facebook", style: .Default, handler: nil)
             let emailAction = UIAlertAction(title: "Email", style: .Default, handler: nil)
+            let isFavoriteAction = UIAlertAction(title: "Favorite?", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+                let cell = tableView.cellForRowAtIndexPath(indexPath)
+                cell?.accessoryType = .Checkmark
+                //self.homeIsFavorite[indexPath.row] = true
+            })
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
 
+            shareMenu.addAction(isFavoriteAction)
             shareMenu.addAction(facebookAction)
             shareMenu.addAction(emailAction)
             shareMenu.addAction(cancelAction)

@@ -20,7 +20,6 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
         super.viewDidLoad()
         searchBar.delegate = self
         searchBar.text = home.streetName
-        
         clickBar()
     }
 

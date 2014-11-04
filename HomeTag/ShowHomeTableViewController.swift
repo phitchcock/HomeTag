@@ -22,7 +22,7 @@ class ShowHomeTableViewController: UITableViewController {
         self.title = home.streetName
         streetAddressLabel.text = home.streetName
         imageView.image = UIImage(data: home.image)
-        textView.text = home.note
+        //textView.text = home.note
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 
@@ -46,9 +46,17 @@ class ShowHomeTableViewController: UITableViewController {
             destinationController.home = home
         }
 
+        if segue.identifier == "notesSegue" {
+            //let cell = sender as UITableViewCell
+            //let indexPath = tableView.indexPathForCell(cell)
+            let destinationViewController = segue.destinationViewController as NotesViewController
+            destinationViewController.home = home
+        }
+        
+
     }
 
-    @IBAction func unwind(sender: UIStoryboardSegue) {
+    @IBAction func unwindToShowHome(sender: UIStoryboardSegue) {
         
     }
 

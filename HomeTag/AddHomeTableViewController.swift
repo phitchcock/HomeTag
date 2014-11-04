@@ -15,7 +15,7 @@ class AddHomeTableViewController: UITableViewController, UIImagePickerController
 
     @IBOutlet weak var streetNameTextField: UITextField!
     @IBOutlet weak var homeImageView: UIImageView!
-    @IBOutlet weak var textView: UITextView!
+
 
 
     override func viewDidLoad() {
@@ -33,7 +33,6 @@ class AddHomeTableViewController: UITableViewController, UIImagePickerController
             home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as Home
             home.streetName = streetNameTextField.text
             home.image = UIImagePNGRepresentation(homeImageView.image)
-            home.note = textView.text
 
             var e: NSError?
             if managedObjectContext.save(&e) != true {

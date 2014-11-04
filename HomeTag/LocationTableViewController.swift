@@ -24,8 +24,8 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var textView: UITextView!
 
 
     override func viewDidLoad() {

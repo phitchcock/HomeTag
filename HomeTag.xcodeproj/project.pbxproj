@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D06E7DD21A04130F00EA81E1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DD11A04130F00EA81E1 /* Home.swift */; };
+		D037417E1A0932D2001AE640 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D037417D1A0932D2001AE640 /* Home.swift */; };
+		D03741811A0934F2001AE640 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03741801A0934F2001AE640 /* NotesViewController.swift */; };
 		D06E7DD41A0415EB00EA81E1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06E7DD31A0415EB00EA81E1 /* MapKit.framework */; };
 		D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DD71A0416DA00EA81E1 /* MapViewController.swift */; };
 		D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */; };
@@ -37,7 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D06E7DD11A04130F00EA81E1 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = SOURCE_ROOT; };
+		D037417D1A0932D2001AE640 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		D03741801A0934F2001AE640 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		D06E7DD31A0415EB00EA81E1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D06E7DD71A0416DA00EA81E1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D037417F1A0934E3001AE640 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				D03741801A0934F2001AE640 /* NotesViewController.swift */,
+			);
+			name = Note;
+			sourceTree = "<group>";
+		};
 		D06E7DD51A0416B700EA81E1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,7 @@
 		D0F48B261A03ED7F005003C0 = {
 			isa = PBXGroup;
 			children = (
+				D037417D1A0932D2001AE640 /* Home.swift */,
 				D06E7DD31A0415EB00EA81E1 /* MapKit.framework */,
 				D0F48B311A03ED7F005003C0 /* HomeTag */,
 				D0F48B4A1A03ED80005003C0 /* HomeTagTests */,
@@ -144,7 +155,6 @@
 				D0F48B3E1A03ED7F005003C0 /* Images.xcassets */,
 				D0F48B401A03ED7F005003C0 /* LaunchScreen.xib */,
 				D0F48B361A03ED7F005003C0 /* HomeTag.xcdatamodeld */,
-				D06E7DD11A04130F00EA81E1 /* Home.swift */,
 				D0F48B321A03ED7F005003C0 /* Supporting Files */,
 			);
 			path = HomeTag;
@@ -178,6 +188,7 @@
 		D0F48B5B1A03EFA3005003C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D037417F1A0934E3001AE640 /* Note */,
 				D06E7DDE1A07E17100EA81E1 /* Location */,
 				D06E7DD91A0436D800EA81E1 /* Web */,
 				D06E7DD61A0416BF00EA81E1 /* Map */,
@@ -297,10 +308,11 @@
 				D06E7DE21A0809FB00EA81E1 /* Post.swift in Sources */,
 				D0F48B611A03FBB7005003C0 /* ShowHomeTableViewController.swift in Sources */,
 				D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */,
-				D06E7DD21A04130F00EA81E1 /* Home.swift in Sources */,
 				D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */,
+				D03741811A0934F2001AE640 /* NotesViewController.swift in Sources */,
 				D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */,
 				D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */,
+				D037417E1A0932D2001AE640 /* Home.swift in Sources */,
 				D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */,
 				D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */,
 			);
