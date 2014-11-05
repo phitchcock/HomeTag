@@ -129,6 +129,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		D0C6BE641A0AA6260059E400 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pages;
+			sourceTree = "<group>";
+		};
 		D0F48B261A03ED7F005003C0 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +198,7 @@
 		D0F48B5B1A03EFA3005003C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0C6BE641A0AA6260059E400 /* Pages */,
 				D037417F1A0934E3001AE640 /* Note */,
 				D06E7DDE1A07E17100EA81E1 /* Location */,
 				D06E7DD91A0436D800EA81E1 /* Web */,

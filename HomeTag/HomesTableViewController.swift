@@ -12,21 +12,23 @@ import CoreData
 class HomesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     var homes: [Home] = []
+    var searchResults: [Home] = []
     var fetchResultController:NSFetchedResultsController!
     var searchController: UISearchController!
 
     @IBOutlet var homesTableView: UITableView!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.1)
-
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.sizeToFit()
         homesTableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
+        searchController.resignFirstResponder()
+        //searchController.searchResultsUpdater = self
+        //searchController.dimsBackgroundDuringPresentation = false
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -44,7 +46,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return homes.count
+        return self.homes.count
     }
 
 
@@ -111,7 +113,15 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             }
         }
     }
-
+    /*
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if searchController.active {
+            return false
+        } else {
+            return true
+        }
+    }
+    */
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
    
     }
@@ -152,14 +162,27 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
                 }
             }
         })
-        shareAction.backgroundColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 1)
+        shareAction.backgroundColor = UIColor(red: 0.239, green: 0.306, blue: 0.369, alpha: 1)
         return [deleteAction, shareAction]
     }
 
     @IBAction func unwind(segue: UIStoryboardSegue) {
         
     }
-
+    /*
+    func filterContentForSearchText(searchText: String) {
+        searchResults = homes.filter({ ( home: Home) -> Bool in
+            let nameMatch = home.streetName.rangeOfString(searchText, options:
+            NSStringCompareOptions.CaseInsensitiveSearch)
+            return nameMatch != nil
+        })
+    }
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+            let searchText = searchController.searchBar.text
+            filterContentForSearchText(searchText)
+            tableView.reloadData()
+    }
+    */
 
 
 }

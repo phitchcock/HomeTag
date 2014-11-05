@@ -242,9 +242,19 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
             }
+            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .PhotoLibrary
+                imagePicker.delegate = self
+
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         imageView.image = image
@@ -253,7 +263,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     @IBAction func takePhoto(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             let imagePicker = UIImagePickerController()
@@ -263,8 +273,17 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
-    }
+        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .PhotoLibrary
+            imagePicker.delegate = self
 
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+
+    }
+    /*
     @IBAction func pickImage(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
             let imagePicker = UIImagePickerController()
@@ -275,6 +294,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
+    */
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSegue" {
