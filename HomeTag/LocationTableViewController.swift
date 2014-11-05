@@ -25,6 +25,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var locationButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +40,13 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     @IBAction func saveHome(sender: AnyObject) {
         saveHome()
-        dismissViewControllerAnimated(true, completion: nil)
+        resetTagHome()
+        //performSegueWithIdentifier("showSegue", sender: self)
     }
 
     @IBAction func cancelAction(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        resetTagHome()
+        //dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func getLocation(sender: AnyObject) {
@@ -203,9 +206,9 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     func configureGetLocationButton() {
         if updatingLocation {
-            navigationItem.leftBarButtonItem?.title = "Stop"
+            locationButton.setTitle("Stop", forState: UIControlState.Normal)
         } else {
-            navigationItem.leftBarButtonItem?.title = "Get Location"
+           locationButton.setTitle("Get Location", forState: UIControlState.Normal)
         }
     }
 
@@ -271,6 +274,23 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showSegue" {
+            let destinationController = segue.destinationViewController as ShowHomeTableViewController
+            destinationController.home = home
+        }
+    }
+
+    func resetTagHome() {
+        location = nil
+        lastLocationError = nil
+        placemark = nil
+        lastGeocodingError = nil
+        imageView.image = UIImage(named: "add-image.png")
+        addressTextField.text = ""
+        messageLabel.text = "Tap Get Location to find address"
     }
 
 }

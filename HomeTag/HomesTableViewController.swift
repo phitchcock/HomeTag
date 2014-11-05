@@ -13,6 +13,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
     var homes: [Home] = []
     var fetchResultController:NSFetchedResultsController!
+    var searchController: UISearchController!
 
     @IBOutlet var homesTableView: UITableView!
     
@@ -21,7 +22,11 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.1)
-        
+
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.sizeToFit()
+        homesTableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -147,11 +152,11 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
                 }
             }
         })
-        shareAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        shareAction.backgroundColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 1)
         return [deleteAction, shareAction]
     }
 
-    func unwind(segue: UIStoryboardSegue) {
+    @IBAction func unwind(segue: UIStoryboardSegue) {
         
     }
 
