@@ -126,10 +126,18 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
-		D0F48B261A03ED7F005003C0 = {
+		D0A5A9F61A09C2010047F157 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				D037417D1A0932D2001AE640 /* Home.swift */,
+			);
+			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D0F48B261A03ED7F005003C0 = {
+			isa = PBXGroup;
+			children = (
 				D06E7DD31A0415EB00EA81E1 /* MapKit.framework */,
 				D0F48B311A03ED7F005003C0 /* HomeTag */,
 				D0F48B4A1A03ED80005003C0 /* HomeTagTests */,
@@ -151,6 +159,7 @@
 			children = (
 				D0F48B341A03ED7F005003C0 /* AppDelegate.swift */,
 				D0F48B3B1A03ED7F005003C0 /* Main.storyboard */,
+				D0A5A9F61A09C2010047F157 /* Models */,
 				D0F48B5B1A03EFA3005003C0 /* Controllers */,
 				D0F48B3E1A03ED7F005003C0 /* Images.xcassets */,
 				D0F48B401A03ED7F005003C0 /* LaunchScreen.xib */,

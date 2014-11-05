@@ -23,8 +23,8 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
     var lastGeocodingError: NSError?
 
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addressTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,26 +139,26 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         if let location = location {
             //latLabel.text = String(format: "%.8f", location.coordinate.latitude)
             //longLabel.text = String(format: "%.8f", location.coordinate.longitude)
-            messageLabel.text = ""
+            messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
 
             if let placemark = placemark {
-                addressLabel.text = stringFromPlacemark(placemark)
+                addressTextField.text = stringFromPlacemark(placemark)
             }
             else if performingReverseGeocoding {
-                addressLabel.text = "Searching for Address..."
+                messageLabel.text = "Searching for Address..."
             }
             else if lastGeocodingError != nil {
-                addressLabel.text = "Error Finding Address"
+                messageLabel.text = "Error Finding Address"
 
             } else {
-                addressLabel.text = "No Address Found"
+                messageLabel.text = "No Address Found"
             }
 
         } else {
             //latLabel.text = ""
             //longLabel.text = ""
-            addressLabel.text = ""
-            messageLabel.text = "Tap getLocation to start!"
+            addressTextField.text = ""
+            messageLabel.text = "Tap Get Location to find address"
 
             var statusMessage: String
             if let error = lastLocationError {
@@ -176,7 +176,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
                 statusMessage = "Searching..."
 
             } else {
-                statusMessage = "Tap getLocation to Start"
+                statusMessage = "Tap Get Location to find address"
             }
 
             messageLabel.text = statusMessage
@@ -215,7 +215,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
     func saveHome() {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as Home
-            home.streetName = addressLabel.text!
+            home.streetName = addressTextField.text
             home.image = UIImagePNGRepresentation(imageView.image)
             home.note = "Add Notes"
 
