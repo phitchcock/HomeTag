@@ -19,7 +19,9 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.1)
+        
     }
 
     override func viewWillAppear(animated: Bool) {

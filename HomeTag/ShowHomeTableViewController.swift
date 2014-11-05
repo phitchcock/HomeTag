@@ -13,21 +13,26 @@ class ShowHomeTableViewController: UITableViewController {
 
     var home:Home!
 
-    @IBOutlet weak var streetAddressLabel: UILabel!
+
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet var showTableView: UITableView!
+    @IBOutlet weak var addressTextField: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = home.streetName
-        streetAddressLabel.text = home.streetName
+        //self.title = home.streetName
+        addressTextField.text = home.streetName
         imageView.image = UIImage(data: home.image)
-        //textView.text = home.note
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    @IBAction func saveAction(sender: AnyObject) {
+        saveHome()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -59,6 +64,24 @@ class ShowHomeTableViewController: UITableViewController {
     @IBAction func unwindToShowHome(sender: UIStoryboardSegue) {
         
     }
+
+    func saveHome() {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+
+            if home != nil {
+                home.streetName = addressTextField.text
+            }
+
+            var e: NSError?
+            if managedObjectContext.save(&e) != true {
+                println("insert error: \(e!.localizedDescription)")
+                return
+            }
+
+        }
+        
+    }
+
 
 
 }
