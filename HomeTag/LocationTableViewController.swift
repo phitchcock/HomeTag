@@ -29,9 +29,10 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        //self.tableView.tableFooterView = UIView(frame: CGRectZero)
         updateLabels()
         configureGetLocationButton()
+        tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 
     override func didReceiveMemoryWarning() {

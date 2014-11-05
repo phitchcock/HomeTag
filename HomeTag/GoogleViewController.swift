@@ -27,6 +27,8 @@ class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDele
         super.didReceiveMemoryWarning()
     }
 
+
+
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         var text = searchBar.text
@@ -52,6 +54,19 @@ class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDele
 
     }
 
+    @IBAction func onBackButtonPressed(sender: AnyObject) {
+        webView.goBack()
+    }
+
+    @IBAction func onForwardButtonPressed(sender: AnyObject) {
+        webView.goForward()
+    }
+
+    @IBAction func onReloadButtonPressed(sender: AnyObject) {
+        webView.reload()
+    }
+
+
     func webView(webView: UIWebView!, didFailLoadWithError error: NSError!) {
         print("Webview fail with error \(error)");
     }
@@ -70,6 +85,11 @@ class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDele
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+
+    func buttonState() {
+        //self.backButton.enabled = self.webView.canGoBack
+        //self.forwardButton.enabled = self.webView.canGoForward
     }
 }
 

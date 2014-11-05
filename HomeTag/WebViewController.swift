@@ -61,6 +61,18 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
 
     }
 
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        webView.goBack()
+    }
+
+    @IBAction func goForwardButtonPressed(sender: AnyObject) {
+        webView.goForward()
+    }
+
+    @IBAction func refreshButtonPressed(sender: AnyObject) {
+        webView.reload()
+    }
+    
     func webView(webView: UIWebView!, didFailLoadWithError error: NSError!) {
         print("Webview fail with error \(error)");
     }

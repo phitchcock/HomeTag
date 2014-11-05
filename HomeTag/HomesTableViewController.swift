@@ -162,7 +162,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
                 }
             }
         })
-        shareAction.backgroundColor = UIColor(red: 0.239, green: 0.306, blue: 0.369, alpha: 1)
+        shareAction.backgroundColor = UIColor(red: 0.486, green: 0.745, blue: 0.278, alpha: 1)
         return [deleteAction, shareAction]
     }
 

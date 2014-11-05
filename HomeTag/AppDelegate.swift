@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(), NSFontAttributeName:barFont]
         }
         UITabBar.appearance().tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 1)
-        //UITabBar.appearance().barTintColor = UIColor.whiteColor()
+        UITabBar.appearance().barTintColor = UIColor.whiteColor()
         return true
     }
 
