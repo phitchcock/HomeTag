@@ -9,17 +9,22 @@
 import UIKit
 import CoreData
 
-class NotesViewController: UIViewController {
+class NotesViewController: UIViewController, UITextViewDelegate {
 
     // MARK: - Variables
     var home:Home!
     var notes:String!
 
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.delegate = self
         textView.text = home.note
+        doneButton.title = ""
+        doneButton.enabled = false
+        doneButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +33,10 @@ class NotesViewController: UIViewController {
 
     @IBAction func endEditing(sender: AnyObject) {
         saveHome()
+        doneButton.title = ""
+        doneButton.enabled = false
+        doneButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        textView.resignFirstResponder()
     }
 
     // MARK: - CoreData
@@ -43,4 +52,16 @@ class NotesViewController: UIViewController {
             }
         }
     }
+    func textViewDidBeginEditing(textView: UITextView) {
+        println("touched")
+        doneButton.tintColor = UIColor.whiteColor()
+        doneButton.enabled = true 
+        doneButton.title = "Done"
+    }
+
+    func textViewDidEndEditing(textView: UITextView) {
+        println("done")
+    }
+
+
 }
