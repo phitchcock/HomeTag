@@ -11,6 +11,7 @@ import CoreData
 
 class HomesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    // MARK: - Variables
     var homes: [Home] = []
     var searchResults: [Home] = []
     var fetchResultController:NSFetchedResultsController!
@@ -20,6 +21,8 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 265
+        tableView.backgroundColor = UIColor(red: 0.941, green: 0.957, blue: 0.965, alpha: 1.0)
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.1)
         searchController = UISearchController(searchResultsController: nil)
@@ -40,7 +43,6 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
     }
 
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -49,20 +51,20 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         return self.homes.count
     }
 
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as HomeCellTableViewCell
         let home = homes[indexPath.row]
         cell.addressLabel.text = home.streetName
         cell.homeImageView.image = UIImage(data: home.image)
         //cell.homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        //cell.homeImageView.clipsToBounds = true
+        cell.backgroundColor = UIColor.clearColor()
+        cell.homeImageView.layer.cornerRadius = 10.0
+        cell.homeImageView.clipsToBounds = true
         //cell.accessoryType = !home.isFavorite.boolValue
-
-
         return cell
     }
 
+    // MARK: - CoreData
     func getData() {
         var fetchRequest = NSFetchRequest(entityName: "Home")
         let sortDescriptor = NSSortDescriptor(key: "streetName", ascending: true)
@@ -105,14 +107,6 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         tableView.endUpdates()
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showHomeSegue" {
-            if let row = tableView.indexPathForSelectedRow()?.row {
-                let destinationController = segue.destinationViewController as ShowHomeTableViewController
-                destinationController.home = homes[row]
-            }
-        }
-    }
     /*
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if searchController.active {
@@ -122,6 +116,8 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         }
     }
     */
+
+    // MARK: - tableView editActions
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
    
     }
@@ -145,16 +141,11 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             shareMenu.addAction(cancelAction)
 
             self.presentViewController(shareMenu, animated: true, completion: nil)
-
         })
         var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-
             if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
-
                 let homeToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
                 managedObjectContext.deleteObject(homeToDelete)
-
-                println("\(homeToDelete.streetName)")
 
                 var e: NSError?
                 if managedObjectContext.save(&e) != true {
@@ -162,13 +153,24 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
                 }
             }
         })
-        shareAction.backgroundColor = UIColor(red: 0.486, green: 0.745, blue: 0.278, alpha: 1)
+        shareAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
         return [deleteAction, shareAction]
     }
 
     @IBAction func unwind(segue: UIStoryboardSegue) {
         
     }
+
+    // MARK: - prepareForSegue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showHomeSegue" {
+            if let row = tableView.indexPathForSelectedRow()?.row {
+                let destinationController = segue.destinationViewController as ShowHomeTableViewController
+                destinationController.home = homes[row]
+            }
+        }
+    }
+
     /*
     func filterContentForSearchText(searchText: String) {
         searchResults = homes.filter({ ( home: Home) -> Bool in
@@ -183,6 +185,4 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             tableView.reloadData()
     }
     */
-
-
 }

@@ -11,6 +11,7 @@ import WebKit
 
 class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegate {
 
+    // MARK: - Variables
     var home:Home!
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -27,8 +28,7 @@ class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDele
         super.didReceiveMemoryWarning()
     }
 
-
-
+    // MARK: - searchBarSearchButtonClicked
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         var text = searchBar.text
@@ -39,7 +39,6 @@ class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDele
             var request = NSURLRequest(URL: url!)
             self.webView.loadRequest(request)
         }
-
     }
 
     func clickBar() {
@@ -51,9 +50,9 @@ class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDele
             var request = NSURLRequest(URL: url!)
             self.webView.loadRequest(request)
         }
-
     }
 
+    // MARK: - WebView Functions
     @IBAction func onBackButtonPressed(sender: AnyObject) {
         webView.goBack()
     }
@@ -65,7 +64,6 @@ class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDele
     @IBAction func onReloadButtonPressed(sender: AnyObject) {
         webView.reload()
     }
-
 
     func webView(webView: UIWebView!, didFailLoadWithError error: NSError!) {
         print("Webview fail with error \(error)");

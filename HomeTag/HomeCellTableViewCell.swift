@@ -14,7 +14,6 @@ class HomeCellTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var homeImageView: UIImageView!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -22,7 +21,4 @@ class HomeCellTableViewCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
-
-
 }

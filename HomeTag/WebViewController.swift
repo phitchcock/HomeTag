@@ -10,8 +10,8 @@ import UIKit
 
 class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegate {
 
+    // MARK: - Variables
     var home:Home!
-
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var webView: UIWebView!
@@ -27,15 +27,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
         super.didReceiveMemoryWarning()
     }
 
-    @IBAction func onBackButtonPressed(sender: AnyObject) {
-        webView.goBack()
-    }
-
-    @IBAction func onForwardButtonPressed(sender: AnyObject) {
-        //webView.goForward()
-        //navigationController?.popToRootViewControllerAnimated(true)
-    }
-
+    // MARK: - searchBarSearchButtonClicked
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         var text = searchBar.text
@@ -46,7 +38,6 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
             var request = NSURLRequest(URL: url!)
             self.webView.loadRequest(request)
         }
-
     }
 
     func clickBar() {
@@ -58,9 +49,9 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
             var request = NSURLRequest(URL: url!)
             self.webView.loadRequest(request)
         }
-
     }
 
+    // MARK: - WebView
     @IBAction func backButtonPressed(sender: AnyObject) {
         webView.goBack()
     }

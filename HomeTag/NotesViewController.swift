@@ -11,6 +11,7 @@ import CoreData
 
 class NotesViewController: UIViewController {
 
+    // MARK: - Variables
     var home:Home!
     var notes:String!
 
@@ -18,35 +19,28 @@ class NotesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-            textView.text = home.note
-
+        textView.text = home.note
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func endEditing(sender: AnyObject) {
         saveHome()
     }
 
+    // MARK: - CoreData
     func saveHome() {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
-
             if home != nil {
                 home.note = textView.text
             }
-
             var e: NSError?
             if managedObjectContext.save(&e) != true {
                 println("insert error: \(e!.localizedDescription)")
                 return
             }
-            
         }
-        
     }
-
 }
