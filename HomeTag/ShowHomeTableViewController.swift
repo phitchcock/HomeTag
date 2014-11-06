@@ -18,9 +18,8 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var showTableView: UITableView!
     @IBOutlet weak var addressTextField: UITextField!
-    @IBOutlet weak var yesButton: UIButton!
-    @IBOutlet weak var noButton: UIButton!
     @IBOutlet weak var favoriteSwitch: UISwitch!
+    @IBOutlet weak var updateButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +29,11 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate {
         addressTextField.text = home.streetName
         imageView.image = UIImage(data: home.image)
         tableView.tableFooterView = UIView(frame: CGRectZero)
+        addressTextField.delegate = self
+        updateButton.title = ""
+        updateButton.enabled = false
+        updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+
         
     }
 
@@ -45,6 +49,11 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - @IBActions
     @IBAction func saveAction(sender: AnyObject) {
         saveHome()
+        addressTextField.endEditing(true)
+        updateButton.title = ""
+        updateButton.enabled = false
+        updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        
     }
 
     @IBAction func updateIsVisited(sender: AnyObject) {
@@ -135,7 +144,15 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        view.resignFirstResponder()
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        addressTextField.resignFirstResponder()
+        return true
     }
+
+    func textFieldDidBeginEditing(textField: UITextField) {
+        updateButton.tintColor = UIColor.whiteColor()
+        updateButton.enabled = true
+        updateButton.title = "Done"
+    }
+    
 }

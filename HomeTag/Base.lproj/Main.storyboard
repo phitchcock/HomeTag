@@ -262,6 +262,7 @@
                         <outlet property="favoriteSwitch" destination="RwL-4Y-WoZ" id="WTA-nq-fca"/>
                         <outlet property="imageView" destination="at8-ra-WXb" id="DRN-1g-5dc"/>
                         <outlet property="showTableView" destination="DQm-9c-2y9" id="rrY-Vu-VBg"/>
+                        <outlet property="updateButton" destination="vGY-D3-Ih6" id="CaS-28-IYB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uuy-91-13a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -721,6 +722,7 @@
                         <outlet property="imageView" destination="PF7-PP-eih" id="4jl-X2-E4Y"/>
                         <outlet property="locationButton" destination="0xm-Ll-raD" id="M39-gY-oLn"/>
                         <outlet property="messageLabel" destination="xVX-4U-1D0" id="UW7-kP-lG6"/>
+                        <outlet property="saveButton" destination="sg2-rK-jw4" id="fov-E8-Phi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6l-ea-ZlO" userLabel="First Responder" sceneMemberID="firstResponder"/>

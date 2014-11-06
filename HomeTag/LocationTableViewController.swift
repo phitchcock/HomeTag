@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class LocationTableViewController: UITableViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class LocationTableViewController: UITableViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     var home: Home!
     let locationManager = CLLocationManager()
@@ -26,6 +26,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         updateLabels()
         configureGetLocationButton()
         tableView.tableFooterView = UIView(frame: CGRectZero)
+        saveButton.title = ""
+        saveButton.enabled = false
+        saveButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        addressTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,6 +79,10 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         }
         updateLabels()
         configureGetLocationButton()
+        saveButton.tintColor = UIColor.whiteColor()
+        saveButton.enabled = true
+        saveButton.title = "Done"
+
     }
 
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
@@ -313,6 +322,20 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         imageView.image = UIImage(named: "add-image.png")
         addressTextField.text = ""
         messageLabel.text = "Tap Get Location to find address"
+        saveButton.title = ""
+        saveButton.enabled = false
+        saveButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+    }
+
+    func textFieldDidBeginEditing(textField: UITextField) {
+        saveButton.tintColor = UIColor.whiteColor()
+        saveButton.enabled = true
+        saveButton.title = "Done"
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        addressTextField.resignFirstResponder()
+        return true
     }
 
 }
