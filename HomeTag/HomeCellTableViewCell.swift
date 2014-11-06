@@ -13,6 +13,7 @@ class HomeCellTableViewCell: UITableViewCell {
     // MARK: - @IBOutlets
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var homeImageView: UIImageView!
+    @IBOutlet weak var favoriteImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

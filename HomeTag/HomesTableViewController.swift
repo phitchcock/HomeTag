@@ -57,10 +57,10 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         cell.addressLabel.text = home.streetName
         cell.homeImageView.image = UIImage(data: home.image)
         //cell.homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        cell.backgroundColor = UIColor.clearColor()
-        cell.homeImageView.layer.cornerRadius = 10.0
+        //cell.backgroundColor = UIColor.clearColor()
+        //cell.homeImageView.layer.cornerRadius = 10.0
         cell.homeImageView.clipsToBounds = true
-        //cell.accessoryType = !home.isFavorite.boolValue
+        cell.favoriteImageView.hidden = !home.isFavorite.boolValue
         return cell
     }
 
@@ -153,7 +153,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
                 }
             }
         })
-        shareAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        shareAction.backgroundColor = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
         return [deleteAction, shareAction]
     }
 

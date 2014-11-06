@@ -223,6 +223,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
             home.streetName = addressTextField.text
             home.image = UIImagePNGRepresentation(imageView.image)
             home.note = "Add Notes"
+            home.isFavorite = false
 
             var e: NSError?
             if managedObjectContext.save(&e) != true {

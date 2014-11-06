@@ -21,13 +21,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         title = home.streetName
         mapView.showsPointsOfInterest = true
-        mapView.pitchEnabled = true
+        //mapView.pitchEnabled = true
         mapView.showsUserLocation = true
         mapView.mapType = MKMapType.Hybrid
 
-        let mapCenter = mapView.userLocation.coordinate
-        var mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCenter, fromEyeCoordinate: mapCenter, eyeAltitude: 1000)
-        mapView.setCamera(mapCamera, animated: true)
+        //let mapCenter = mapView.userLocation.coordinate
+        //var mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCenter, fromEyeCoordinate: mapCenter, eyeAltitude: 1000)
+        //mapView.setCamera(mapCamera, animated: true)
 
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(home.streetName, completionHandler: { placemarks, error in
