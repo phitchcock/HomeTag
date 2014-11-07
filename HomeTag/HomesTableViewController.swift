@@ -48,6 +48,21 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if homes.count == 0 {
+
+            var imageNotification = UIImage(named: "error.png")
+            var imageView = UIImageView(image: imageNotification)
+            
+            imageView.backgroundColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 1)
+            imageView.contentMode = UIViewContentMode.ScaleAspectFill
+            imageView.clipsToBounds = true
+            tableView.addSubview(imageView)
+            tableView.backgroundView = imageView
+
+        } else {
+            tableView.backgroundView = nil
+
+        }
         return self.homes.count
     }
 

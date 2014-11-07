@@ -45,8 +45,15 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
     }
 
     @IBAction func saveHome(sender: AnyObject) {
-        saveHome()
-        resetTagHome()
+        if addressTextField.text == "" {
+            var alert = UIAlertController(title: "Hold On!", message: "Please enter and address or Tap Get Location", preferredStyle: UIAlertControllerStyle.Alert)
+            var cancelAction = UIAlertAction(title: "Got It", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(cancelAction)
+            presentViewController(alert, animated: true, completion: nil)
+        } else {
+            saveHome()
+            resetTagHome()
+        }
         //performSegueWithIdentifier("showSegue", sender: self)
     }
 
@@ -319,7 +326,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         lastLocationError = nil
         placemark = nil
         lastGeocodingError = nil
-        imageView.image = UIImage(named: "add-image.png")
+        imageView.image = UIImage(named: "cam2.png")
         addressTextField.text = ""
         messageLabel.text = "Tap Get Location to find address"
         saveButton.title = ""
