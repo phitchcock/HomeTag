@@ -98,7 +98,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xXS-pv-Ife" id="cDF-or-oAH">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="at8-ra-WXb">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="at8-ra-WXb">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="at8-ra-WXb" secondAttribute="height" multiplier="600:199" id="dol-ER-ojI"/>
@@ -615,18 +615,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mv5-T1-Bbg" id="1LP-OW-7F4">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cam2" translatesAutoresizingMaskIntoConstraints="NO" id="PF7-PP-eih">
-                                                    <rect key="frame" x="0.0" y="1" width="600" height="197"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cam2" translatesAutoresizingMaskIntoConstraints="NO" id="PF7-PP-eih">
+                                                    <rect key="frame" x="0.0" y="-1" width="600" height="204"/>
                                                     <color key="backgroundColor" red="0.34901960780000002" green="0.62745098040000002" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="197" id="s1s-Nf-DaD"/>
+                                                        <constraint firstAttribute="height" constant="204" id="s1s-Nf-DaD"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="PF7-PP-eih" secondAttribute="trailing" id="KIv-RL-JP8"/>
                                                 <constraint firstItem="PF7-PP-eih" firstAttribute="leading" secondItem="1LP-OW-7F4" secondAttribute="leading" id="g6a-6N-8p0"/>
-                                                <constraint firstItem="PF7-PP-eih" firstAttribute="top" secondItem="1LP-OW-7F4" secondAttribute="top" constant="4" id="ux0-Dm-NyA"/>
+                                                <constraint firstItem="PF7-PP-eih" firstAttribute="top" secondItem="1LP-OW-7F4" secondAttribute="top" constant="-1" id="ux0-Dm-NyA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -719,6 +719,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressTextField" destination="bbQ-Iu-obh" id="OSa-1J-jdH"/>
+                        <outlet property="cancelButton" destination="Han-Yz-1Oi" id="c5J-Y9-Pg2"/>
                         <outlet property="imageView" destination="PF7-PP-eih" id="4jl-X2-E4Y"/>
                         <outlet property="locationButton" destination="0xm-Ll-raD" id="M39-gY-oLn"/>
                         <outlet property="messageLabel" destination="xVX-4U-1D0" id="UW7-kP-lG6"/>
@@ -727,7 +728,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6l-ea-ZlO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2341" y="253"/>
+            <point key="canvasLocation" x="2341" y="251"/>
         </scene>
         <!--Homes-->
         <scene sceneID="ZPk-x0-Pp5">

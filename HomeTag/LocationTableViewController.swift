@@ -27,6 +27,8 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,9 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         saveButton.title = ""
         saveButton.enabled = false
         saveButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        cancelButton.title = ""
+        cancelButton.enabled = false
+        cancelButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
         addressTextField.delegate = self
     }
 
@@ -91,6 +96,9 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         saveButton.tintColor = UIColor.whiteColor()
         saveButton.enabled = true
         saveButton.title = "Save"
+        cancelButton.tintColor = UIColor.whiteColor()
+        cancelButton.enabled = true
+        cancelButton.title = "Cancel"
 
     }
 
@@ -276,7 +284,6 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    
 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         imageView.image = image
@@ -302,8 +309,8 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
             imagePicker.delegate = self
 
             self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
 
+        }
     }
     /*
     @IBAction func pickImage(sender: AnyObject) {
@@ -336,17 +343,24 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         saveButton.title = ""
         saveButton.enabled = false
         saveButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        cancelButton.title = ""
+        cancelButton.enabled = false
+        cancelButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
     }
 
     func textFieldDidBeginEditing(textField: UITextField) {
         saveButton.tintColor = UIColor.whiteColor()
         saveButton.enabled = true
-        saveButton.title = "Done"
+        saveButton.title = "Save"
+        cancelButton.tintColor = UIColor.whiteColor()
+        cancelButton.enabled = true
+        cancelButton.title = "Cancel"
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         addressTextField.resignFirstResponder()
         return true
     }
+
 
 }

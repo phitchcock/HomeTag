@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate {
+class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -49,6 +49,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - @IBActions
     @IBAction func saveAction(sender: AnyObject) {
         saveHome()
+        saveImage()
         addressTextField.endEditing(true)
         updateButton.title = ""
         updateButton.enabled = false
@@ -108,6 +109,20 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
+    func saveImage() {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+            if home != nil {
+                home.image = UIImagePNGRepresentation(imageView.image)
+            }
+
+            var e: NSError?
+            if managedObjectContext.save(&e) != true {
+                println("insert error: \(e!.localizedDescription)")
+                return
+            }
+        }
+    }
+
     func buttonState() {
 
         if home.isFavorite == true {
@@ -120,6 +135,40 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate {
         }
 
     }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .Camera
+                imagePicker.delegate = self
+
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .PhotoLibrary
+                imagePicker.delegate = self
+
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+
+
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        imageView.image = image
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
+
+        dismissViewControllerAnimated(true, completion: nil)
+        setSaveButton()
+    }
+
 
     // MARK: - prepareForSegue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -154,5 +203,10 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate {
         updateButton.enabled = true
         updateButton.title = "Done"
     }
-    
+
+    func setSaveButton() {
+        updateButton.tintColor = UIColor.whiteColor()
+        updateButton.enabled = true
+        updateButton.title = "Save"
+    }
 }
