@@ -13,6 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    //var tabBarController: UITabBarController = UITabBarController()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -23,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         UITabBar.appearance().tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 1)
         UITabBar.appearance().barTintColor = UIColor.whiteColor()
+
+        //tabBarController.selectedIndex = 1
+
         return true
     }
 

@@ -53,8 +53,10 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         } else {
             saveHome()
             resetTagHome()
+            tabBarController?.selectedIndex = 0
+            //performSegueWithIdentifier("showSegue", sender: self)
         }
-        //performSegueWithIdentifier("showSegue", sender: self)
+
     }
 
     @IBAction func cancelAction(sender: AnyObject) {
@@ -88,7 +90,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         configureGetLocationButton()
         saveButton.tintColor = UIColor.whiteColor()
         saveButton.enabled = true
-        saveButton.title = "Done"
+        saveButton.title = "Save"
 
     }
 
@@ -160,7 +162,8 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         if let location = location {
             //latLabel.text = String(format: "%.8f", location.coordinate.latitude)
             //longLabel.text = String(format: "%.8f", location.coordinate.longitude)
-            messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
+
+            //messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
 
             if let placemark = placemark {
                 addressTextField.text = stringFromPlacemark(placemark)
@@ -172,7 +175,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
                 messageLabel.text = "Error Finding Address"
 
             } else {
-                messageLabel.text = "No Address Found"
+                messageLabel.text = "Reverse GEOLocating..."
             }
 
         } else {
@@ -223,9 +226,10 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     func configureGetLocationButton() {
         if updatingLocation {
-            locationButton.setTitle("Stop", forState: UIControlState.Normal)
+            locationButton.setTitle("Searching...", forState: UIControlState.Normal)
         } else {
            locationButton.setTitle("Get Location", forState: UIControlState.Normal)
+            messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
         }
     }
 

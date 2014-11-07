@@ -615,8 +615,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mv5-T1-Bbg" id="1LP-OW-7F4">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cam2" translatesAutoresizingMaskIntoConstraints="NO" id="PF7-PP-eih">
-                                                    <rect key="frame" x="0.0" y="4" width="600" height="197"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cam2" translatesAutoresizingMaskIntoConstraints="NO" id="PF7-PP-eih">
+                                                    <rect key="frame" x="0.0" y="1" width="600" height="197"/>
                                                     <color key="backgroundColor" red="0.34901960780000002" green="0.62745098040000002" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="197" id="s1s-Nf-DaD"/>

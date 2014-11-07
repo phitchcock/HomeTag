@@ -32,10 +32,12 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         searchController.resignFirstResponder()
         //searchController.searchResultsUpdater = self
         //searchController.dimsBackgroundDuringPresentation = false
+        tabBarController?.selectedIndex = 1
     }
 
     override func viewWillAppear(animated: Bool) {
         getData()
+
     }
 
     override func didReceiveMemoryWarning() {
