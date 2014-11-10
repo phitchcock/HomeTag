@@ -14,6 +14,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
     // MARK: - Variables
     var homes: [Home] = []
+    var home: Home!
     var searchResults: [Home] = []
     var fetchResultController:NSFetchedResultsController!
     var searchController: UISearchController!
@@ -221,6 +222,11 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             var composer = MFMailComposeViewController()
             composer.mailComposeDelegate = self
             composer.navigationBar.tintColor = UIColor.whiteColor()
+
+            var htmlMsg = "<html><body><p>\(home.streetName)</p></body><html>"
+
+            composer.setMessageBody(htmlMsg, isHTML: true)
+
             presentViewController(composer, animated: true, completion: nil)
         }
     }

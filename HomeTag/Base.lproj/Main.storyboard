@@ -220,8 +220,11 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ScU-qY-goH" id="swG-6z-0Jg">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4b-0i-DbO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4b-0i-DbO">
                                                     <rect key="frame" x="8" y="12" width="76" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="76" id="dda-gc-JWC"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -232,9 +235,24 @@
                                                         <action selector="updateIsVisited:" destination="O1e-pY-P3K" eventType="valueChanged" id="gPa-AH-hmO"/>
                                                     </connections>
                                                 </switch>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3I-Pr-arZ">
+                                                    <rect key="frame" x="476" y="8" width="38" height="30"/>
+                                                    <state key="normal" title="Email">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="sendEmail:" destination="O1e-pY-P3K" eventType="touchUpInside" id="CAv-j5-fpJ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="N3I-Pr-arZ" firstAttribute="baseline" secondItem="J4b-0i-DbO" secondAttribute="baseline" id="Bz5-Ro-52x"/>
+                                                <constraint firstItem="RwL-4Y-WoZ" firstAttribute="leading" secondItem="N3I-Pr-arZ" secondAttribute="trailing" constant="29" id="GXR-XT-Ram"/>
                                                 <constraint firstItem="RwL-4Y-WoZ" firstAttribute="trailing" secondItem="swG-6z-0Jg" secondAttribute="trailingMargin" id="Luh-bX-pJz"/>
+                                                <constraint firstItem="J4b-0i-DbO" firstAttribute="leading" secondItem="swG-6z-0Jg" secondAttribute="leadingMargin" id="aRK-Wb-a5W"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="J4b-0i-DbO" secondAttribute="bottom" constant="2" id="cl4-j9-F8C"/>
+                                                <constraint firstItem="J4b-0i-DbO" firstAttribute="centerY" secondItem="RwL-4Y-WoZ" secondAttribute="centerY" id="grD-qV-ufv"/>
+                                                <constraint firstItem="N3I-Pr-arZ" firstAttribute="bottom" secondItem="RwL-4Y-WoZ" secondAttribute="bottom" id="nrK-JO-fge"/>
                                                 <constraint firstItem="RwL-4Y-WoZ" firstAttribute="top" secondItem="swG-6z-0Jg" secondAttribute="topMargin" constant="-1" id="phy-iL-7vo"/>
                                             </constraints>
                                         </tableViewCellContentView>

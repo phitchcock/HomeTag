@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
-class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -74,6 +75,29 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
             //yesButton.hidden = false
             saveFavorite()
             println(home.isFavorite)
+        }
+    }
+
+    @IBAction func sendEmail(sender: AnyObject) {
+        if MFMailComposeViewController.canSendMail() {
+            var composer = MFMailComposeViewController()
+            composer.mailComposeDelegate = self
+            composer.navigationBar.tintColor = UIColor.whiteColor()
+            composer.setSubject("Check Out this Home!")
+
+            var text = addressTextField.text
+            var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+
+
+            var htmlMsg = "<html><body><p>\(home.streetName)</p><p><a href="  + "http://www.zillow.com/homes/" + encodeText! + "_rb" + ">Zillow Link</a></p><a <p><a href="  + "http://www.google.com/search?q=" + encodeText! + ">Google Link</a></p></body><html>"
+            composer.setMessageBody(htmlMsg, isHTML: true)
+
+            //var image = UIImage(data: home.image)
+            //var imageData = UIImagePNGRepresentation(image)
+            //composer.addAttachmentData(image, mimeType: "image/png", fileName: "home.png")
+
+
+            presentViewController(composer, animated: true, completion: nil)
         }
     }
 
@@ -209,4 +233,22 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         updateButton.enabled = true
         updateButton.title = "Save"
     }
+
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            println("Mail Cancelled")
+        case MFMailComposeResultSaved.value:
+            println("Mail Saved")
+        case MFMailComposeResultSent.value:
+            println("Mail Sent")
+        case MFMailComposeResultFailed.value:
+            println("Failed to send mail")
+        default:
+            break
+        }
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    
 }
