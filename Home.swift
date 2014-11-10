@@ -15,5 +15,6 @@ class Home: NSManagedObject {
     @NSManaged var note: String
     @NSManaged var streetName: String
     @NSManaged var isFavorite: NSNumber
+    @NSManaged var tag: String
 
 }

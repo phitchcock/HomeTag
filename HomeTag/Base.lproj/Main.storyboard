@@ -130,6 +130,25 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zpk-fa-5rK">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zpk-fa-5rK" id="FXb-v8-LWb">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tags" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EY4-1n-2Me">
+                                                    <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="EY4-1n-2Me" secondAttribute="bottom" constant="-3" id="4t9-i7-8Is"/>
+                                                <constraint firstItem="EY4-1n-2Me" firstAttribute="trailing" secondItem="FXb-v8-LWb" secondAttribute="trailingMargin" id="BoL-kR-cRV"/>
+                                                <constraint firstItem="EY4-1n-2Me" firstAttribute="leading" secondItem="FXb-v8-LWb" secondAttribute="leadingMargin" id="bCg-kE-d2r"/>
+                                                <constraint firstItem="EY4-1n-2Me" firstAttribute="top" secondItem="FXb-v8-LWb" secondAttribute="topMargin" id="xo8-cB-Fhv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="9oi-so-gFD">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9oi-so-gFD" id="MCi-LI-Hmx">
@@ -279,12 +298,13 @@
                         <outlet property="favoriteSwitch" destination="RwL-4Y-WoZ" id="WTA-nq-fca"/>
                         <outlet property="imageView" destination="at8-ra-WXb" id="DRN-1g-5dc"/>
                         <outlet property="showTableView" destination="DQm-9c-2y9" id="rrY-Vu-VBg"/>
+                        <outlet property="tagTextField" destination="EY4-1n-2Me" id="VaR-jF-5P8"/>
                         <outlet property="updateButton" destination="vGY-D3-Ih6" id="CaS-28-IYB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uuy-91-13a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3744" y="946"/>
+            <point key="canvasLocation" x="3744" y="944"/>
         </scene>
         <!--Notes-->
         <scene sceneID="C86-Ua-Irh">
@@ -667,6 +687,26 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="bf5-ST-aVF">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bf5-ST-aVF" id="E9A-1w-Ae0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address Ex. 4000 Clarewood Way Sacramento Ca 95835" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-Iu-obh">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="70"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bbQ-Iu-obh" firstAttribute="trailing" secondItem="E9A-1w-Ae0" secondAttribute="trailingMargin" id="dYk-Dn-X79"/>
+                                                <constraint firstItem="bbQ-Iu-obh" firstAttribute="leading" secondItem="E9A-1w-Ae0" secondAttribute="leadingMargin" id="gIB-pq-hOZ"/>
+                                                <constraint firstItem="bbQ-Iu-obh" firstAttribute="top" secondItem="E9A-1w-Ae0" secondAttribute="top" id="q2C-1y-y6U"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bbQ-Iu-obh" secondAttribute="bottom" constant="-9" id="rGC-I0-I8U"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="M7U-gP-u7u">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M7U-gP-u7u" id="y70-D9-LuE">
@@ -691,26 +731,6 @@
                                                 <constraint firstItem="0xm-Ll-raD" firstAttribute="trailing" secondItem="y70-D9-LuE" secondAttribute="trailingMargin" id="OBC-ft-BjE"/>
                                                 <constraint firstItem="0xm-Ll-raD" firstAttribute="leading" secondItem="y70-D9-LuE" secondAttribute="leadingMargin" id="SGX-QC-vLd"/>
                                                 <constraint firstItem="0xm-Ll-raD" firstAttribute="top" secondItem="y70-D9-LuE" secondAttribute="topMargin" constant="2" id="yp4-Ko-4ox"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="bf5-ST-aVF">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bf5-ST-aVF" id="E9A-1w-Ae0">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address Ex. 4000 Clarewood Way Sacramento Ca 95835" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-Iu-obh">
-                                                    <rect key="frame" x="8" y="0.0" width="584" height="70"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="bbQ-Iu-obh" firstAttribute="trailing" secondItem="E9A-1w-Ae0" secondAttribute="trailingMargin" id="dYk-Dn-X79"/>
-                                                <constraint firstItem="bbQ-Iu-obh" firstAttribute="leading" secondItem="E9A-1w-Ae0" secondAttribute="leadingMargin" id="gIB-pq-hOZ"/>
-                                                <constraint firstItem="bbQ-Iu-obh" firstAttribute="top" secondItem="E9A-1w-Ae0" secondAttribute="top" id="q2C-1y-y6U"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="bbQ-Iu-obh" secondAttribute="bottom" constant="-9" id="rGC-I0-I8U"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

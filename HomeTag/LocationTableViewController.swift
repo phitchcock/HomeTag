@@ -253,6 +253,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
             home.image = UIImagePNGRepresentation(imageView.image)
             home.note = "Add Notes"
             home.isFavorite = false
+            home.tag = "Tagged"
 
             var e: NSError?
             if managedObjectContext.save(&e) != true {

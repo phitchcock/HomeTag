@@ -21,6 +21,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var favoriteSwitch: UISwitch!
     @IBOutlet weak var updateButton: UIBarButtonItem!
+    @IBOutlet weak var tagTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +29,11 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         buttonState()
         tableView.rowHeight = 44
         addressTextField.text = home.streetName
+        tagTextField.text = home.tag
         imageView.image = UIImage(data: home.image)
         tableView.tableFooterView = UIView(frame: CGRectZero)
         addressTextField.delegate = self
+        tagTextField.delegate = self
         updateButton.title = ""
         updateButton.enabled = false
         updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
@@ -41,6 +44,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     override func viewDidAppear(animated: Bool) {
         //buttonState()
         addressTextField.resignFirstResponder()
+        tagTextField.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +55,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     @IBAction func saveAction(sender: AnyObject) {
         saveHome()
         saveImage()
+        saveTag()
         addressTextField.endEditing(true)
         updateButton.title = ""
         updateButton.enabled = false
@@ -147,6 +152,20 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         }
     }
 
+    func saveTag() {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+            if home != nil {
+                home.tag = tagTextField.text
+            }
+
+            var e: NSError?
+            if managedObjectContext.save(&e) != true {
+                println("insert error: \(e!.localizedDescription)")
+                return
+            }
+        }
+    }
+
     func buttonState() {
 
         if home.isFavorite == true {
@@ -219,6 +238,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         addressTextField.resignFirstResponder()
+        tagTextField.resignFirstResponder()
         return true
     }
 
