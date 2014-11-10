@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: GAITrackedViewController, MKMapViewDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -48,6 +48,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 self.mapView.selectAnnotation(annotation, animated: true)
             }
         })
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        screenName = "Map"
     }
 
     override func didReceiveMemoryWarning() {

@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = UIColor.whiteColor()
 
         //tabBarController.selectedIndex = 1
+        GAI.sharedInstance().trackUncaughtExceptions = true
+        GAI.sharedInstance().dispatchInterval = 10
+        GAI.sharedInstance().trackerWithTrackingId("UA-56618315-1")
 
         return true
     }

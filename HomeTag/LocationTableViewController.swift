@@ -47,6 +47,9 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.separatorColor = UIColor.clearColor()
+
+        //self.screenName = "Test"
+
     }
 
     override func didReceiveMemoryWarning() {

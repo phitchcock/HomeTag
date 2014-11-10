@@ -15,6 +15,12 @@
 		D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */; };
 		D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */; };
 		D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F771A0EAFE90072B68F /* MappedViewController.swift */; };
+		D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F891A116EA30072B68F /* CoreData.framework */; };
+		D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8B1A116EB40072B68F /* SystemConfiguration.framework */; };
+		D0B78F911A116EDB0072B68F /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F901A116EDB0072B68F /* Bridge.m */; };
+		D0B78F921A11727E0072B68F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8D1A116EBE0072B68F /* libz.dylib */; };
+		D0B78F941A11747C0072B68F /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F931A11747C0072B68F /* libGoogleAnalyticsServices.a */; };
+		D0B78F971A1177910072B68F /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F961A1177910072B68F /* libAdIdAccess.a */; };
 		D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B341A03ED7F005003C0 /* AppDelegate.swift */; };
 		D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B361A03ED7F005003C0 /* HomeTag.xcdatamodeld */; };
 		D0F48B3D1A03ED7F005003C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F48B3B1A03ED7F005003C0 /* Main.storyboard */; };
@@ -45,6 +51,23 @@
 		D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleViewController.swift; sourceTree = "<group>"; };
 		D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		D0B78F771A0EAFE90072B68F /* MappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappedViewController.swift; sourceTree = "<group>"; };
+		D0B78F7F1A116E650072B68F /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		D0B78F801A116E650072B68F /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		D0B78F811A116E650072B68F /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		D0B78F821A116E650072B68F /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		D0B78F831A116E650072B68F /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		D0B78F841A116E650072B68F /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		D0B78F851A116E650072B68F /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		D0B78F861A116E650072B68F /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		D0B78F871A116E650072B68F /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		D0B78F881A116E650072B68F /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		D0B78F891A116EA30072B68F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D0B78F8B1A116EB40072B68F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D0B78F8D1A116EBE0072B68F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D0B78F8F1A116EDA0072B68F /* HomeTag-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HomeTag-Bridging-Header.h"; sourceTree = "<group>"; };
+		D0B78F901A116EDB0072B68F /* Bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bridge.m; sourceTree = "<group>"; };
+		D0B78F931A11747C0072B68F /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		D0B78F961A1177910072B68F /* libAdIdAccess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdIdAccess.a; sourceTree = "<group>"; };
 		D0F48B2F1A03ED7F005003C0 /* HomeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F48B331A03ED7F005003C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0F48B341A03ED7F005003C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +88,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B78F921A11727E0072B68F /* libz.dylib in Frameworks */,
+				D0B78F971A1177910072B68F /* libAdIdAccess.a in Frameworks */,
+				D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */,
+				D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */,
+				D0B78F941A11747C0072B68F /* libGoogleAnalyticsServices.a in Frameworks */,
 				D06E7DD41A0415EB00EA81E1 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,6 +161,35 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		D0B78F7E1A116E650072B68F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D0B78F7F1A116E650072B68F /* GAI.h */,
+				D0B78F801A116E650072B68F /* GAIDictionaryBuilder.h */,
+				D0B78F811A116E650072B68F /* GAIEcommerceFields.h */,
+				D0B78F821A116E650072B68F /* GAIEcommerceProduct.h */,
+				D0B78F831A116E650072B68F /* GAIEcommerceProductAction.h */,
+				D0B78F841A116E650072B68F /* GAIEcommercePromotion.h */,
+				D0B78F851A116E650072B68F /* GAIFields.h */,
+				D0B78F861A116E650072B68F /* GAILogger.h */,
+				D0B78F871A116E650072B68F /* GAITrackedViewController.h */,
+				D0B78F881A116E650072B68F /* GAITracker.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		D0B78F951A1175420072B68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0B78F961A1177910072B68F /* libAdIdAccess.a */,
+				D0B78F931A11747C0072B68F /* libGoogleAnalyticsServices.a */,
+				D0B78F8B1A116EB40072B68F /* SystemConfiguration.framework */,
+				D0B78F891A116EA30072B68F /* CoreData.framework */,
+				D06E7DD31A0415EB00EA81E1 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D0C6BE641A0AA6260059E400 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,9 +200,10 @@
 		D0F48B261A03ED7F005003C0 = {
 			isa = PBXGroup;
 			children = (
-				D06E7DD31A0415EB00EA81E1 /* MapKit.framework */,
+				D0B78F951A1175420072B68F /* Frameworks */,
 				D0F48B311A03ED7F005003C0 /* HomeTag */,
 				D0F48B4A1A03ED80005003C0 /* HomeTagTests */,
+				D0B78F7E1A116E650072B68F /* Library */,
 				D0F48B301A03ED7F005003C0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -168,6 +226,8 @@
 				D0F48B5B1A03EFA3005003C0 /* Controllers */,
 				D0F48B3E1A03ED7F005003C0 /* Images.xcassets */,
 				D0F48B401A03ED7F005003C0 /* LaunchScreen.xib */,
+				D0B78F901A116EDB0072B68F /* Bridge.m */,
+				D0B78F8F1A116EDA0072B68F /* HomeTag-Bridging-Header.h */,
 				D0F48B321A03ED7F005003C0 /* Supporting Files */,
 			);
 			path = HomeTag;
@@ -176,6 +236,7 @@
 		D0F48B321A03ED7F005003C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D0B78F8D1A116EBE0072B68F /* libz.dylib */,
 				D0F48B331A03ED7F005003C0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -324,6 +385,7 @@
 				D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */,
 				D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */,
 				D03741811A0934F2001AE640 /* NotesViewController.swift in Sources */,
+				D0B78F911A116EDB0072B68F /* Bridge.m in Sources */,
 				D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */,
 				D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */,
 				D037417E1A0932D2001AE640 /* Home.swift in Sources */,
@@ -451,10 +513,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HomeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HomeTag/HomeTag-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -462,10 +532,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HomeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HomeTag/HomeTag-Bridging-Header.h";
 			};
 			name = Release;
 		};

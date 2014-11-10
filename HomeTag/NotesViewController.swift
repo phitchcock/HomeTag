@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 
-class NotesViewController: UIViewController, UITextViewDelegate {
+
+class NotesViewController: GAITrackedViewController, UITextViewDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -25,6 +26,10 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         doneButton.title = ""
         doneButton.enabled = false
         doneButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        screenName = "Notes"
     }
 
     override func didReceiveMemoryWarning() {

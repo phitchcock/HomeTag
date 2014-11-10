@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegate {
+class WebViewController: GAITrackedViewController, UIWebViewDelegate, UISearchBarDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -21,6 +21,10 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
         searchBar.delegate = self
         searchBar.text = home.streetName
         clickBar()
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        screenName = "Zillow"
     }
 
     override func didReceiveMemoryWarning() {
