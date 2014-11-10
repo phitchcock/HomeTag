@@ -182,23 +182,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
-            if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .Camera
-                imagePicker.delegate = self
-
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-            }
-            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .PhotoLibrary
-                imagePicker.delegate = self
-
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-            }
-
+            selectImage()
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -271,5 +255,40 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    
+    func selectImage() {
+        let shareMenu = UIAlertController(title: nil, message: "Take Picture", preferredStyle: .ActionSheet)
+        let cameraAction = UIAlertAction(title: "Take Picture", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+            if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .Camera
+                imagePicker.delegate = self
+
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+        })
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .PhotoLibrary
+                imagePicker.delegate = self
+
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+        })
+
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+        //shareMenu.addAction(isFavoriteAction)
+        shareMenu.addAction(cameraAction)
+        shareMenu.addAction(photoLibraryAction)
+        shareMenu.addAction(cancelAction)
+
+        self.presentViewController(shareMenu, animated: true, completion: nil)
+
+    }
+
+
 }
