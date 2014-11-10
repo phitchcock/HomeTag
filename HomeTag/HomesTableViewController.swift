@@ -81,6 +81,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         //let home = (searchController.active) ? searchResults[indexPath.row] : homes[indexPath.row]
         let home = homes[indexPath.row]
         cell.addressLabel.text = home.streetName
+        cell.tagLabel.text = home.tag
         cell.homeImageView.image = UIImage(data: home.image)
         //cell.homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
         //cell.backgroundColor = UIColor.clearColor()
@@ -247,4 +248,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func segueTest(sender: AnyObject) {
+        //performSegueWithIdentifier("googleSegue", sender: AnyObject.self)
+    }
 }
