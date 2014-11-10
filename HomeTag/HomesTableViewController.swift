@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class HomesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class HomesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
 
     // MARK: - Variables
     var homes: [Home] = []
@@ -65,11 +65,18 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             tableView.backgroundView = nil
 
         }
-        return self.homes.count
+
+        //if searchController.active {
+            //return searchResults.count
+        //} else {
+            return self.homes.count
+        //}
+
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as HomeCellTableViewCell
+        //let home = (searchController.active) ? searchResults[indexPath.row] : homes[indexPath.row]
         let home = homes[indexPath.row]
         cell.addressLabel.text = home.streetName
         cell.homeImageView.image = UIImage(data: home.image)
@@ -183,12 +190,13 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         if segue.identifier == "showHomeSegue" {
             if let row = tableView.indexPathForSelectedRow()?.row {
                 let destinationController = segue.destinationViewController as ShowHomeTableViewController
+                //destinationController.home = (searchController.active) ? searchResults[row] : homes[row]
                 destinationController.home = homes[row]
             }
         }
     }
 
-    /*
+
     func filterContentForSearchText(searchText: String) {
         searchResults = homes.filter({ ( home: Home) -> Bool in
             let nameMatch = home.streetName.rangeOfString(searchText, options:
@@ -196,10 +204,12 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             return nameMatch != nil
         })
     }
+
+
     func updateSearchResultsForSearchController(searchController: UISearchController) {
             let searchText = searchController.searchBar.text
             filterContentForSearchText(searchText)
             tableView.reloadData()
     }
-    */
+
 }

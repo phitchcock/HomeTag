@@ -126,6 +126,7 @@
 		D0A5A9F61A09C2010047F157 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D0F48B361A03ED7F005003C0 /* HomeTag.xcdatamodeld */,
 				D037417D1A0932D2001AE640 /* Home.swift */,
 			);
 			name = Models;
@@ -167,7 +168,6 @@
 				D0F48B5B1A03EFA3005003C0 /* Controllers */,
 				D0F48B3E1A03ED7F005003C0 /* Images.xcassets */,
 				D0F48B401A03ED7F005003C0 /* LaunchScreen.xib */,
-				D0F48B361A03ED7F005003C0 /* HomeTag.xcdatamodeld */,
 				D0F48B321A03ED7F005003C0 /* Supporting Files */,
 			);
 			path = HomeTag;
@@ -542,7 +542,8 @@
 				D0F48B371A03ED7F005003C0 /* HomeTag.xcdatamodel */,
 			);
 			currentVersion = D0F48B371A03ED7F005003C0 /* HomeTag.xcdatamodel */;
-			path = HomeTag.xcdatamodeld;
+			name = HomeTag.xcdatamodeld;
+			path = HomeTag/HomeTag.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
