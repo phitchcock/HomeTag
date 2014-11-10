@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
-class HomesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
+class HomesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: - Variables
     var homes: [Home] = []
@@ -151,7 +152,10 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
             let shareMenu = UIAlertController(title: nil, message: "Share Using", preferredStyle: .ActionSheet)
             let facebookAction = UIAlertAction(title: "Facebook", style: .Default, handler: nil)
-            let emailAction = UIAlertAction(title: "Email", style: .Default, handler: nil)
+            let emailAction = UIAlertAction(title: "Email", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+                self.sendEmail()
+            })
+
             let isFavoriteAction = UIAlertAction(title: "Favorite?", style: .Default, handler: { (action:UIAlertAction!) -> Void in
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
                 cell?.accessoryType = .Checkmark
@@ -210,6 +214,31 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             let searchText = searchController.searchBar.text
             filterContentForSearchText(searchText)
             tableView.reloadData()
+    }
+
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            var composer = MFMailComposeViewController()
+            composer.mailComposeDelegate = self
+            composer.navigationBar.tintColor = UIColor.whiteColor()
+            presentViewController(composer, animated: true, completion: nil)
+        }
+    }
+
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            println("Mail Cancelled")
+        case MFMailComposeResultSaved.value:
+            println("Mail Saved")
+        case MFMailComposeResultSent.value:
+            println("Mail Sent")
+        case MFMailComposeResultFailed.value:
+            println("Failed to send mail")
+        default:
+            break
+        }
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
