@@ -152,7 +152,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             })
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
 
-            shareMenu.addAction(isFavoriteAction)
+            //shareMenu.addAction(isFavoriteAction)
             shareMenu.addAction(facebookAction)
             shareMenu.addAction(emailAction)
             shareMenu.addAction(cancelAction)

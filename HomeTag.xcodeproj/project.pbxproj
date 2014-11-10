@@ -14,6 +14,7 @@
 		D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */; };
 		D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */; };
 		D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */; };
+		D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F771A0EAFE90072B68F /* MappedViewController.swift */; };
 		D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B341A03ED7F005003C0 /* AppDelegate.swift */; };
 		D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B361A03ED7F005003C0 /* HomeTag.xcdatamodeld */; };
 		D0F48B3D1A03ED7F005003C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F48B3B1A03ED7F005003C0 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleViewController.swift; sourceTree = "<group>"; };
 		D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		D0B78F771A0EAFE90072B68F /* MappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappedViewController.swift; sourceTree = "<group>"; };
 		D0F48B2F1A03ED7F005003C0 /* HomeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F48B331A03ED7F005003C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0F48B341A03ED7F005003C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				D06E7DD71A0416DA00EA81E1 /* MapViewController.swift */,
+				D0B78F771A0EAFE90072B68F /* MappedViewController.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */,
 				D0F48B581A03EF88005003C0 /* HomesTableViewController.swift in Sources */,
 				D0F48B611A03FBB7005003C0 /* ShowHomeTableViewController.swift in Sources */,
+				D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */,
 				D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */,
 				D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */,
 				D03741811A0934F2001AE640 /* NotesViewController.swift in Sources */,

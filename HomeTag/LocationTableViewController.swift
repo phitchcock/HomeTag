@@ -43,6 +43,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         cancelButton.enabled = false
         cancelButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
         addressTextField.delegate = self
+        messageLabel.text = "Tap Get Location to Start"
     }
 
     override func didReceiveMemoryWarning() {
