@@ -253,7 +253,8 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as Home
             home.streetName = addressTextField.text
-            home.image = UIImagePNGRepresentation(imageView.image)
+            home.image = UIImageJPEGRepresentation(imageView.image, 1.0)
+            home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
             home.note = "Add Notes"
             home.isFavorite = false
             home.tag = "Tagged"

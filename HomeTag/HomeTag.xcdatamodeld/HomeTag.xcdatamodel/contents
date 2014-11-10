@@ -6,8 +6,9 @@
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbNail" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Home" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Home" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

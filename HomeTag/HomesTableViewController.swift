@@ -82,7 +82,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         let home = homes[indexPath.row]
         cell.addressLabel.text = home.streetName
         cell.tagLabel.text = home.tag
-        cell.homeImageView.image = UIImage(data: home.image)
+        cell.homeImageView.image = UIImage(data: home.thumbNail)
         //cell.homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
         //cell.backgroundColor = UIColor.clearColor()
         //cell.homeImageView.layer.cornerRadius = 10.0

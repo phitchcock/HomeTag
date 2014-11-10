@@ -141,7 +141,8 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     func saveImage() {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             if home != nil {
-                home.image = UIImagePNGRepresentation(imageView.image)
+                home.image = UIImageJPEGRepresentation(imageView.image, 1.0)
+                home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
             }
 
             var e: NSError?

@@ -12,6 +12,7 @@ import CoreData
 class Home: NSManagedObject {
 
     @NSManaged var image: NSData
+    @NSManaged var thumbNail: NSData
     @NSManaged var note: String
     @NSManaged var streetName: String
     @NSManaged var isFavorite: NSNumber
