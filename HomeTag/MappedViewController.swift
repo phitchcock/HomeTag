@@ -12,6 +12,8 @@ import MapKit
 
 class MappedViewController: UIViewController, MKMapViewDelegate {
 
+    //var home: Home!
+
     @IBOutlet weak var mapview: MKMapView!
 
     override func viewDidLoad() {
@@ -36,6 +38,29 @@ class MappedViewController: UIViewController, MKMapViewDelegate {
 
         if homes!.count > 0 {
             for home in homes as [Home!] {
+                let geoCoder = CLGeocoder()
+                geoCoder.geocodeAddressString(home.streetName, completionHandler: { placemarks, error in
+
+                    if error != nil {
+                        println(error)
+                        return
+                    }
+                    if placemarks != nil && placemarks.count > 0 {
+                        let placemark = placemarks[0] as CLPlacemark
+
+                        let annotation = MKPointAnnotation()
+                        annotation.title = home.streetName
+                        annotation.subtitle = home.tag
+                        annotation.coordinate = placemark.location.coordinate
+
+                        self.mapview.showAnnotations([annotation], animated: true)
+                        self.mapview.selectAnnotation(annotation, animated: true)
+                    }
+                })
+
+
+                // DROP PIN BY LAT LONG
+                /*
                 let location = CLLocationCoordinate2D(latitude: Double(home.latitude), longitude: Double(home.longitude))
                 let span = MKCoordinateSpanMake(0.01, 0.01)
                 let region = MKCoordinateRegionMake(location, span)
@@ -46,6 +71,7 @@ class MappedViewController: UIViewController, MKMapViewDelegate {
 
                 mapview.addAnnotation(annotation)
                 println("lat \(home.latitude) and \(home.longitude)")
+                */
             }
         }
 
@@ -54,5 +80,26 @@ class MappedViewController: UIViewController, MKMapViewDelegate {
         super.didReceiveMemoryWarning()
 
     }
+    /*
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        let identifier = "HomePin"
+
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
+        }
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView.canShowCallout = true
+        }
+        /*
+        let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
+        leftIconView.image = UIImage(data: home.image)
+        annotationView.leftCalloutAccessoryView = leftIconView
+        */
+        return annotationView
+    }
+    */
 
 }
