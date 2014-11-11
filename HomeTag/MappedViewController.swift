@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MapKit
 
-class MappedViewController: UIViewController, MKMapViewDelegate {
+class MappedViewController: GAITrackedViewController, MKMapViewDelegate {
 
     //var home: Home!
 
@@ -27,7 +27,7 @@ class MappedViewController: UIViewController, MKMapViewDelegate {
     }
 
     override func viewWillAppear(animated: Bool) {
-
+        screenName = "Mapped"
 
         let request = NSFetchRequest(entityName: "Home")
         let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
@@ -74,7 +74,6 @@ class MappedViewController: UIViewController, MKMapViewDelegate {
                 */
             }
         }
-
     }
         override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

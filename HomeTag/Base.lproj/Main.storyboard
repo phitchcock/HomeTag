@@ -1009,7 +1009,7 @@
         <scene sceneID="zEm-NX-zm3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w53-Yg-1aW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tag Home" image="Location" id="bkb-Fw-JhU"/>
+                    <tabBarItem key="tabBarItem" title="Tag Home" image="crosshair" id="bkb-Fw-JhU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qav-ep-shq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1044,11 +1044,11 @@
             </objects>
             <point key="canvasLocation" x="1529" y="951"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Mapped-->
         <scene sceneID="fTj-h1-fHu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fXL-0G-vPz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="g64-K5-byf"/>
+                    <tabBarItem key="tabBarItem" title="Mapped" image="Location" id="g64-K5-byf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Reb-7N-qxA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1071,6 +1071,7 @@
         <image name="Location" width="17" height="22"/>
         <image name="bars-1" width="20" height="18"/>
         <image name="cam2" width="500" height="500"/>
+        <image name="crosshair" width="22" height="22"/>
         <image name="heartColor" width="24" height="19"/>
     </resources>
 </document>

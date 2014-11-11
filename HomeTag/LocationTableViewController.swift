@@ -43,7 +43,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         cancelButton.enabled = false
         cancelButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
         addressTextField.delegate = self
-        messageLabel.text = "Tap Get Location to Start"
+        messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
 
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.separatorColor = UIColor.clearColor()
@@ -198,7 +198,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
             //latLabel.text = ""
             //longLabel.text = ""
             addressTextField.text = ""
-            messageLabel.text = "Tap Get Location to find address"
+            messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
 
             var statusMessage: String
             if let error = lastLocationError {
@@ -216,7 +216,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
                 statusMessage = "Searching..."
 
             } else {
-                statusMessage = "Tap Get Location to find address"
+                statusMessage = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
             }
 
             messageLabel.text = statusMessage
@@ -351,9 +351,9 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         lastLocationError = nil
         placemark = nil
         lastGeocodingError = nil
-        imageView.image = UIImage(named: "cam2.png")
+        imageView.image = UIImage(named: "icon5.png")
         addressTextField.text = ""
-        messageLabel.text = "Tap Get Location to find address"
+        messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
         saveButton.title = ""
         saveButton.enabled = false
         saveButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
