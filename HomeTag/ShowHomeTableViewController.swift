@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MessageUI
 
-class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
+class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -96,6 +96,32 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
             var htmlMsg = "<html><body><p>\(home.streetName)</p><p><a href="  + "http://www.zillow.com/homes/" + encodeText! + "_rb" + ">Zillow Link</a></p><a <p><a href="  + "http://www.google.com/search?q=" + encodeText! + ">Google Link</a></p></body><html>"
             composer.setMessageBody(htmlMsg, isHTML: true)
+
+            //var image = UIImage(data: home.image)
+            //var imageData = UIImagePNGRepresentation(image)
+            //composer.addAttachmentData(image, mimeType: "image/png", fileName: "home.png")
+
+
+            presentViewController(composer, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func sendSMS(sender: AnyObject) {
+        if MFMessageComposeViewController.canSendText() {
+            var composer = MFMessageComposeViewController()
+            var text = addressTextField.text
+            var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+            composer.messageComposeDelegate = self
+            composer.navigationBar.tintColor = UIColor.whiteColor()
+            //composer.subject = "Checkout this Home!"
+            composer.body = "Check out this home!\n \nMap: \(home.streetName) \n \nZillow http://www.zillow.com/homes/" + encodeText! + "_rb"
+
+            //var text = addressTextField.text
+            //var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+
+
+            //var htmlMsg = "<html><body><p>\(home.streetName)</p><p><a href="  + "http://www.zillow.com/homes/" + encodeText! + "_rb" + ">Zillow Link</a></p><a <p><a href="  + "http://www.google.com/search?q=" + encodeText! + ">Google Link</a></p></body><html>"
+            //composer.setMessageBody(htmlMsg, isHTML: true)
 
             //var image = UIImage(data: home.image)
             //var imageData = UIImagePNGRepresentation(image)
@@ -254,6 +280,20 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
             println("Mail Sent")
         case MFMailComposeResultFailed.value:
             println("Failed to send mail")
+        default:
+            break
+        }
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+        switch result.value {
+        case MessageComposeResultCancelled.value:
+            println("SMS Cancelled")
+        case MessageComposeResultFailed.value:
+            println("SMS Failed")
+        case MessageComposeResultSent.value:
+            break
         default:
             break
         }

@@ -291,11 +291,22 @@
                                                         <action selector="sendEmail:" destination="O1e-pY-P3K" eventType="touchUpInside" id="CAv-j5-fpJ"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAB-34-U9t">
+                                                    <rect key="frame" x="422" y="7" width="46" height="30"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="sendSMS:" destination="O1e-pY-P3K" eventType="touchUpInside" id="xkz-iW-W2h"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="N3I-Pr-arZ" firstAttribute="baseline" secondItem="J4b-0i-DbO" secondAttribute="baseline" id="Bz5-Ro-52x"/>
                                                 <constraint firstItem="RwL-4Y-WoZ" firstAttribute="leading" secondItem="N3I-Pr-arZ" secondAttribute="trailing" constant="29" id="GXR-XT-Ram"/>
                                                 <constraint firstItem="RwL-4Y-WoZ" firstAttribute="trailing" secondItem="swG-6z-0Jg" secondAttribute="trailingMargin" id="Luh-bX-pJz"/>
+                                                <constraint firstItem="N3I-Pr-arZ" firstAttribute="leading" secondItem="hAB-34-U9t" secondAttribute="trailing" constant="8" id="Nas-dc-tAX"/>
+                                                <constraint firstItem="hAB-34-U9t" firstAttribute="top" secondItem="swG-6z-0Jg" secondAttribute="topMargin" constant="-1" id="NhI-UW-C4B"/>
                                                 <constraint firstItem="J4b-0i-DbO" firstAttribute="leading" secondItem="swG-6z-0Jg" secondAttribute="leadingMargin" id="aRK-Wb-a5W"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="J4b-0i-DbO" secondAttribute="bottom" constant="2" id="cl4-j9-F8C"/>
                                                 <constraint firstItem="J4b-0i-DbO" firstAttribute="centerY" secondItem="RwL-4Y-WoZ" secondAttribute="centerY" id="grD-qV-ufv"/>

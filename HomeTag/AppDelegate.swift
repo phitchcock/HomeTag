@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GAI.sharedInstance().trackUncaughtExceptions = true
         GAI.sharedInstance().dispatchInterval = 10
         GAI.sharedInstance().trackerWithTrackingId("UA-56618315-1")
+
+        
 
         return true
     }

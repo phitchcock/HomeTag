@@ -15,7 +15,8 @@ class ImagesCollectionViewController: UICollectionViewController, NSFetchedResul
 
     var home: Home!
     var pictures: [Picture] = []
-    //var picture: Picture!
+    var feedArray: [AnyObject] = []
+    var picture: Picture!
     //var pictures: [Picture] = []
     //var fetchResultController:NSFetchedResultsController!
 
@@ -24,6 +25,7 @@ class ImagesCollectionViewController: UICollectionViewController, NSFetchedResul
         //getData()
         //fetchRequest = coreDataStack.model.f
         //fetchAndReload()
+        getArray()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -44,11 +46,8 @@ class ImagesCollectionViewController: UICollectionViewController, NSFetchedResul
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: ImageCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as ImageCollectionViewCell
-        //var home: Home = fetchResultController.objectAtIndexPath(indexPath) as Home
-        //var picture = home.pictures
-
-
-        //let picture = home.pictures[indexPath.row] as Picture
+        //let p = picture.home[indexPath.row]
+        //let thisItem = feedArray[indexPath.row]
         
         cell.imageView.image = UIImage(named: "heartColor")
         return cell
@@ -75,6 +74,14 @@ class ImagesCollectionViewController: UICollectionViewController, NSFetchedResul
 
     }
     */
+
+    func getArray() {
+        let request = NSFetchRequest(entityName: "Picture")
+        let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        let context:NSManagedObjectContext = appDelegate.managedObjectContext!
+        feedArray = context.executeFetchRequest(request, error: nil)!
+        println(feedArray)
+    }
 
     @IBAction func unwindToImages(sender: UIStoryboardSegue) {
         
