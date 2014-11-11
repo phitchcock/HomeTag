@@ -259,7 +259,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="7F3-c8-SbB" kind="show" id="UAE-8H-pj5"/>
+                                            <segue destination="bMg-iI-cAm" kind="show" identifier="imageSegue" id="Wlj-r0-00I"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ScU-qY-goH">
@@ -378,39 +378,131 @@
             </objects>
             <point key="canvasLocation" x="3744" y="257"/>
         </scene>
-        <!--Collection View Controller-->
-        <scene sceneID="aED-OU-MhB">
+        <!--Images Collection View Controller-->
+        <scene sceneID="T1t-Rh-0Pi">
             <objects>
-                <collectionViewController id="7F3-c8-SbB" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="RF4-w1-4Yg">
+                <collectionViewController id="bMg-iI-cAm" customClass="ImagesCollectionViewController" customModule="HomeTag" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sfA-Cb-6Ya">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zsF-8M-UdD">
-                            <size key="itemSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DcB-QU-ufH">
+                            <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Proto" id="vlp-4d-Dcr">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="MYk-EA-71i" customClass="ImageCollectionViewCell" customModule="HomeTag" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mu8-Ua-cIm">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="imageView" destination="Mu8-Ua-cIm" id="Crp-4z-pEZ"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="7F3-c8-SbB" id="VKG-0F-xq5"/>
-                            <outlet property="delegate" destination="7F3-c8-SbB" id="DqA-7P-q1c"/>
+                            <outlet property="dataSource" destination="bMg-iI-cAm" id="dHQ-dm-Fai"/>
+                            <outlet property="delegate" destination="bMg-iI-cAm" id="z0d-2I-DBC"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CgC-B9-h3W">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Krj-J2-Cs6">
+                            <connections>
+                                <segue destination="Yks-nz-g0L" kind="presentation" identifier="addImage" id="uov-uZ-hNW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zy6-Jc-XoY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="trv-wv-Vip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4430" y="257"/>
+            <point key="canvasLocation" x="4424" y="257"/>
+        </scene>
+        <!--Add Image View Controller-->
+        <scene sceneID="m2W-dB-8XX">
+            <objects>
+                <viewController id="Yks-nz-g0L" customClass="AddImageViewController" customModule="HomeTag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="squ-N5-QJ6"/>
+                        <viewControllerLayoutGuide type="bottom" id="YCv-GM-cST"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R1k-4W-yZK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="olb-C2-vAL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="SW5-O7-spI"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zop-h6-nIr">
+                                <rect key="frame" x="6" y="285" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveImage:" destination="Yks-nz-g0L" eventType="touchUpInside" id="5Cn-Lb-dBX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9E-hr-upi">
+                                <rect key="frame" x="6" y="260" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cVl-dt-JH3" kind="unwind" unwindAction="unwindToImages:" id="6gK-oX-AT2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zy-7V-kL9">
+                                <rect key="frame" x="6" y="233" width="30" height="30"/>
+                                <state key="normal" title="Pic">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="grabImage:" destination="Yks-nz-g0L" eventType="touchUpInside" id="Us2-UJ-MXo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0zy-7V-kL9" firstAttribute="leading" secondItem="R1k-4W-yZK" secondAttribute="leadingMargin" constant="-10" id="7ca-gA-wIn"/>
+                            <constraint firstItem="olb-C2-vAL" firstAttribute="leading" secondItem="R1k-4W-yZK" secondAttribute="leadingMargin" constant="-16" id="Bqn-HE-Lhz"/>
+                            <constraint firstItem="a9E-hr-upi" firstAttribute="leading" secondItem="R1k-4W-yZK" secondAttribute="leadingMargin" constant="-10" id="KHx-dL-sbI"/>
+                            <constraint firstItem="olb-C2-vAL" firstAttribute="top" secondItem="R1k-4W-yZK" secondAttribute="topMargin" id="YOP-Mi-CZo"/>
+                            <constraint firstItem="0zy-7V-kL9" firstAttribute="top" secondItem="olb-C2-vAL" secondAttribute="bottom" constant="8" id="dHx-ic-9kn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="olb-C2-vAL" secondAttribute="trailing" constant="-16" id="htg-tu-VUh"/>
+                            <constraint firstItem="Zop-h6-nIr" firstAttribute="top" secondItem="a9E-hr-upi" secondAttribute="bottom" constant="-5" id="iF8-6f-d21"/>
+                            <constraint firstItem="a9E-hr-upi" firstAttribute="top" secondItem="0zy-7V-kL9" secondAttribute="bottom" constant="-3" id="oyc-6n-NFB"/>
+                            <constraint firstItem="Zop-h6-nIr" firstAttribute="leading" secondItem="R1k-4W-yZK" secondAttribute="leadingMargin" constant="-10" id="vCl-So-Rak"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VfE-R9-nAz">
+                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="W1A-fo-Fsq">
+                            <connections>
+                                <segue destination="cVl-dt-JH3" kind="unwind" unwindAction="unwindToImages:" id="gJT-sW-cXd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ejv-09-WWS"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="olb-C2-vAL" id="HHs-ab-YZe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZf-cw-DfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cVl-dt-JH3" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4424" y="-415"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="W8F-QM-mLM">

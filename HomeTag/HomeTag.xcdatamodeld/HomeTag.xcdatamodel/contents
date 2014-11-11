@@ -7,8 +7,16 @@
         <attribute name="streetName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tag" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbNail" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="pictures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Picture" inverseName="home" inverseEntity="Picture" syncable="YES"/>
     </entity>
+    <entity name="Picture" representedClassName="HomeTag.Picture" syncable="YES">
+        <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="home" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Home" inverseName="pictures" inverseEntity="Home" syncable="YES"/>
+    </entity>
+    <fetchRequest name="FetchRequest" entity="Picture"/>
     <elements>
-        <element name="Home" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Home" positionX="-882" positionY="-216" width="128" height="148"/>
+        <element name="Picture" positionX="-585" positionY="-72" width="128" height="88"/>
     </elements>
 </model>

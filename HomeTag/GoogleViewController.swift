@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class GoogleViewController: GAITrackedViewController, UIWebViewDelegate, UISearchBarDelegate {
+class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -25,7 +25,7 @@ class GoogleViewController: GAITrackedViewController, UIWebViewDelegate, UISearc
     }
 
     override func viewWillAppear(animated: Bool) {
-        screenName = "Google"
+        //screenName = "Google"
     }
 
     override func didReceiveMemoryWarning() {

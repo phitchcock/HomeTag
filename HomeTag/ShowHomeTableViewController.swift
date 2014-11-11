@@ -219,6 +219,11 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
             let destinationViewController = segue.destinationViewController as NotesViewController
             destinationViewController.home = home
         }
+
+        if segue.identifier == "imageSegue" {
+            let destinationViewController = segue.destinationViewController as ImagesCollectionViewController
+            destinationViewController.home = home
+        }
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class NotesViewController: GAITrackedViewController, UITextViewDelegate {
+class NotesViewController: UIViewController, UITextViewDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -29,7 +29,7 @@ class NotesViewController: GAITrackedViewController, UITextViewDelegate {
     }
 
     override func viewWillAppear(animated: Bool) {
-        screenName = "Notes"
+        //screenName = "Notes"
     }
 
     override func didReceiveMemoryWarning() {
