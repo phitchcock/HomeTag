@@ -67,6 +67,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
             resetTagHome()
             tabBarController?.selectedIndex = 0
             //performSegueWithIdentifier("showSegue", sender: self)
+            println("lat \(home.latitude) and long \(home.longitude)")
         }
 
     }
@@ -261,6 +262,8 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
             home.note = "Add Notes"
             home.isFavorite = false
             home.tag = "Tagged"
+            home.latitude = locationManager.location.coordinate.latitude
+            home.longitude = locationManager.location.coordinate.longitude
 
             var e: NSError?
             if managedObjectContext.save(&e) != true {

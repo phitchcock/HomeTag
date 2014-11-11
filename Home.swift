@@ -20,5 +20,7 @@ class Home: NSManagedObject {
     @NSManaged var tag: String
     @NSManaged var thumbNail: NSData
     @NSManaged var pictures: NSSet
+    @NSManaged var latitude: NSNumber
+    @NSManaged var longitude: NSNumber
 
 }

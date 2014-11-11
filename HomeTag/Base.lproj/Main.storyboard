@@ -921,7 +921,7 @@
             </objects>
             <point key="canvasLocation" x="2341" y="951"/>
         </scene>
-        <!--Mapped View Controller-->
+        <!--Mapped Favorites-->
         <scene sceneID="eVg-Vf-Uet">
             <objects>
                 <viewController id="Pms-0x-DGf" customClass="MappedViewController" customModule="HomeTag" customModuleProvider="target" sceneMemberID="viewController">
@@ -948,7 +948,7 @@
                             <constraint firstItem="6dx-IW-avR" firstAttribute="leading" secondItem="NVk-l1-LaT" secondAttribute="leading" id="yIw-nw-kth"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2m3-JE-2K5"/>
+                    <navigationItem key="navigationItem" title="Mapped Favorites" id="2m3-JE-2K5"/>
                     <connections>
                         <outlet property="mapview" destination="6dx-IW-avR" id="Ey1-J4-5Ky"/>
                     </connections>
