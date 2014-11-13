@@ -15,11 +15,13 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
     // MARK: - Variables
     var homes: [Home] = []
     var home: Home!
+    var favorites: [Home] = []
     var searchResults: [Home] = []
     var fetchResultController:NSFetchedResultsController!
     var searchController: UISearchController!
 
     @IBOutlet var homesTableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +41,25 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
     override func viewWillAppear(animated: Bool) {
         getData()
+        //getFavorite()
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    @IBAction func segmentChangeIndex(sender: AnyObject) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            getData()
+            tableView.reloadData()
+        case 1:
+            getFavorite()
+            tableView.reloadData()
+            println(favorites.count)
+        default:
+            break
+        }
     }
 
     // MARK: - Table view data source
@@ -68,27 +84,44 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
         }
 
-        //if searchController.active {
-            //return searchResults.count
-        //} else {
+        if segmentedControl.selectedSegmentIndex == 0 {
             return self.homes.count
-        //}
+        } else {
+            return favorites.count
+        }
+
+
 
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as HomeCellTableViewCell
         //let home = (searchController.active) ? searchResults[indexPath.row] : homes[indexPath.row]
-        let home = homes[indexPath.row]
-        cell.addressLabel.text = home.streetName
-        cell.tagLabel.text = home.tag
-        cell.homeImageView.image = UIImage(data: home.thumbNail)
-        //cell.homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        //cell.backgroundColor = UIColor.clearColor()
-        //cell.homeImageView.layer.cornerRadius = 10.0
-        cell.homeImageView.clipsToBounds = true
-        cell.favoriteImageView.hidden = !home.isFavorite.boolValue
-        return cell
+
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let home = homes[indexPath.row]
+            cell.addressLabel.text = home.streetName
+            cell.tagLabel.text = home.tag
+            cell.homeImageView.image = UIImage(data: home.thumbNail)
+            //cell.homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
+            //cell.backgroundColor = UIColor.clearColor()
+            //cell.homeImageView.layer.cornerRadius = 10.0
+            cell.homeImageView.clipsToBounds = true
+            cell.favoriteImageView.hidden = !home.isFavorite.boolValue
+            return cell
+        } else {
+            let favorite = favorites[indexPath.row]
+            cell.addressLabel.text = favorite.streetName
+            //cell.tagLabel.text = home.tag
+            cell.homeImageView.image = UIImage(data: favorite.thumbNail)
+            //cell.homeImageView.contentMode = UIViewContentMode.ScaleAspectFill
+            //cell.backgroundColor = UIColor.clearColor()
+            //cell.homeImageView.layer.cornerRadius = 10.0
+            cell.homeImageView.clipsToBounds = true
+            cell.favoriteImageView.hidden = !favorite.isFavorite.boolValue
+            return cell
+        }
+
     }
 
     // MARK: - CoreData
@@ -111,6 +144,28 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         }
     }
 
+    func getFavorite() {
+        var fetchRequest = NSFetchRequest(entityName: "Home")
+        let sortDescriptor = NSSortDescriptor(key: "isFavorite", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        let predicate = NSPredicate(format: "isFavorite == true")
+        fetchRequest.predicate = predicate
+
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+
+            var e: NSError?
+            var result = fetchResultController.performFetch(&e)
+            favorites = fetchResultController.fetchedObjects as [Home]
+
+            if result != true {
+                println(e?.localizedDescription)
+            }
+        }
+    }
+
+
     func controllerWillChangeContent(controller: NSFetchedResultsController!) {
         tableView.beginUpdates()
     }
@@ -123,7 +178,6 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         case .Update:
             tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-
         default:
             tableView.reloadData()
         }
@@ -146,10 +200,11 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
     // MARK: - tableView editActions
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-   
+
     }
 
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+
         var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
 
             let shareMenu = UIAlertController(title: nil, message: "Share Using", preferredStyle: .ActionSheet)
@@ -184,7 +239,13 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
             }
         })
         shareAction.backgroundColor = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
-        return [deleteAction, shareAction]
+
+        //if segmentedControl.selectedSegmentIndex == 0 {
+            return [deleteAction, shareAction]
+        //} else {
+            //return [shareAction]
+        //}
+            
     }
 
     @IBAction func unwind(segue: UIStoryboardSegue) {
@@ -195,9 +256,17 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showHomeSegue" {
             if let row = tableView.indexPathForSelectedRow()?.row {
-                let destinationController = segue.destinationViewController as ShowHomeTableViewController
-                //destinationController.home = (searchController.active) ? searchResults[row] : homes[row]
-                destinationController.home = homes[row]
+                if segmentedControl.selectedSegmentIndex == 0 {
+                    let destinationController = segue.destinationViewController as ShowHomeTableViewController
+                    //destinationController.home = (searchController.active) ? searchResults[row] : homes[row]
+                    destinationController.home = homes[row]
+                }
+                if segmentedControl.selectedSegmentIndex == 1 {
+                    let destinationController = segue.destinationViewController as ShowHomeTableViewController
+                    //destinationController.home = (searchController.active) ? searchResults[row] : homes[row]
+                    destinationController.home = favorites[row]
+                }
+
             }
         }
     }

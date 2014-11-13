@@ -8,7 +8,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Homes-->
+        <!--Homes Table View Controller-->
         <scene sceneID="MR3-hE-u63">
             <objects>
                 <tableViewController id="Z4k-GJ-0QH" customClass="HomesTableViewController" customModule="HomeTag" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,9 +104,23 @@
                             <outlet property="delegate" destination="Z4k-GJ-0QH" id="QF3-25-tLM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Homes" id="KwG-YA-B7l"/>
+                    <navigationItem key="navigationItem" id="KwG-YA-B7l">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="2MC-jv-Hr9">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentChangeIndex:" destination="Z4k-GJ-0QH" eventType="valueChanged" id="IDx-3N-lQd"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="homesTableView" destination="UbX-uc-Die" id="UXD-39-Rnz"/>
+                        <outlet property="segmentedControl" destination="2MC-jv-Hr9" id="4SK-bt-twS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CW-uK-7oO" userLabel="First Responder" sceneMemberID="firstResponder"/>
