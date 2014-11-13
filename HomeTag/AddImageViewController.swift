@@ -32,7 +32,7 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
     }
 
     @IBAction func grabImage(sender: AnyObject) {
-        takePic()
+        selectImage()
     }
 
     func takePic() {
@@ -70,6 +70,42 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
                 return
             }
         }
+    }
+
+
+    func selectImage() {
+        let shareMenu = UIAlertController(title: nil, message: "Take Picture", preferredStyle: .ActionSheet)
+        let cameraAction = UIAlertAction(title: "Take Picture", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+            if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .Camera
+                imagePicker.delegate = self
+
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+        })
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .PhotoLibrary
+                imagePicker.delegate = self
+
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+        })
+
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+        //shareMenu.addAction(isFavoriteAction)
+        shareMenu.addAction(cameraAction)
+        shareMenu.addAction(photoLibraryAction)
+        shareMenu.addAction(cancelAction)
+
+        self.presentViewController(shareMenu, animated: true, completion: nil)
+        
     }
 
 

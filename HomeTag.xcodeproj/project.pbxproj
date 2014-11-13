@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D02DC4A61A154E5900076B1E /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02DC4A51A154E5900076B1E /* PopViewController.swift */; };
+		D0300E3D1A15443800C66E6C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8D1A116EBE0072B68F /* libz.dylib */; };
 		D03741811A0934F2001AE640 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03741801A0934F2001AE640 /* NotesViewController.swift */; };
 		D06E7DD41A0415EB00EA81E1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06E7DD31A0415EB00EA81E1 /* MapKit.framework */; };
 		D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DD71A0416DA00EA81E1 /* MapViewController.swift */; };
@@ -17,12 +19,10 @@
 		D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F891A116EA30072B68F /* CoreData.framework */; };
 		D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8B1A116EB40072B68F /* SystemConfiguration.framework */; };
 		D0B78F911A116EDB0072B68F /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F901A116EDB0072B68F /* Bridge.m */; };
-		D0B78F921A11727E0072B68F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8D1A116EBE0072B68F /* libz.dylib */; };
 		D0B78F941A11747C0072B68F /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F931A11747C0072B68F /* libGoogleAnalyticsServices.a */; };
-		D0B78F971A1177910072B68F /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F961A1177910072B68F /* libAdIdAccess.a */; };
 		D0B78FA01A1188C50072B68F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F9F1A1188C50072B68F /* Home.swift */; };
 		D0B78FA21A1188FC0072B68F /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78FA11A1188FC0072B68F /* Picture.swift */; };
-		D0B78FA41A11CA790072B68F /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78FA31A11CA790072B68F /* ImagesCollectionViewController.swift */; };
+		D0B78FA41A11CA790072B68F /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78FA31A11CA790072B68F /* ImagesViewController.swift */; };
 		D0B78FA61A11CD290072B68F /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78FA51A11CD290072B68F /* ImageCollectionViewCell.swift */; };
 		D0B78FA81A11D60B0072B68F /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78FA71A11D60B0072B68F /* AddImageViewController.swift */; };
 		D0B78FAB1A12789E0072B68F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78FAA1A12789E0072B68F /* CloudKit.framework */; };
@@ -32,7 +32,7 @@
 		D0F48B3F1A03ED7F005003C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0F48B3E1A03ED7F005003C0 /* Images.xcassets */; };
 		D0F48B421A03ED7F005003C0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F48B401A03ED7F005003C0 /* LaunchScreen.xib */; };
 		D0F48B4E1A03ED80005003C0 /* HomeTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B4D1A03ED80005003C0 /* HomeTagTests.swift */; };
-		D0F48B581A03EF88005003C0 /* HomesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B571A03EF88005003C0 /* HomesTableViewController.swift */; };
+		D0F48B581A03EF88005003C0 /* HomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B571A03EF88005003C0 /* HomesViewController.swift */; };
 		D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B5E1A03F429005003C0 /* HomeCellTableViewCell.swift */; };
 		D0F48B611A03FBB7005003C0 /* ShowHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B601A03FBB7005003C0 /* ShowHomeTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D02DC4A51A154E5900076B1E /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		D03741801A0934F2001AE640 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		D06E7DD31A0415EB00EA81E1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D06E7DD71A0416DA00EA81E1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +75,7 @@
 		D0B78F961A1177910072B68F /* libAdIdAccess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdIdAccess.a; sourceTree = "<group>"; };
 		D0B78F9F1A1188C50072B68F /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		D0B78FA11A1188FC0072B68F /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
-		D0B78FA31A11CA790072B68F /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
+		D0B78FA31A11CA790072B68F /* ImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
 		D0B78FA51A11CD290072B68F /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0B78FA71A11D60B0072B68F /* AddImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 		D0B78FA91A1278890072B68F /* HomeTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTag.entitlements; sourceTree = "<group>"; };
@@ -89,7 +90,7 @@
 		D0F48B471A03ED80005003C0 /* HomeTagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F48B4C1A03ED80005003C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0F48B4D1A03ED80005003C0 /* HomeTagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTagTests.swift; sourceTree = "<group>"; };
-		D0F48B571A03EF88005003C0 /* HomesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomesTableViewController.swift; sourceTree = "<group>"; };
+		D0F48B571A03EF88005003C0 /* HomesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomesViewController.swift; sourceTree = "<group>"; };
 		D0F48B5E1A03F429005003C0 /* HomeCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellTableViewCell.swift; sourceTree = "<group>"; };
 		D0F48B601A03FBB7005003C0 /* ShowHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHomeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,9 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0300E3D1A15443800C66E6C /* libz.dylib in Frameworks */,
 				D0B78FAB1A12789E0072B68F /* CloudKit.framework in Frameworks */,
-				D0B78F921A11727E0072B68F /* libz.dylib in Frameworks */,
-				D0B78F971A1177910072B68F /* libAdIdAccess.a in Frameworks */,
 				D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */,
 				D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */,
 				D0B78F941A11747C0072B68F /* libGoogleAnalyticsServices.a in Frameworks */,
@@ -130,7 +130,7 @@
 		D06E7DD51A0416B700EA81E1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D0F48B571A03EF88005003C0 /* HomesTableViewController.swift */,
+				D0F48B571A03EF88005003C0 /* HomesViewController.swift */,
 				D0F48B5E1A03F429005003C0 /* HomeCellTableViewCell.swift */,
 				D0F48B601A03FBB7005003C0 /* ShowHomeTableViewController.swift */,
 			);
@@ -188,7 +188,8 @@
 				D0B78F871A116E650072B68F /* GAITrackedViewController.h */,
 				D0B78F881A116E650072B68F /* GAITracker.h */,
 			);
-			path = Library;
+			name = Library;
+			path = ../Library;
 			sourceTree = "<group>";
 		};
 		D0B78F951A1175420072B68F /* Frameworks */ = {
@@ -207,7 +208,8 @@
 		D0B78F981A1184BC0072B68F /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D0B78FA31A11CA790072B68F /* ImagesCollectionViewController.swift */,
+				D0B78FA31A11CA790072B68F /* ImagesViewController.swift */,
+				D02DC4A51A154E5900076B1E /* PopViewController.swift */,
 				D0B78FA51A11CD290072B68F /* ImageCollectionViewCell.swift */,
 				D0B78FA71A11D60B0072B68F /* AddImageViewController.swift */,
 			);
@@ -227,7 +229,6 @@
 				D0B78F951A1175420072B68F /* Frameworks */,
 				D0F48B311A03ED7F005003C0 /* HomeTag */,
 				D0F48B4A1A03ED80005003C0 /* HomeTagTests */,
-				D0B78F7E1A116E650072B68F /* Library */,
 				D0F48B301A03ED7F005003C0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -244,6 +245,7 @@
 		D0F48B311A03ED7F005003C0 /* HomeTag */ = {
 			isa = PBXGroup;
 			children = (
+				D0B78F7E1A116E650072B68F /* Library */,
 				D0B78FA91A1278890072B68F /* HomeTag.entitlements */,
 				D0F48B341A03ED7F005003C0 /* AppDelegate.swift */,
 				D0F48B3B1A03ED7F005003C0 /* Main.storyboard */,
@@ -409,7 +411,8 @@
 			files = (
 				D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */,
 				D0B78FA81A11D60B0072B68F /* AddImageViewController.swift in Sources */,
-				D0F48B581A03EF88005003C0 /* HomesTableViewController.swift in Sources */,
+				D02DC4A61A154E5900076B1E /* PopViewController.swift in Sources */,
+				D0F48B581A03EF88005003C0 /* HomesViewController.swift in Sources */,
 				D0B78FA61A11CD290072B68F /* ImageCollectionViewCell.swift in Sources */,
 				D0F48B611A03FBB7005003C0 /* ShowHomeTableViewController.swift in Sources */,
 				D0B78FA21A1188FC0072B68F /* Picture.swift in Sources */,
@@ -422,7 +425,7 @@
 				D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */,
 				D0B78FA01A1188C50072B68F /* Home.swift in Sources */,
 				D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */,
-				D0B78FA41A11CA790072B68F /* ImagesCollectionViewController.swift in Sources */,
+				D0B78FA41A11CA790072B68F /* ImagesViewController.swift in Sources */,
 				D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,7 +559,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				"OTHER_LDFLAGS[arch=*]" = "";
+				"OTHER_LDFLAGS[arch=*]" = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeTag/HomeTag-Bridging-Header.h";
@@ -578,6 +581,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HomeTag/HomeTag-Bridging-Header.h";

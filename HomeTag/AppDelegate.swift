@@ -28,10 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //tabBarController.selectedIndex = 1
         GAI.sharedInstance().trackUncaughtExceptions = true
-        GAI.sharedInstance().dispatchInterval = 10
+        GAI.sharedInstance().dispatchInterval = 5
         GAI.sharedInstance().trackerWithTrackingId("UA-56618315-1")
-
-        
 
         return true
     }

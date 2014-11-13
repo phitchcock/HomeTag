@@ -247,7 +247,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         }
 
         if segue.identifier == "imageSegue" {
-            let destinationViewController = segue.destinationViewController as ImagesCollectionViewController
+            let destinationViewController = segue.destinationViewController as ImagesViewController
             destinationViewController.home = home
         }
     }

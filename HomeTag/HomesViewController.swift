@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MessageUI
 
-class HomesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
+class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Variables
     var homes: [Home] = []
@@ -19,11 +19,12 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
     var fetchResultController:NSFetchedResultsController!
 
 
-    @IBOutlet var homesTableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tabBarController?.selectedIndex = 1
 
         tableView.rowHeight = 265
@@ -32,9 +33,13 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.1)
 
         getData()
+
+
+
     }
 
     override func viewWillAppear(animated: Bool) {
+
         if favorites.isEmpty {
 
         }
@@ -60,11 +65,11 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
     }
 
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if homes.count == 0 {
 
             var imageNotification = UIImage(named: "error.png")
@@ -90,7 +95,7 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
 
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as HomeCellTableViewCell
 
         if segmentedControl.selectedSegmentIndex == 0 {
@@ -178,11 +183,11 @@ class HomesTableViewController: UITableViewController, NSFetchedResultsControlle
     }
 
     // MARK: - tableView editActions
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 
     }
 
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
 
         var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
 

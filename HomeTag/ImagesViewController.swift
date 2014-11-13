@@ -11,7 +11,7 @@ import CoreData
 
 //let reuseIdentifier = "Cell"
 
-class ImagesCollectionViewController: UICollectionViewController, NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var home: Home!
     var pictures: [Picture] = []
@@ -19,6 +19,8 @@ class ImagesCollectionViewController: UICollectionViewController, NSFetchedResul
     var picture: Picture!
     //var pictures: [Picture] = []
     //var fetchResultController:NSFetchedResultsController!
+
+    @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +42,11 @@ class ImagesCollectionViewController: UICollectionViewController, NSFetchedResul
 
     // MARK: UICollectionViewDataSource
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return home.pictures.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: ImageCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as ImageCollectionViewCell
         //let p = picture.home[indexPath.row]
         //let thisItem = feedArray[indexPath.row]
@@ -92,8 +94,17 @@ class ImagesCollectionViewController: UICollectionViewController, NSFetchedResul
             let destinationController = segue.destinationViewController as AddImageViewController
             destinationController.home = home
         }
-    }
 
+        if segue.identifier == "popSegue" {
+            let destinationController = segue.destinationViewController as PopViewController
+            destinationController.home = home
+        }
+    }
+    /*
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+
+    }
+    */
 
     // MARK: UICollectionViewDelegate
 
