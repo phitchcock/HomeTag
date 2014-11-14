@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 import QuartzCore
 
-class LocationTableViewController: UITableViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class LocationViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     var home: Home!
     let locationManager = CLLocationManager()
@@ -33,28 +33,9 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tableView.tableFooterView = UIView(frame: CGRectZero)
-        //tableView.backgroundColor = UIColor(patternImage: UIImage(named: "splash.jpg")!)
-
-        var imageViewObject = UIImageView()
-        imageViewObject.image = UIImage(named: "splash.jpg")
-        tableView.backgroundView = imageViewObject
 
         addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
         addressTextField.layer.borderWidth = 1.0
-        //imageViewObject.
-        //imageViewObject = UIImageView(frame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height));
-        //imageViewObject.image = UIImage(named:"splash.jpg")
-
-        //self.view.addSubview(imageViewObject)
-
-        //imageViewObject.contentMode = UIViewContentMode.ScaleAspectFill
-
-
-
-        updateLabels()
-        configureGetLocationButton()
-        tableView.tableFooterView = UIView(frame: CGRectZero)
         saveButton.title = ""
         saveButton.enabled = false
         saveButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
@@ -64,11 +45,8 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         addressTextField.delegate = self
         messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
 
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        tableView.separatorColor = UIColor.clearColor()
-
-        //self.screenName = "Test"
-
+        updateLabels()
+        configureGetLocationButton()
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,15 +63,12 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
             saveHome()
             resetTagHome()
             tabBarController?.selectedIndex = 0
-            //performSegueWithIdentifier("showSegue", sender: self)
-            println("lat \(home.latitude) and long \(home.longitude)")
         }
 
     }
 
     @IBAction func cancelAction(sender: AnyObject) {
         resetTagHome()
-        //dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func getLocation(sender: AnyObject) {
@@ -195,11 +170,6 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     func updateLabels() {
         if let location = location {
-            //latLabel.text = String(format: "%.8f", location.coordinate.latitude)
-            //longLabel.text = String(format: "%.8f", location.coordinate.longitude)
-
-            //messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
-
             if let placemark = placemark {
                 addressTextField.text = stringFromPlacemark(placemark)
             }
@@ -214,8 +184,6 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
             }
 
         } else {
-            //latLabel.text = ""
-            //longLabel.text = ""
             addressTextField.text = ""
             messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
 
@@ -293,29 +261,6 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 {
-            if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .Camera
-                imagePicker.delegate = self
-
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-            }
-            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .PhotoLibrary
-                imagePicker.delegate = self
-
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-            }
-
-        }
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         imageView.image = image
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -343,20 +288,6 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
         }
     }
-
-
-    /*
-    @IBAction func pickImage(sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = .PhotoLibrary
-            imagePicker.delegate = self
-
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
-    }
-    */
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSegue" {
@@ -394,6 +325,4 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         addressTextField.resignFirstResponder()
         return true
     }
-
-
 }

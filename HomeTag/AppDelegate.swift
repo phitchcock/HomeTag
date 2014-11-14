@@ -18,20 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        //var navBarApperance = UINavigationBar.appearance()
-        //navBarApperance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        //navBarApperance.shadowImage = UIImage(named: "shadow.png")
-        //navBarApperance.translucent = true
 
-        
-
-        //UINavigationBar.appearance().barTintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.102, green: 0.129, blue: 0.141, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         //if let barFont = UIFont(name: "AvenirNextCondensed-DemiBold", size: 22.0) {
             //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(), NSFontAttributeName:barFont]
         //}
-
-
         UITabBar.appearance().tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         //UITabBar.appearance().barTintColor = UIColor.whiteColor()
 

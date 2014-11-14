@@ -31,8 +31,8 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
 
         //tableView.rowHeight = 265
         //tableView.backgroundColor = UIColor(red: 0.941, green: 0.957, blue: 0.965, alpha: 1.0)
-        //tableView.tableFooterView = UIView(frame: CGRectZero)
-        //tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.1)
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.separatorColor = UIColor.clearColor()
 
         getData()
 
@@ -102,7 +102,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
 
         if segmentedControl.selectedSegmentIndex == 0 {
             let home = homes[indexPath.row]
-            cell.textLabel.text = home.streetName
+            cell.addressLabel.text = home.streetName
             cell.tagLabel.text = home.tag
             cell.homeImageView.image = UIImage(data: home.thumbNail)
             cell.homeImageView.clipsToBounds = true

@@ -14,7 +14,7 @@
 		D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DD71A0416DA00EA81E1 /* MapViewController.swift */; };
 		D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */; };
 		D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */; };
-		D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */; };
+		D06E7DE01A07E4B400EA81E1 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDF1A07E4B400EA81E1 /* LocationViewController.swift */; };
 		D0AC01161A1675B700B83FF0 /* ShowHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AC01151A1675B700B83FF0 /* ShowHomeTableViewController.swift */; };
 		D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F771A0EAFE90072B68F /* MappedViewController.swift */; };
 		D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F891A116EA30072B68F /* CoreData.framework */; };
@@ -54,7 +54,7 @@
 		D06E7DD71A0416DA00EA81E1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleViewController.swift; sourceTree = "<group>"; };
-		D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		D06E7DDF1A07E4B400EA81E1 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		D0AC01151A1675B700B83FF0 /* ShowHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHomeTableViewController.swift; sourceTree = "<group>"; };
 		D0B78F771A0EAFE90072B68F /* MappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappedViewController.swift; sourceTree = "<group>"; };
 		D0B78F7F1A116E650072B68F /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		D06E7DDE1A07E17100EA81E1 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */,
+				D06E7DDF1A07E4B400EA81E1 /* LocationViewController.swift */,
 			);
 			name = Location;
 			sourceTree = "<group>";
@@ -417,7 +417,7 @@
 				D0B78FA21A1188FC0072B68F /* Picture.swift in Sources */,
 				D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */,
 				D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */,
-				D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */,
+				D06E7DE01A07E4B400EA81E1 /* LocationViewController.swift in Sources */,
 				D03741811A0934F2001AE640 /* NotesViewController.swift in Sources */,
 				D0B78F911A116EDB0072B68F /* Bridge.m in Sources */,
 				D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */,

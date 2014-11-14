@@ -22,14 +22,25 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     @IBOutlet weak var favoriteSwitch: UISwitch!
     @IBOutlet weak var updateButton: UIBarButtonItem!
     @IBOutlet weak var tagTextField: UITextField!
+    @IBOutlet weak var smsButton: UIButton!
+    @IBOutlet weak var emailButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //title = home.streetName
         buttonState()
 
-        addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        smsButton.layer.borderColor = UIColor(red: 0.86, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        smsButton.layer.borderWidth = 1.0
+
+        emailButton.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        emailButton.layer.borderWidth = 1.0
+
+        addressTextField.layer.borderColor = UIColor(red: 0.586, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
         addressTextField.layer.borderWidth = 1.0
+
+        tagTextField.layer.borderColor = UIColor(red: 0.586, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        tagTextField.layer.borderWidth = 1.0
         
         tableView.rowHeight = 44
         addressTextField.text = home.streetName
@@ -42,9 +53,9 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         updateButton.enabled = false
         updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
 
-        var imageViewObject = UIImageView()
-        imageViewObject.image = UIImage(named: "splash.jpg")
-        tableView.backgroundView = imageViewObject
+        //var imageViewObject = UIImageView()
+        //imageViewObject.image = UIImage(named: "splash.jpg")
+        //tableView.backgroundView = imageViewObject
 
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.separatorColor = UIColor.clearColor()
@@ -269,13 +280,13 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     }
 
     func textFieldDidBeginEditing(textField: UITextField) {
-        updateButton.tintColor = UIColor.whiteColor()
+        updateButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         updateButton.enabled = true
         updateButton.title = "Done"
     }
 
     func setSaveButton() {
-        updateButton.tintColor = UIColor.whiteColor()
+        updateButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         updateButton.enabled = true
         updateButton.title = "Save"
     }
