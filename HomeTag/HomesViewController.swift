@@ -236,11 +236,11 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
         if segue.identifier == "showHomeSegue" {
             if let row = tableView.indexPathForSelectedRow()?.row {
                 if segmentedControl.selectedSegmentIndex == 0 {
-                    let destinationController = segue.destinationViewController as ShowTableViewController
+                    let destinationController = segue.destinationViewController as ShowHomeTableViewController
                     destinationController.home = homes[row]
                 }
                 if segmentedControl.selectedSegmentIndex == 1 {
-                    let destinationController = segue.destinationViewController as ShowTableViewController
+                    let destinationController = segue.destinationViewController as ShowHomeTableViewController
                     destinationController.home = favorites[row]
                 }
             }

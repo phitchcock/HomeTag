@@ -24,6 +24,10 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        var imageViewObject = UIImageView()
+        imageViewObject.image = UIImage(named: "splash.jpg")
+        collectionView.backgroundView = imageViewObject
         //getData()
         //fetchRequest = coreDataStack.model.f
         //fetchAndReload()

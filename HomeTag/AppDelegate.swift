@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         //UINavigationBar.appearance().barTintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
-        //UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         //if let barFont = UIFont(name: "AvenirNextCondensed-DemiBold", size: 22.0) {
             //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(), NSFontAttributeName:barFont]
         //}

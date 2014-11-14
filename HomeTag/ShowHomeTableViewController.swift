@@ -10,18 +10,51 @@ import UIKit
 import CoreData
 import MessageUI
 
-class ShowHomeViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
+class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
 
     // MARK: - Variables
     var home:Home!
     var isFavorite:Bool!
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var showTableView: UITableView!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var favoriteSwitch: UISwitch!
+    @IBOutlet weak var updateButton: UIBarButtonItem!
+    @IBOutlet weak var tagTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        //title = home.streetName
+        buttonState()
+
+        addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        addressTextField.layer.borderWidth = 1.0
+        
+        tableView.rowHeight = 44
+        addressTextField.text = home.streetName
+        tagTextField.text = home.tag
+        imageView.image = UIImage(data: home.image)
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        addressTextField.delegate = self
+        tagTextField.delegate = self
+        updateButton.title = ""
+        updateButton.enabled = false
+        updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+
+        var imageViewObject = UIImageView()
+        imageViewObject.image = UIImage(named: "splash.jpg")
+        tableView.backgroundView = imageViewObject
+
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.separatorColor = UIColor.clearColor()
+
     }
 
     override func viewDidAppear(animated: Bool) {
-
+        //buttonState()
+        addressTextField.resignFirstResponder()
+        tagTextField.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -182,14 +215,14 @@ class ShowHomeViewController: UIViewController, UITextFieldDelegate, UIImagePick
         }
 
     }
-    /*
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if indexPath.row == 0 {
-    selectImage()
+        if indexPath.row == 0 {
+            selectImage()
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    */
+
 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         imageView.image = image
@@ -299,7 +332,7 @@ class ShowHomeViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 self.presentViewController(imagePicker, animated: true, completion: nil)
             }
         })
-
+        
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         

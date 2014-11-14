@@ -41,7 +41,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         tableView.backgroundView = imageViewObject
 
         addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
-        addressTextField.layer.borderWidth = 2.0
+        addressTextField.layer.borderWidth = 1.0
         //imageViewObject.
         //imageViewObject = UIImageView(frame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height));
         //imageViewObject.image = UIImage(named:"splash.jpg")
@@ -360,7 +360,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSegue" {
-            let destinationController = segue.destinationViewController as ShowViewController
+            let destinationController = segue.destinationViewController as ShowHomeTableViewController
             destinationController.home = home
         }
     }
