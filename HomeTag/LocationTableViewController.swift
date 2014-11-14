@@ -341,7 +341,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSegue" {
-            let destinationController = segue.destinationViewController as ShowHomeTableViewController
+            let destinationController = segue.destinationViewController as ShowViewController
             destinationController.home = home
         }
     }

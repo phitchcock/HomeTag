@@ -187,6 +187,10 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
 
     }
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
+    
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
 
         var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
@@ -230,11 +234,11 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
         if segue.identifier == "showHomeSegue" {
             if let row = tableView.indexPathForSelectedRow()?.row {
                 if segmentedControl.selectedSegmentIndex == 0 {
-                    let destinationController = segue.destinationViewController as ShowHomeTableViewController
+                    let destinationController = segue.destinationViewController as ShowViewController
                     destinationController.home = homes[row]
                 }
                 if segmentedControl.selectedSegmentIndex == 1 {
-                    let destinationController = segue.destinationViewController as ShowHomeTableViewController
+                    let destinationController = segue.destinationViewController as ShowViewController
                     destinationController.home = favorites[row]
                 }
             }
