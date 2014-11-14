@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CoreLocation
+import QuartzCore
 
 class LocationTableViewController: UITableViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -33,6 +34,24 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        //tableView.backgroundColor = UIColor(patternImage: UIImage(named: "splash.jpg")!)
+
+        var imageViewObject = UIImageView()
+        imageViewObject.image = UIImage(named: "splash.jpg")
+        tableView.backgroundView = imageViewObject
+
+        addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        addressTextField.layer.borderWidth = 2.0
+        //imageViewObject.
+        //imageViewObject = UIImageView(frame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height));
+        //imageViewObject.image = UIImage(named:"splash.jpg")
+
+        //self.view.addSubview(imageViewObject)
+
+        //imageViewObject.contentMode = UIViewContentMode.ScaleAspectFill
+
+
+
         updateLabels()
         configureGetLocationButton()
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -351,7 +370,7 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
         lastLocationError = nil
         placemark = nil
         lastGeocodingError = nil
-        imageView.image = UIImage(named: "icon5.png")
+        imageView.image = UIImage(named: "add-image.png")
         addressTextField.text = ""
         messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
         saveButton.title = ""
@@ -363,10 +382,10 @@ class LocationTableViewController: UITableViewController, CLLocationManagerDeleg
     }
 
     func textFieldDidBeginEditing(textField: UITextField) {
-        saveButton.tintColor = UIColor.whiteColor()
+        saveButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         saveButton.enabled = true
         saveButton.title = "Save"
-        cancelButton.tintColor = UIColor.whiteColor()
+        cancelButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         cancelButton.enabled = true
         cancelButton.title = "Cancel"
     }

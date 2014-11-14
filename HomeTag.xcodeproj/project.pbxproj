@@ -15,7 +15,7 @@
 		D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */; };
 		D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */; };
 		D06E7DE01A07E4B400EA81E1 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */; };
-		D096BB1B1A15B33700A40B27 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D096BB1A1A15B33700A40B27 /* ShowViewController.swift */; };
+		D0AC01161A1675B700B83FF0 /* ShowHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AC01151A1675B700B83FF0 /* ShowHomeTableViewController.swift */; };
 		D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F771A0EAFE90072B68F /* MappedViewController.swift */; };
 		D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F891A116EA30072B68F /* CoreData.framework */; };
 		D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8B1A116EB40072B68F /* SystemConfiguration.framework */; };
@@ -55,7 +55,7 @@
 		D06E7DDA1A0436EA00EA81E1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleViewController.swift; sourceTree = "<group>"; };
 		D06E7DDF1A07E4B400EA81E1 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
-		D096BB1A1A15B33700A40B27 /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		D0AC01151A1675B700B83FF0 /* ShowHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHomeTableViewController.swift; sourceTree = "<group>"; };
 		D0B78F771A0EAFE90072B68F /* MappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappedViewController.swift; sourceTree = "<group>"; };
 		D0B78F7F1A116E650072B68F /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		D0B78F801A116E650072B68F /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			children = (
 				D0F48B571A03EF88005003C0 /* HomesViewController.swift */,
 				D0F48B5E1A03F429005003C0 /* HomeCellTableViewCell.swift */,
-				D096BB1A1A15B33700A40B27 /* ShowViewController.swift */,
+				D0AC01151A1675B700B83FF0 /* ShowHomeTableViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -414,7 +414,6 @@
 				D02DC4A61A154E5900076B1E /* PopViewController.swift in Sources */,
 				D0F48B581A03EF88005003C0 /* HomesViewController.swift in Sources */,
 				D0B78FA61A11CD290072B68F /* ImageCollectionViewCell.swift in Sources */,
-				D096BB1B1A15B33700A40B27 /* ShowViewController.swift in Sources */,
 				D0B78FA21A1188FC0072B68F /* Picture.swift in Sources */,
 				D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */,
 				D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */,
@@ -427,6 +426,7 @@
 				D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */,
 				D0B78FA41A11CA790072B68F /* ImagesViewController.swift in Sources */,
 				D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */,
+				D0AC01161A1675B700B83FF0 /* ShowHomeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
