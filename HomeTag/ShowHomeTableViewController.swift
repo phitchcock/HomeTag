@@ -30,16 +30,10 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         //title = home.streetName
         buttonState()
 
-        smsButton.layer.borderColor = UIColor(red: 0.86, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
-        smsButton.layer.borderWidth = 1.0
-
-        emailButton.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
-        emailButton.layer.borderWidth = 1.0
-
-        addressTextField.layer.borderColor = UIColor(red: 0.586, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        addressTextField.layer.borderColor = UIColor(red: 0.192, green: 0.192, blue: 0.192, alpha: 1.0).CGColor
         addressTextField.layer.borderWidth = 1.0
 
-        tagTextField.layer.borderColor = UIColor(red: 0.586, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        tagTextField.layer.borderColor = UIColor(red: 0.192, green: 0.192, blue: 0.192, alpha: 1.0).CGColor
         tagTextField.layer.borderWidth = 1.0
         
         tableView.rowHeight = 44
