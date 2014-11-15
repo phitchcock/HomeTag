@@ -224,7 +224,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
         })
         shareAction.backgroundColor = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
 
-        return [deleteAction, shareAction]
+        return [deleteAction]
     }
 
     @IBAction func unwind(segue: UIStoryboardSegue) {

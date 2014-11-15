@@ -95,10 +95,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         }
         updateLabels()
         configureGetLocationButton()
-        saveButton.tintColor = UIColor.whiteColor()
+        saveButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         saveButton.enabled = true
         saveButton.title = "Save"
-        cancelButton.tintColor = UIColor.whiteColor()
+        cancelButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         cancelButton.enabled = true
         cancelButton.title = "Cancel"
 
