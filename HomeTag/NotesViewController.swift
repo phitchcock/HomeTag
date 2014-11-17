@@ -59,7 +59,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
     }
     func textViewDidBeginEditing(textView: UITextView) {
         println("touched")
-        doneButton.tintColor = UIColor.whiteColor()
+        doneButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         doneButton.enabled = true 
         doneButton.title = "Done"
     }

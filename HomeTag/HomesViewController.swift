@@ -74,10 +74,10 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if homes.count == 0 {
 
-            var imageNotification = UIImage(named: "error.png")
+            var imageNotification = UIImage(named: "add-image.png")
             var imageView = UIImageView(image: imageNotification)
             
-            imageView.backgroundColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 1)
+            imageView.backgroundColor = UIColor(red: 0.102, green: 0.129, blue: 0.141, alpha: 1.0)
             imageView.contentMode = UIViewContentMode.ScaleAspectFill
             imageView.clipsToBounds = true
             tableView.addSubview(imageView)

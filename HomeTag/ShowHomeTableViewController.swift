@@ -30,11 +30,11 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         //title = home.streetName
         buttonState()
 
-        addressTextField.layer.borderColor = UIColor(red: 0.192, green: 0.192, blue: 0.192, alpha: 1.0).CGColor
-        addressTextField.layer.borderWidth = 1.0
+        //addressTextField.layer.borderColor = UIColor(red: 0.192, green: 0.192, blue: 0.192, alpha: 1.0).CGColor
+       // addressTextField.layer.borderWidth = 1.0
 
-        tagTextField.layer.borderColor = UIColor(red: 0.192, green: 0.192, blue: 0.192, alpha: 1.0).CGColor
-        tagTextField.layer.borderWidth = 1.0
+        //tagTextField.layer.borderColor = UIColor(red: 0.192, green: 0.192, blue: 0.192, alpha: 1.0).CGColor
+        //tagTextField.layer.borderWidth = 1.0
         
         tableView.rowHeight = 44
         addressTextField.text = home.streetName
@@ -72,6 +72,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         saveImage()
         saveTag()
         addressTextField.endEditing(true)
+        tagTextField.endEditing(true)
         updateButton.title = ""
         updateButton.enabled = false
         updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)

@@ -33,9 +33,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
-        addressTextField.layer.borderWidth = 1.0
+        //addressTextField.setValue(UIColor.whiteColor(), forKey: "_placeholderLabel.textColor")
+        //addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        //addressTextField.layer.borderWidth = 1.0
+        /*
         saveButton.title = ""
         saveButton.enabled = false
         saveButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
@@ -44,9 +45,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         cancelButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
         addressTextField.delegate = self
         messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
+        */
+        resetTagHome()
 
-        updateLabels()
-        configureGetLocationButton()
+        //updateLabels()
+        //configureGetLocationButton()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +58,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 
     @IBAction func saveHome(sender: AnyObject) {
         if addressTextField.text == "" {
-            var alert = UIAlertController(title: "Hold On!", message: "Please enter and address or Tap Get Location", preferredStyle: UIAlertControllerStyle.Alert)
+            var alert = UIAlertController(title: "Hold On!", message: "Please Enter Address or Tap Get Location", preferredStyle: UIAlertControllerStyle.Alert)
             var cancelAction = UIAlertAction(title: "Got It", style: UIAlertActionStyle.Cancel, handler: nil)
             alert.addAction(cancelAction)
             presentViewController(alert, animated: true, completion: nil)
@@ -301,8 +304,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         lastLocationError = nil
         placemark = nil
         lastGeocodingError = nil
-        imageView.image = UIImage(named: "add-image.png")
+        imageView.image = UIImage(named: "plus.png")
         addressTextField.text = ""
+        addressTextField.endEditing(true)
         messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
         saveButton.title = ""
         saveButton.enabled = false

@@ -17,6 +17,7 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
     var pictures: [Picture] = []
     var feedArray: [AnyObject] = []
     var picture: Picture!
+    var fetchResultController:NSFetchedResultsController!
     //var pictures: [Picture] = []
     //var fetchResultController:NSFetchedResultsController!
 
@@ -32,6 +33,8 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
         //fetchRequest = coreDataStack.model.f
         //fetchAndReload()
         getArray()
+        //getFavorite()
+        //println(pictures.count)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -88,6 +91,28 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
         feedArray = context.executeFetchRequest(request, error: nil)!
         println(feedArray)
     }
+
+    func getFavorite() {
+        var fetchRequest = NSFetchRequest(entityName: "Home")
+        let sortDescriptor = NSSortDescriptor(key: "image", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        let predicate = NSPredicate(format: "home.pictures == %@", "picture")
+        fetchRequest.predicate = predicate
+
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+
+            var e: NSError?
+            var result = fetchResultController.performFetch(&e)
+            pictures = fetchResultController.fetchedObjects as [Picture]
+
+            if result != true {
+                println(e?.localizedDescription)
+            }
+        }
+    }
+
 
     @IBAction func unwindToImages(sender: UIStoryboardSegue) {
         
