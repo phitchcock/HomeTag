@@ -18,8 +18,6 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
     var feedArray: [AnyObject] = []
     var picture: Picture!
     var fetchResultController:NSFetchedResultsController!
-    //var pictures: [Picture] = []
-    //var fetchResultController:NSFetchedResultsController!
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -32,15 +30,17 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
         //getData()
         //fetchRequest = coreDataStack.model.f
         //fetchAndReload()
-        getArray()
-        //getFavorite()
+        //getArray()
+        getFavorite()
         //println(pictures.count)
     }
 
     override func viewDidAppear(animated: Bool) {
-        collectionView.reloadData()
+        getFavorite()
+        //collectionView.reloadData()
         println(home.streetName)
         println(home.pictures.count)
+        println(pictures.count)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,10 +55,9 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: ImageCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as ImageCollectionViewCell
-        //let p = picture.home[indexPath.row]
-        //let thisItem = feedArray[indexPath.row]
+        let picture = pictures[indexPath.row]
         
-        cell.imageView.image = UIImage(named: "heartColor")
+        cell.imageView.image = UIImage(data: picture.image)
         return cell
     }
 
@@ -93,11 +92,11 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
     }
 
     func getFavorite() {
-        var fetchRequest = NSFetchRequest(entityName: "Home")
+        var fetchRequest = NSFetchRequest(entityName: "Picture")
         let sortDescriptor = NSSortDescriptor(key: "image", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        let predicate = NSPredicate(format: "home.pictures == %@", "picture")
-        fetchRequest.predicate = predicate
+        //let predicate = NSPredicate(format: "home.pictures == %@", "picture")
+        //fetchRequest.predicate = predicate
 
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -111,6 +110,7 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
                 println(e?.localizedDescription)
             }
         }
+        collectionView.reloadData()
     }
 
 
@@ -129,20 +129,20 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
             destinationController.home = home
         }
     }
-    /*
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        println("\(indexPath)")
     }
-    */
+
 
     // MARK: UICollectionViewDelegate
 
-    /*
+
     // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    */
+
 
     /*
     // Uncomment this method to specify if the specified item should be selected

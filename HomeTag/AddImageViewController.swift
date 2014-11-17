@@ -29,6 +29,7 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
 
     @IBAction func saveImage(sender: AnyObject) {
         saveImage()
+        
     }
 
     @IBAction func grabImage(sender: AnyObject) {

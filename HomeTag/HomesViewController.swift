@@ -214,6 +214,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
         var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
                 let homeToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
+                //let imagesToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
                 managedObjectContext.deleteObject(homeToDelete)
 
                 var e: NSError?
