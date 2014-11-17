@@ -1,8 +1,8 @@
 //
-//  LocationTableViewController.swift
+//  LocationViewController.swift
 //  HomeTag
 //
-//  Created by Peter Hitchcock on 11/3/14.
+//  Created by Peter Hitchcock on 11/17/14.
 //  Copyright (c) 2014 Peter Hitchcock. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 import QuartzCore
 
-class LocationViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class LocationViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIScrollViewDelegate {
 
     var home: Home!
     let locationManager = CLLocationManager()
@@ -29,10 +29,14 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var scrollView: UIScrollView!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+
         //addressTextField.setValue(UIColor.whiteColor(), forKey: "_placeholderLabel.textColor")
         //addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
         //addressTextField.layer.borderWidth = 1.0
@@ -85,7 +89,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             showLocationServicesDeniedAlert()
             return
         }
-        
+
         if updatingLocation {
             stopLocationManager()
 
@@ -234,7 +238,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         if updatingLocation {
             locationButton.setTitle("Searching...", forState: UIControlState.Normal)
         } else {
-           locationButton.setTitle("Get Location", forState: UIControlState.Normal)
+            locationButton.setTitle("Get Location", forState: UIControlState.Normal)
             messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
         }
     }
@@ -247,8 +251,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as Home
             home.streetName = addressTextField.text
-            home.image = UIImageJPEGRepresentation(imageView.image, 1.0)
-            home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
+            home.image = UIImageJPEGRepresentation(imageView.image, 0.1)
+            //home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
             home.note = "Add Notes"
             home.isFavorite = false
             home.tag = "Tagged"
@@ -261,18 +265,20 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
                 return
             }
         }
-        
+
     }
 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+
         imageView.image = image
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
 
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     @IBAction func takePhoto(sender: AnyObject) {
+
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             let imagePicker = UIImagePickerController()
             imagePicker.allowsEditing = false
@@ -290,7 +296,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             self.presentViewController(imagePicker, animated: true, completion: nil)
 
         }
+
     }
+
+
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSegue" {
@@ -324,10 +333,12 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         cancelButton.enabled = true
         cancelButton.title = "Cancel"
     }
-
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         addressTextField.resignFirstResponder()
         return true
     }
-
+    
+  
+    
 }

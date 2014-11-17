@@ -70,7 +70,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     // MARK: - @IBActions
     @IBAction func saveAction(sender: AnyObject) {
         saveHome()
-        saveImage()
+        //saveImage()
         saveTag()
         addressTextField.endEditing(true)
         tagTextField.endEditing(true)
@@ -184,8 +184,8 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     func saveImage() {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             if home != nil {
-                home.image = UIImageJPEGRepresentation(imageView.image, 1.0)
-                home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
+                home.image = UIImageJPEGRepresentation(imageView.image, 0.1)
+                //home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
             }
 
             var e: NSError?
@@ -225,7 +225,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
-            selectImage()
+            //selectImage()
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }

@@ -74,7 +74,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if homes.count == 0 {
 
-            var imageNotification = UIImage(named: "add-image.png")
+            var imageNotification = UIImage(named: "plus.png")
             var imageView = UIImageView(image: imageNotification)
             
             imageView.backgroundColor = UIColor(red: 0.102, green: 0.129, blue: 0.141, alpha: 1.0)
@@ -104,7 +104,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
             let home = homes[indexPath.row]
             cell.addressLabel.text = home.streetName
             cell.tagLabel.text = home.tag
-            cell.homeImageView.image = UIImage(data: home.thumbNail)
+            cell.homeImageView.image = UIImage(data: home.image)
             cell.homeImageView.clipsToBounds = true
             cell.favoriteImageView.hidden = !home.isFavorite.boolValue
             return cell
@@ -113,7 +113,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
             let favorite = favorites[indexPath.row]
             cell.addressLabel.text = favorite.streetName
             cell.tagLabel.text = favorite.tag
-            cell.homeImageView.image = UIImage(data: favorite.thumbNail)
+            cell.homeImageView.image = UIImage(data: favorite.image)
             cell.homeImageView.clipsToBounds = true
             cell.favoriteImageView.hidden = !favorite.isFavorite.boolValue
             return cell
@@ -222,6 +222,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
                     println("delete error: \(e!.localizedDescription)")
                 }
             }
+            
         })
         shareAction.backgroundColor = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
 

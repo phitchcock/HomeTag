@@ -29,7 +29,7 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
 
     @IBAction func saveImage(sender: AnyObject) {
         saveImage()
-        
+    
     }
 
     @IBAction func grabImage(sender: AnyObject) {
@@ -58,7 +58,7 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             let entityDescription = NSEntityDescription.entityForName("Picture", inManagedObjectContext: managedObjectContext)
             let picture = Picture(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-            picture.image = UIImagePNGRepresentation(imageView.image)
+            picture.image = UIImageJPEGRepresentation(imageView.image, 0.1)
 
             var pictures = home.pictures.mutableCopy() as NSMutableSet
             pictures.addObject(picture)
