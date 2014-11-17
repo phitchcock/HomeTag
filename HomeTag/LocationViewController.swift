@@ -329,4 +329,5 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         addressTextField.resignFirstResponder()
         return true
     }
+
 }

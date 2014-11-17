@@ -24,6 +24,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     @IBOutlet weak var tagTextField: UITextField!
     @IBOutlet weak var smsButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var addressLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -278,6 +279,11 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         updateButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         updateButton.enabled = true
         updateButton.title = "Done"
+        addressLabel.text = "Update Address"
+    }
+
+    func textFieldDidEndEditing(textField: UITextField) {
+        addressLabel.text = "Address"
     }
 
     func setSaveButton() {
