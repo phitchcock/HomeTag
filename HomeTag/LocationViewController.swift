@@ -35,7 +35,14 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let hasViewedWalkthrough = defaults.boolForKey("hasViewedWalkthrough")
+
+        if hasViewedWalkthrough == false {
+            if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
+                self.presentViewController(pageViewController, animated: true, completion: nil)
+            }
+        }
 
         //addressTextField.setValue(UIColor.whiteColor(), forKey: "_placeholderLabel.textColor")
         //addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
@@ -66,7 +73,39 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             var cancelAction = UIAlertAction(title: "Got It", style: UIAlertActionStyle.Cancel, handler: nil)
             alert.addAction(cancelAction)
             presentViewController(alert, animated: true, completion: nil)
-        } else {
+        }
+        else if imageView.image == UIImage(named: "plus") {
+            let shareMenu = UIAlertController(title: nil, message: "Please add a Picture", preferredStyle: .ActionSheet)
+            let cameraAction = UIAlertAction(title: "Take Picture", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+                if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.allowsEditing = false
+                    imagePicker.sourceType = .Camera
+                    imagePicker.delegate = self
+
+                    self.presentViewController(imagePicker, animated: true, completion: nil)
+                }
+            })
+            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+                if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.allowsEditing = false
+                    imagePicker.sourceType = .PhotoLibrary
+                    imagePicker.delegate = self
+
+                    self.presentViewController(imagePicker, animated: true, completion: nil)
+                }
+            })
+
+
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+            //shareMenu.addAction(isFavoriteAction)
+            shareMenu.addAction(cameraAction)
+            shareMenu.addAction(photoLibraryAction)
+            shareMenu.addAction(cancelAction)
+            
+            self.presentViewController(shareMenu, animated: true, completion: nil)        } else {
             saveHome()
             resetTagHome()
             tabBarController?.selectedIndex = 0
