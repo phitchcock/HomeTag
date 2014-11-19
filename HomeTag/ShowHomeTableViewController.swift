@@ -322,7 +322,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func selectImage() {
+    @IBAction func selectImage(sender: AnyObject) {
         let shareMenu = UIAlertController(title: nil, message: "Take Picture", preferredStyle: .ActionSheet)
         let cameraAction = UIAlertAction(title: "Take Picture", style: .Default, handler: { (action:UIAlertAction!) -> Void in
             if UIImagePickerController.isSourceTypeAvailable(.Camera) {
