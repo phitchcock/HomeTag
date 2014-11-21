@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MessageUI
 
-class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
+class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -25,6 +25,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     @IBOutlet weak var smsButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var tagLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +39,15 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         //tagTextField.layer.borderWidth = 1.0
         
         tableView.rowHeight = 44
-        addressTextField.text = home.streetName
-        tagTextField.text = home.tag
+        addressLabel.text = home.streetName
+        tagLabel.text = home.tag
+        imageView.layer.cornerRadius = 50.0
+        imageView.clipsToBounds = true
         imageView.image = UIImage(data: home.image)
         tableView.tableFooterView = UIView(frame: CGRectZero)
-        addressTextField.delegate = self
-        tagTextField.delegate = self
-        updateButton.title = ""
-        updateButton.enabled = false
-        updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        //updateButton.title = ""
+        //updateButton.enabled = false
+        //updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
 
         //var imageViewObject = UIImageView()
         //imageViewObject.image = UIImage(named: "splash.jpg")
@@ -57,10 +58,10 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
     }
 
-    override func viewDidAppear(animated: Bool) {
-        //buttonState()
-        addressTextField.resignFirstResponder()
-        tagTextField.resignFirstResponder()
+    override func viewWillAppear(animated: Bool) {
+        addressLabel.text = home.streetName
+        tagLabel.text = home.tag
+        imageView.image = UIImage(data: home.image)
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,14 +70,14 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
     // MARK: - @IBActions
     @IBAction func saveAction(sender: AnyObject) {
-        saveHome()
+        //saveHome()
         //saveImage()
-        saveTag()
-        addressTextField.endEditing(true)
-        tagTextField.endEditing(true)
-        updateButton.title = ""
-        updateButton.enabled = false
-        updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        //saveTag()
+        //addressTextField.endEditing(true)
+        //tagTextField.endEditing(true)
+        //updateButton.title = ""
+        //updateButton.enabled = false
+        //updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
 
     }
 
@@ -107,7 +108,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
             composer.navigationBar.tintColor = UIColor.whiteColor()
             composer.setSubject("Check Out this Home!")
 
-            var text = addressTextField.text
+            var text = home.streetName
             var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
 
 
@@ -126,7 +127,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     @IBAction func sendSMS(sender: AnyObject) {
         if MFMessageComposeViewController.canSendText() {
             var composer = MFMessageComposeViewController()
-            var text = addressTextField.text
+            var text = home.streetName
             var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
             composer.messageComposeDelegate = self
             composer.navigationBar.tintColor = UIColor.whiteColor()
@@ -153,53 +154,10 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
     }
 
-    func saveHome() {
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
-            if home != nil {
-                home.streetName = addressTextField.text
-            }
-
-            var e: NSError?
-            if managedObjectContext.save(&e) != true {
-                println("insert error: \(e!.localizedDescription)")
-                return
-            }
-        }
-    }
-
     func saveFavorite() {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             if home != nil {
                 home.isFavorite = isFavorite
-            }
-
-            var e: NSError?
-            if managedObjectContext.save(&e) != true {
-                println("insert error: \(e!.localizedDescription)")
-                return
-            }
-        }
-    }
-
-    func saveImage() {
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
-            if home != nil {
-                home.image = UIImageJPEGRepresentation(imageView.image, 0.1)
-                //home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
-            }
-
-            var e: NSError?
-            if managedObjectContext.save(&e) != true {
-                println("insert error: \(e!.localizedDescription)")
-                return
-            }
-        }
-    }
-
-    func saveTag() {
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
-            if home != nil {
-                home.tag = tagTextField.text
             }
 
             var e: NSError?
@@ -222,24 +180,6 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         }
 
     }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 {
-            //selectImage()
-        }
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-
-
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        imageView.image = image
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
-        imageView.clipsToBounds = true
-
-        dismissViewControllerAnimated(true, completion: nil)
-        setSaveButton()
-    }
-
 
     // MARK: - prepareForSegue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -267,29 +207,32 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
             let destinationViewController = segue.destinationViewController as ImagesViewController
             destinationViewController.home = home
         }
+
+        if segue.identifier == "updateSegue" {
+            let destinationViewController = segue.destinationViewController as UpdateHomeViewController
+            destinationViewController.home = home
+        }
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        addressTextField.resignFirstResponder()
-        tagTextField.resignFirstResponder()
-        return true
-    }
 
     func textFieldDidBeginEditing(textField: UITextField) {
-        updateButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
-        updateButton.enabled = true
-        updateButton.title = "Done"
-        addressLabel.text = "Update Address"
+        //updateButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        //updateButton.enabled = true
+        //updateButton.title = "Done"
+        //addressLabel.text = "Update Address"
+        //tagLabel.text = "Update Tag"
+    
     }
 
     func textFieldDidEndEditing(textField: UITextField) {
-        addressLabel.text = "Address"
+        //addressLabel.text = "Address"
+        //tagLabel.text = "Tag"
     }
 
     func setSaveButton() {
-        updateButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
-        updateButton.enabled = true
-        updateButton.title = "Save"
+        //updateButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        //updateButton.enabled = true
+        //updateButton.title = "Save"
     }
 
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
@@ -322,40 +265,5 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    @IBAction func selectImage(sender: AnyObject) {
-        let shareMenu = UIAlertController(title: nil, message: "Take Picture", preferredStyle: .ActionSheet)
-        let cameraAction = UIAlertAction(title: "Take Picture", style: .Default, handler: { (action:UIAlertAction!) -> Void in
-            if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .Camera
-                imagePicker.delegate = self
 
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-            }
-        })
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .Default, handler: { (action:UIAlertAction!) -> Void in
-            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .PhotoLibrary
-                imagePicker.delegate = self
-
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-            }
-        })
-        
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        
-        //shareMenu.addAction(isFavoriteAction)
-        shareMenu.addAction(cameraAction)
-        shareMenu.addAction(photoLibraryAction)
-        shareMenu.addAction(cancelAction)
-        
-        self.presentViewController(shareMenu, animated: true, completion: nil)
-        
-    }
-    
-    
 }

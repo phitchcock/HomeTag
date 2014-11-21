@@ -20,7 +20,6 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
         if home != nil {
             println(home.streetName)
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,21 +28,11 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
 
     @IBAction func saveImage(sender: AnyObject) {
         saveImage()
-    
+        navigationController?.popViewControllerAnimated(true)
     }
 
     @IBAction func grabImage(sender: AnyObject) {
         selectImage()
-    }
-
-    func takePic() {
-        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = .PhotoLibrary
-            imagePicker.delegate = self
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
     }
 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
@@ -100,7 +89,6 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
 
-        //shareMenu.addAction(isFavoriteAction)
         shareMenu.addAction(cameraAction)
         shareMenu.addAction(photoLibraryAction)
         shareMenu.addAction(cancelAction)
@@ -108,7 +96,5 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
         self.presentViewController(shareMenu, animated: true, completion: nil)
         
     }
-
-
 
 }

@@ -35,9 +35,8 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
         //println(pictures.count)
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         getFavorite()
-        //collectionView.reloadData()
         println(home.streetName)
         println(home.pictures.count)
         println(pictures.count)
@@ -126,10 +125,7 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
             destinationController.home = home
         }
 
-        if segue.identifier == "popSegue" {
-            let destinationController = segue.destinationViewController as PopViewController
-            destinationController.home = home
-        }
+        
 
         if segue.identifier == "showImage" {
             let destinationController = segue.destinationViewController as ShowImageViewController

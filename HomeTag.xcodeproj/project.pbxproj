@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D02DC4A61A154E5900076B1E /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02DC4A51A154E5900076B1E /* PopViewController.swift */; };
 		D0300E3D1A15443800C66E6C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8D1A116EBE0072B68F /* libz.dylib */; };
 		D03741811A0934F2001AE640 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03741801A0934F2001AE640 /* NotesViewController.swift */; };
 		D04282891A1A90E3000F0981 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04282881A1A90E3000F0981 /* LocationViewController.swift */; };
+		D057E79F1A1FA43F006DC956 /* UpdateHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D057E79E1A1FA43F006DC956 /* UpdateHomeViewController.swift */; };
 		D05AA53B1A1D196800A282C4 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA53A1A1D196800A282C4 /* PageContentViewController.swift */; };
 		D05AA53D1A1D1A4200A282C4 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA53C1A1D1A4200A282C4 /* PageViewController.swift */; };
 		D06E7DD41A0415EB00EA81E1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06E7DD31A0415EB00EA81E1 /* MapKit.framework */; };
@@ -51,9 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D02DC4A51A154E5900076B1E /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		D03741801A0934F2001AE640 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		D04282881A1A90E3000F0981 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		D057E79E1A1FA43F006DC956 /* UpdateHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHomeViewController.swift; sourceTree = "<group>"; };
 		D05AA53A1A1D196800A282C4 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		D05AA53C1A1D1A4200A282C4 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		D06E7DD31A0415EB00EA81E1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -137,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D0775DF81A1A92F4002C4684 /* ShowHomeTableViewController.swift */,
+				D057E79E1A1FA43F006DC956 /* UpdateHomeViewController.swift */,
 				D0F48B571A03EF88005003C0 /* HomesViewController.swift */,
 				D0F48B5E1A03F429005003C0 /* HomeCellTableViewCell.swift */,
 			);
@@ -215,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				D0B78FA31A11CA790072B68F /* ImagesViewController.swift */,
-				D02DC4A51A154E5900076B1E /* PopViewController.swift */,
 				D0B78FA51A11CD290072B68F /* ImageCollectionViewCell.swift */,
 				D0B78FA71A11D60B0072B68F /* AddImageViewController.swift */,
 				D0775DFA1A1AABE4002C4684 /* ShowImageViewController.swift */,
@@ -418,9 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D057E79F1A1FA43F006DC956 /* UpdateHomeViewController.swift in Sources */,
 				D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */,
 				D0B78FA81A11D60B0072B68F /* AddImageViewController.swift in Sources */,
-				D02DC4A61A154E5900076B1E /* PopViewController.swift in Sources */,
 				D0F48B581A03EF88005003C0 /* HomesViewController.swift in Sources */,
 				D0B78FA61A11CD290072B68F /* ImageCollectionViewCell.swift in Sources */,
 				D0B78FA21A1188FC0072B68F /* Picture.swift in Sources */,

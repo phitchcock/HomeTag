@@ -18,6 +18,7 @@ class ShowImageViewController: UIViewController {
         super.viewDidLoad()
         //imageView.image = UIImage(data: picture.image)
         // Do any additional setup after loading the view.
+        imageView.image = UIImage(data: picture.image)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -26,9 +27,6 @@ class ShowImageViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-
 }
