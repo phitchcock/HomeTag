@@ -19,6 +19,7 @@
 		D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */; };
 		D0775DF91A1A92F4002C4684 /* ShowHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0775DF81A1A92F4002C4684 /* ShowHomeTableViewController.swift */; };
 		D0775DFB1A1AABE4002C4684 /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0775DFA1A1AABE4002C4684 /* ShowImageViewController.swift */; };
+		D08615591AD87B620083315D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08615581AD87B620083315D /* ProfileViewController.swift */; };
 		D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F771A0EAFE90072B68F /* MappedViewController.swift */; };
 		D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F891A116EA30072B68F /* CoreData.framework */; };
 		D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8B1A116EB40072B68F /* SystemConfiguration.framework */; };
@@ -38,6 +39,32 @@
 		D0F48B4E1A03ED80005003C0 /* HomeTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B4D1A03ED80005003C0 /* HomeTagTests.swift */; };
 		D0F48B581A03EF88005003C0 /* HomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B571A03EF88005003C0 /* HomesViewController.swift */; };
 		D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B5E1A03F429005003C0 /* HomeCellTableViewCell.swift */; };
+		D0F814131AD856FA0098AE71 /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0F814071AD856FA0098AE71 /* Apache License.txt */; };
+		D0F814141AD856FA0098AE71 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F814081AD856FA0098AE71 /* OpenSans-Bold.ttf */; };
+		D0F814151AD856FA0098AE71 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F814091AD856FA0098AE71 /* OpenSans-BoldItalic.ttf */; };
+		D0F814161AD856FA0098AE71 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F8140A1AD856FA0098AE71 /* OpenSans-ExtraBold.ttf */; };
+		D0F814171AD856FA0098AE71 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F8140B1AD856FA0098AE71 /* OpenSans-ExtraBoldItalic.ttf */; };
+		D0F814181AD856FA0098AE71 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F8140C1AD856FA0098AE71 /* OpenSans-Italic.ttf */; };
+		D0F814191AD856FA0098AE71 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F8140D1AD856FA0098AE71 /* OpenSans-Light.ttf */; };
+		D0F8141A1AD856FA0098AE71 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F8140E1AD856FA0098AE71 /* OpenSans-LightItalic.ttf */; };
+		D0F8141B1AD856FA0098AE71 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F8140F1AD856FA0098AE71 /* OpenSans-Regular.ttf */; };
+		D0F8141C1AD856FA0098AE71 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F814101AD856FA0098AE71 /* OpenSans-Semibold.ttf */; };
+		D0F8141D1AD856FA0098AE71 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0F814111AD856FA0098AE71 /* OpenSans-SemiboldItalic.ttf */; };
+		D0F8141E1AD856FA0098AE71 /* open-sans.zip in Resources */ = {isa = PBXBuildFile; fileRef = D0F814121AD856FA0098AE71 /* open-sans.zip */; };
+		D0F814211AD859E40098AE71 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F814201AD859E40098AE71 /* LandingViewController.swift */; };
+		D0F814231AD859F00098AE71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F814221AD859F00098AE71 /* LoginViewController.swift */; };
+		D0F814251AD859FF0098AE71 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F814241AD859FF0098AE71 /* RegisterViewController.swift */; };
+		D0F814281AD85A5D0098AE71 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F814261AD85A5D0098AE71 /* Bolts.framework */; };
+		D0F814291AD85A5D0098AE71 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F814271AD85A5D0098AE71 /* Parse.framework */; };
+		D0F814321AD85AED0098AE71 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F8142A1AD85AED0098AE71 /* AudioToolbox.framework */; };
+		D0F814331AD85AED0098AE71 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F8142B1AD85AED0098AE71 /* CFNetwork.framework */; };
+		D0F814341AD85AED0098AE71 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F8142C1AD85AED0098AE71 /* CoreGraphics.framework */; };
+		D0F814351AD85AED0098AE71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F8142D1AD85AED0098AE71 /* CoreLocation.framework */; };
+		D0F814361AD85AED0098AE71 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F8142E1AD85AED0098AE71 /* MobileCoreServices.framework */; };
+		D0F814371AD85AED0098AE71 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F8142F1AD85AED0098AE71 /* QuartzCore.framework */; };
+		D0F814381AD85AED0098AE71 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F814301AD85AED0098AE71 /* Security.framework */; };
+		D0F814391AD85AED0098AE71 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F814311AD85AED0098AE71 /* StoreKit.framework */; };
+		D0F8143B1AD85AF80098AE71 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F8143A1AD85AF80098AE71 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +89,7 @@
 		D06E7DDC1A07D72D00EA81E1 /* GoogleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleViewController.swift; sourceTree = "<group>"; };
 		D0775DF81A1A92F4002C4684 /* ShowHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHomeTableViewController.swift; sourceTree = "<group>"; };
 		D0775DFA1A1AABE4002C4684 /* ShowImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
+		D08615581AD87B620083315D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D0B78F771A0EAFE90072B68F /* MappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappedViewController.swift; sourceTree = "<group>"; };
 		D0B78F7F1A116E650072B68F /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		D0B78F801A116E650072B68F /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -99,6 +127,32 @@
 		D0F48B4D1A03ED80005003C0 /* HomeTagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTagTests.swift; sourceTree = "<group>"; };
 		D0F48B571A03EF88005003C0 /* HomesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomesViewController.swift; sourceTree = "<group>"; };
 		D0F48B5E1A03F429005003C0 /* HomeCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellTableViewCell.swift; sourceTree = "<group>"; };
+		D0F814071AD856FA0098AE71 /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
+		D0F814081AD856FA0098AE71 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		D0F814091AD856FA0098AE71 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		D0F8140A1AD856FA0098AE71 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		D0F8140B1AD856FA0098AE71 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		D0F8140C1AD856FA0098AE71 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		D0F8140D1AD856FA0098AE71 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		D0F8140E1AD856FA0098AE71 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		D0F8140F1AD856FA0098AE71 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		D0F814101AD856FA0098AE71 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		D0F814111AD856FA0098AE71 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		D0F814121AD856FA0098AE71 /* open-sans.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "open-sans.zip"; sourceTree = "<group>"; };
+		D0F814201AD859E40098AE71 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		D0F814221AD859F00098AE71 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D0F814241AD859FF0098AE71 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D0F814261AD85A5D0098AE71 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		D0F814271AD85A5D0098AE71 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D0F8142A1AD85AED0098AE71 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D0F8142B1AD85AED0098AE71 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D0F8142C1AD85AED0098AE71 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D0F8142D1AD85AED0098AE71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D0F8142E1AD85AED0098AE71 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D0F8142F1AD85AED0098AE71 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D0F814301AD85AED0098AE71 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D0F814311AD85AED0098AE71 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D0F8143A1AD85AF80098AE71 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +160,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F8143B1AD85AF80098AE71 /* libsqlite3.dylib in Frameworks */,
+				D0F814321AD85AED0098AE71 /* AudioToolbox.framework in Frameworks */,
+				D0F814331AD85AED0098AE71 /* CFNetwork.framework in Frameworks */,
+				D0F814341AD85AED0098AE71 /* CoreGraphics.framework in Frameworks */,
+				D0F814351AD85AED0098AE71 /* CoreLocation.framework in Frameworks */,
+				D0F814361AD85AED0098AE71 /* MobileCoreServices.framework in Frameworks */,
+				D0F814371AD85AED0098AE71 /* QuartzCore.framework in Frameworks */,
+				D0F814381AD85AED0098AE71 /* Security.framework in Frameworks */,
+				D0F814391AD85AED0098AE71 /* StoreKit.framework in Frameworks */,
 				D0300E3D1A15443800C66E6C /* libz.dylib in Frameworks */,
-				D0B78FAB1A12789E0072B68F /* CloudKit.framework in Frameworks */,
 				D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */,
+				D0B78FAB1A12789E0072B68F /* CloudKit.framework in Frameworks */,
 				D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */,
 				D0B78F941A11747C0072B68F /* libGoogleAnalyticsServices.a in Frameworks */,
 				D06E7DD41A0415EB00EA81E1 /* MapKit.framework in Frameworks */,
+				D0F814291AD85A5D0098AE71 /* Parse.framework in Frameworks */,
+				D0F814281AD85A5D0098AE71 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +235,14 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
+		D08615571AD87B4E0083315D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D08615581AD87B620083315D /* ProfileViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		D0A5A9F61A09C2010047F157 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +275,17 @@
 		D0B78F951A1175420072B68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0F8143A1AD85AF80098AE71 /* libsqlite3.dylib */,
+				D0F8142A1AD85AED0098AE71 /* AudioToolbox.framework */,
+				D0F8142B1AD85AED0098AE71 /* CFNetwork.framework */,
+				D0F8142C1AD85AED0098AE71 /* CoreGraphics.framework */,
+				D0F8142D1AD85AED0098AE71 /* CoreLocation.framework */,
+				D0F8142E1AD85AED0098AE71 /* MobileCoreServices.framework */,
+				D0F8142F1AD85AED0098AE71 /* QuartzCore.framework */,
+				D0F814301AD85AED0098AE71 /* Security.framework */,
+				D0F814311AD85AED0098AE71 /* StoreKit.framework */,
+				D0F814261AD85A5D0098AE71 /* Bolts.framework */,
+				D0F814271AD85A5D0098AE71 /* Parse.framework */,
 				D0B78FAA1A12789E0072B68F /* CloudKit.framework */,
 				D0B78F961A1177910072B68F /* libAdIdAccess.a */,
 				D0B78F931A11747C0072B68F /* libGoogleAnalyticsServices.a */,
@@ -235,6 +319,7 @@
 		D0F48B261A03ED7F005003C0 = {
 			isa = PBXGroup;
 			children = (
+				D0F814051AD856FA0098AE71 /* fonts */,
 				D0B78F951A1175420072B68F /* Frameworks */,
 				D0F48B311A03ED7F005003C0 /* HomeTag */,
 				D0F48B4A1A03ED80005003C0 /* HomeTagTests */,
@@ -254,6 +339,7 @@
 		D0F48B311A03ED7F005003C0 /* HomeTag */ = {
 			isa = PBXGroup;
 			children = (
+				D0F8141F1AD859CA0098AE71 /* Parse */,
 				D0B78F7E1A116E650072B68F /* Library */,
 				D0B78FA91A1278890072B68F /* HomeTag.entitlements */,
 				D0F48B341A03ED7F005003C0 /* AppDelegate.swift */,
@@ -298,6 +384,7 @@
 		D0F48B5B1A03EFA3005003C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D08615571AD87B4E0083315D /* Profile */,
 				D0B78F981A1184BC0072B68F /* Images */,
 				D0C6BE641A0AA6260059E400 /* Pages */,
 				D037417F1A0934E3001AE640 /* Note */,
@@ -307,6 +394,43 @@
 				D06E7DD51A0416B700EA81E1 /* Home */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D0F814051AD856FA0098AE71 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D0F814061AD856FA0098AE71 /* open-sans */,
+				D0F814121AD856FA0098AE71 /* open-sans.zip */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		D0F814061AD856FA0098AE71 /* open-sans */ = {
+			isa = PBXGroup;
+			children = (
+				D0F814071AD856FA0098AE71 /* Apache License.txt */,
+				D0F814081AD856FA0098AE71 /* OpenSans-Bold.ttf */,
+				D0F814091AD856FA0098AE71 /* OpenSans-BoldItalic.ttf */,
+				D0F8140A1AD856FA0098AE71 /* OpenSans-ExtraBold.ttf */,
+				D0F8140B1AD856FA0098AE71 /* OpenSans-ExtraBoldItalic.ttf */,
+				D0F8140C1AD856FA0098AE71 /* OpenSans-Italic.ttf */,
+				D0F8140D1AD856FA0098AE71 /* OpenSans-Light.ttf */,
+				D0F8140E1AD856FA0098AE71 /* OpenSans-LightItalic.ttf */,
+				D0F8140F1AD856FA0098AE71 /* OpenSans-Regular.ttf */,
+				D0F814101AD856FA0098AE71 /* OpenSans-Semibold.ttf */,
+				D0F814111AD856FA0098AE71 /* OpenSans-SemiboldItalic.ttf */,
+			);
+			path = "open-sans";
+			sourceTree = "<group>";
+		};
+		D0F8141F1AD859CA0098AE71 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				D0F814201AD859E40098AE71 /* LandingViewController.swift */,
+				D0F814221AD859F00098AE71 /* LoginViewController.swift */,
+				D0F814241AD859FF0098AE71 /* RegisterViewController.swift */,
+			);
+			name = Parse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,9 +522,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F814181AD856FA0098AE71 /* OpenSans-Italic.ttf in Resources */,
+				D0F8141E1AD856FA0098AE71 /* open-sans.zip in Resources */,
+				D0F814151AD856FA0098AE71 /* OpenSans-BoldItalic.ttf in Resources */,
 				D0F48B3D1A03ED7F005003C0 /* Main.storyboard in Resources */,
+				D0F8141C1AD856FA0098AE71 /* OpenSans-Semibold.ttf in Resources */,
+				D0F814161AD856FA0098AE71 /* OpenSans-ExtraBold.ttf in Resources */,
+				D0F814131AD856FA0098AE71 /* Apache License.txt in Resources */,
+				D0F8141A1AD856FA0098AE71 /* OpenSans-LightItalic.ttf in Resources */,
 				D0F48B421A03ED7F005003C0 /* LaunchScreen.xib in Resources */,
+				D0F814141AD856FA0098AE71 /* OpenSans-Bold.ttf in Resources */,
 				D0F48B3F1A03ED7F005003C0 /* Images.xcassets in Resources */,
+				D0F8141D1AD856FA0098AE71 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				D0F814191AD856FA0098AE71 /* OpenSans-Light.ttf in Resources */,
+				D0F8141B1AD856FA0098AE71 /* OpenSans-Regular.ttf in Resources */,
+				D0F814171AD856FA0098AE71 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +556,9 @@
 			files = (
 				D057E79F1A1FA43F006DC956 /* UpdateHomeViewController.swift in Sources */,
 				D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */,
+				D0F814211AD859E40098AE71 /* LandingViewController.swift in Sources */,
+				D0F814251AD859FF0098AE71 /* RegisterViewController.swift in Sources */,
+				D0F814231AD859F00098AE71 /* LoginViewController.swift in Sources */,
 				D0B78FA81A11D60B0072B68F /* AddImageViewController.swift in Sources */,
 				D0F48B581A03EF88005003C0 /* HomesViewController.swift in Sources */,
 				D0B78FA61A11CD290072B68F /* ImageCollectionViewCell.swift in Sources */,
@@ -437,6 +576,7 @@
 				D0B78FA01A1188C50072B68F /* Home.swift in Sources */,
 				D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */,
 				D05AA53B1A1D196800A282C4 /* PageContentViewController.swift in Sources */,
+				D08615591AD87B620083315D /* ProfileViewController.swift in Sources */,
 				D0B78FA41A11CA790072B68F /* ImagesViewController.swift in Sources */,
 				D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */,
 			);
@@ -565,6 +705,10 @@
 				CODE_SIGN_ENTITLEMENTS = HomeTag/HomeTag.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HomeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -587,6 +731,10 @@
 				CODE_SIGN_ENTITLEMENTS = HomeTag/HomeTag.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HomeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

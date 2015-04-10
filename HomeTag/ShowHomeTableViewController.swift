@@ -41,8 +41,8 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         tableView.rowHeight = 44
         addressLabel.text = home.streetName
         tagLabel.text = home.tag
-        imageView.layer.cornerRadius = 50.0
-        imageView.clipsToBounds = true
+        //imageView.layer.cornerRadius = 50.0
+        //imageView.clipsToBounds = true
         imageView.image = UIImage(data: home.image)
         tableView.tableFooterView = UIView(frame: CGRectZero)
         //updateButton.title = ""

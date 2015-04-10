@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 import QuartzCore
+import Parse
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIScrollViewDelegate {
 
@@ -302,6 +303,26 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             if managedObjectContext.save(&e) != true {
                 println("insert error: \(e!.localizedDescription)")
                 return
+            }
+        }
+
+        var parseHome = PFObject(className: "Home")
+        let point = PFGeoPoint(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
+        parseHome["streetName"] = addressTextField.text
+        parseHome["note"] = "Add Notes"
+        parseHome["isFavorite"] = false
+        parseHome["tag"] = "Tagged"
+        parseHome["latitude"] = locationManager.location.coordinate.latitude
+        parseHome["longitude"] = locationManager.location.coordinate.longitude
+        parseHome["location"] = point
+        parseHome["user_id"] = PFUser.currentUser()
+        parseHome.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError!) -> Void in
+            if (success) {
+                // The object has been saved.
+                println("object saved")
+            } else {
+                // There was a problem, check error.description
             }
         }
 

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CloudKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,12 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        UINavigationBar.appearance().barTintColor = UIColor(red: 0.102, green: 0.129, blue: 0.141, alpha: 1.0)
-        UINavigationBar.appearance().tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        Parse.enableLocalDatastore()
+
+        Parse.setApplicationId("UpP3ASvAOH4uLsyNedeGG4NSJWw7klsYreBVZr0I",
+            clientKey: "zMCLeJUi4PDNz2gWNg6j7pu8ndaHkD9JSup4yp0F")
+
+        UINavigationBar.appearance().barTintColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor() //UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         //if let barFont = UIFont(name: "AvenirNextCondensed-DemiBold", size: 22.0) {
             //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(), NSFontAttributeName:barFont]
         //}
-        UITabBar.appearance().tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        UITabBar.appearance().barTintColor = UIColor.whiteColor()
+        UITabBar.appearance().tintColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)//UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         //UITabBar.appearance().barTintColor = UIColor.whiteColor()
 
         //tabBarController.selectedIndex = 1
