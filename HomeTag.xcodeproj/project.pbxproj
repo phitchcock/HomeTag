@@ -20,6 +20,10 @@
 		D0775DF91A1A92F4002C4684 /* ShowHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0775DF81A1A92F4002C4684 /* ShowHomeTableViewController.swift */; };
 		D0775DFB1A1AABE4002C4684 /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0775DFA1A1AABE4002C4684 /* ShowImageViewController.swift */; };
 		D08615591AD87B620083315D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08615581AD87B620083315D /* ProfileViewController.swift */; };
+		D086155C1ADC312B0083315D /* RKDropdownAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D086155B1ADC312B0083315D /* RKDropdownAlert.m */; };
+		D08615611ADC3C640083315D /* MultiplePulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D086155E1ADC3C640083315D /* MultiplePulsingHaloLayer.m */; };
+		D08615621ADC3C640083315D /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D08615601ADC3C640083315D /* PulsingHaloLayer.m */; };
+		D08615671ADC4BF90083315D /* SwiftLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08615661ADC4BF90083315D /* SwiftLoader.swift */; };
 		D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F771A0EAFE90072B68F /* MappedViewController.swift */; };
 		D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F891A116EA30072B68F /* CoreData.framework */; };
 		D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8B1A116EB40072B68F /* SystemConfiguration.framework */; };
@@ -90,6 +94,13 @@
 		D0775DF81A1A92F4002C4684 /* ShowHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHomeTableViewController.swift; sourceTree = "<group>"; };
 		D0775DFA1A1AABE4002C4684 /* ShowImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
 		D08615581AD87B620083315D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D086155A1ADC312B0083315D /* RKDropdownAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKDropdownAlert.h; sourceTree = "<group>"; };
+		D086155B1ADC312B0083315D /* RKDropdownAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKDropdownAlert.m; sourceTree = "<group>"; };
+		D086155D1ADC3C640083315D /* MultiplePulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplePulsingHaloLayer.h; sourceTree = "<group>"; };
+		D086155E1ADC3C640083315D /* MultiplePulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplePulsingHaloLayer.m; sourceTree = "<group>"; };
+		D086155F1ADC3C640083315D /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
+		D08615601ADC3C640083315D /* PulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulsingHaloLayer.m; sourceTree = "<group>"; };
+		D08615661ADC4BF90083315D /* SwiftLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftLoader.swift; sourceTree = "<group>"; };
 		D0B78F771A0EAFE90072B68F /* MappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappedViewController.swift; sourceTree = "<group>"; };
 		D0B78F7F1A116E650072B68F /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		D0B78F801A116E650072B68F /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -243,6 +254,34 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		D08615631ADC3C740083315D /* Dropdown */ = {
+			isa = PBXGroup;
+			children = (
+				D086155A1ADC312B0083315D /* RKDropdownAlert.h */,
+				D086155B1ADC312B0083315D /* RKDropdownAlert.m */,
+			);
+			name = Dropdown;
+			sourceTree = "<group>";
+		};
+		D08615641ADC3D600083315D /* Halo */ = {
+			isa = PBXGroup;
+			children = (
+				D086155D1ADC3C640083315D /* MultiplePulsingHaloLayer.h */,
+				D086155E1ADC3C640083315D /* MultiplePulsingHaloLayer.m */,
+				D086155F1ADC3C640083315D /* PulsingHaloLayer.h */,
+				D08615601ADC3C640083315D /* PulsingHaloLayer.m */,
+			);
+			name = Halo;
+			sourceTree = "<group>";
+		};
+		D08615651ADC4BF90083315D /* SwiftLoader */ = {
+			isa = PBXGroup;
+			children = (
+				D08615661ADC4BF90083315D /* SwiftLoader.swift */,
+			);
+			path = SwiftLoader;
+			sourceTree = "<group>";
+		};
 		D0A5A9F61A09C2010047F157 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +358,9 @@
 		D0F48B261A03ED7F005003C0 = {
 			isa = PBXGroup;
 			children = (
+				D08615651ADC4BF90083315D /* SwiftLoader */,
+				D08615631ADC3C740083315D /* Dropdown */,
+				D08615641ADC3D600083315D /* Halo */,
 				D0F814051AD856FA0098AE71 /* fonts */,
 				D0B78F951A1175420072B68F /* Frameworks */,
 				D0F48B311A03ED7F005003C0 /* HomeTag */,
@@ -554,6 +596,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08615671ADC4BF90083315D /* SwiftLoader.swift in Sources */,
 				D057E79F1A1FA43F006DC956 /* UpdateHomeViewController.swift in Sources */,
 				D06E7DDB1A0436EA00EA81E1 /* WebViewController.swift in Sources */,
 				D0F814211AD859E40098AE71 /* LandingViewController.swift in Sources */,
@@ -566,14 +609,17 @@
 				D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */,
 				D04282891A1A90E3000F0981 /* LocationViewController.swift in Sources */,
 				D0F48B5F1A03F429005003C0 /* HomeCellTableViewCell.swift in Sources */,
+				D08615621ADC3C640083315D /* PulsingHaloLayer.m in Sources */,
 				D03741811A0934F2001AE640 /* NotesViewController.swift in Sources */,
 				D0B78F911A116EDB0072B68F /* Bridge.m in Sources */,
 				D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */,
+				D08615611ADC3C640083315D /* MultiplePulsingHaloLayer.m in Sources */,
 				D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */,
 				D0775DF91A1A92F4002C4684 /* ShowHomeTableViewController.swift in Sources */,
 				D0775DFB1A1AABE4002C4684 /* ShowImageViewController.swift in Sources */,
 				D05AA53D1A1D1A4200A282C4 /* PageViewController.swift in Sources */,
 				D0B78FA01A1188C50072B68F /* Home.swift in Sources */,
+				D086155C1ADC312B0083315D /* RKDropdownAlert.m in Sources */,
 				D06E7DD81A0416DA00EA81E1 /* MapViewController.swift in Sources */,
 				D05AA53B1A1D196800A282C4 /* PageContentViewController.swift in Sources */,
 				D08615591AD87B620083315D /* ProfileViewController.swift in Sources */,

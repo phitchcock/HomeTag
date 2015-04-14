@@ -16,7 +16,6 @@ class LandingViewController: UIViewController {
     }
 
     @IBAction func unwind(segue: UIStoryboardSegue) {
-
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

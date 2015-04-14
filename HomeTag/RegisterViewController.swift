@@ -19,9 +19,9 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,19 +41,36 @@ class RegisterViewController: UIViewController {
         var user = PFUser()
         user.username = usernameTextField.text
         user.password = passwordTextField.text
-        user.email = emailTextField.text
+        user.email = emailTextField.text.lowercaseString
         // other fields can be set just like with PFObject
         //user["phone"] = "415-392-0202"
+
+        var config: SwiftLoader.Config = SwiftLoader.Config()
+        config.size = 150
+        config.spinnerColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
+        config.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60)
+        config.titleTextColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
+        config.spinnerLineWidth = 1
+
+        SwiftLoader.setConfig(config)
+        SwiftLoader.show(title: "Trying to signup...", animated: true)
 
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool!, error: NSError!) -> Void in
             if error == nil {
+                SwiftLoader.hide()
                 // Hooray! Let them use the app now.
                 //prepareForSegue("what", sender: self)
-                self.performSegueWithIdentifier("registerSegue", sender: self)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("registerSegue", sender: self)
+                }
+
             } else {
-                //let errorString = error.userInfo["error"] as String
-                // Show the errorString somewhere and let the user try again.
+                SwiftLoader.hide()
+                //let errorString = error.userInfo[""] as String
+                if let message: AnyObject = error!.userInfo!["error"] {
+                    RKDropdownAlert.title("ERROR", message: "\(message)".capitalizedString, backgroundColor: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60), textColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0))
+                }
             }
         }
     }

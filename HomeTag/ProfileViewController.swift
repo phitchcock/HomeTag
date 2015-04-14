@@ -7,18 +7,17 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var centerImageView: UIImageView!
+
+    @IBOutlet weak var profileImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        centerImageView.layer.borderWidth = 1
-        centerImageView.clipsToBounds = true
-        centerImageView.layer.borderColor = UIColor.whiteColor().CGColor
-        centerImageView.layer.cornerRadius = centerImageView.frame.size.height / 2
+    
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +25,13 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func signOut(sender: UIBarButtonItem) {
+        PFUser.logOut()
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LandingViewController") as UIViewController
+        presentViewController(vc, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

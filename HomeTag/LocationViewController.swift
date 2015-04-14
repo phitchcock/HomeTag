@@ -23,6 +23,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     var placemark: CLPlacemark?
     var performingReverseGeocoding = false
     var lastGeocodingError: NSError?
+    var halo = PulsingHaloLayer()
+    var config: SwiftLoader.Config = SwiftLoader.Config()
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -36,6 +38,18 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        config.size = 150
+        config.spinnerColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
+        config.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60)
+        config.titleTextColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
+        config.spinnerLineWidth = 1
+
+        SwiftLoader.setConfig(config)
+
+//        halo.position = view.center
+//        halo.radius = 240.0
+//        view.layer.addSublayer(halo)
+
         let defaults = NSUserDefaults.standardUserDefaults()
         let hasViewedWalkthrough = defaults.boolForKey("hasViewedWalkthrough")
 
@@ -44,6 +58,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
                 self.presentViewController(pageViewController, animated: true, completion: nil)
             }
         }
+
+
+
+
 
         //addressTextField.setValue(UIColor.whiteColor(), forKey: "_placeholderLabel.textColor")
         //addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
@@ -64,18 +82,24 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         //configureGetLocationButton()
     }
 
+    override func viewWillAppear(animated: Bool) {
+           }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
     @IBAction func saveHome(sender: AnyObject) {
         if addressTextField.text == "" {
-            var alert = UIAlertController(title: "Hold On!", message: "Please Enter Address or Tap Get Location", preferredStyle: UIAlertControllerStyle.Alert)
-            var cancelAction = UIAlertAction(title: "Got It", style: UIAlertActionStyle.Cancel, handler: nil)
-            alert.addAction(cancelAction)
-            presentViewController(alert, animated: true, completion: nil)
+
+            RKDropdownAlert.title("Hold On!", message: "Please Enter Address or Tap Get Location", backgroundColor: UIColor(red: 255/255, green: 128/255, blue: 0/255, alpha: 1.0), textColor: UIColor.whiteColor())
+
+//            var alert = UIAlertController(title: "Hold On!", message: "Please Enter Address or Tap Get Location", preferredStyle: UIAlertControllerStyle.Alert)
+//            var cancelAction = UIAlertAction(title: "Got It", style: UIAlertActionStyle.Cancel, handler: nil)
+//            alert.addAction(cancelAction)
+//            presentViewController(alert, animated: true, completion: nil)
         }
-        else if imageView.image == UIImage(named: "plus") {
+        else if imageView.image == UIImage(named: "") {
             let shareMenu = UIAlertController(title: nil, message: "Please add a Picture", preferredStyle: .ActionSheet)
             let cameraAction = UIAlertAction(title: "Take Picture", style: .Default, handler: { (action:UIAlertAction!) -> Void in
                 if UIImagePickerController.isSourceTypeAvailable(.Camera) {
@@ -119,21 +143,44 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     }
 
     @IBAction func getLocation(sender: AnyObject) {
+
+
+//        var config: SwiftLoader.Config = SwiftLoader.Config()
+//        config.size = 150
+//        config.spinnerColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
+//        config.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60)
+//        config.titleTextColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
+//        config.spinnerLineWidth = 1
+//
+//        SwiftLoader.setConfig(config)
+//        SwiftLoader.show(title: "Finding Location...", animated: true)
+
+
+//        var halo = PulsingHaloLayer()
+//        halo.position = view.center
+//        halo.radius = 240.0
+//        view.layer.addSublayer(halo)
+//        halo.repeatCount = 3.0
+
         let authStatus: CLAuthorizationStatus = CLLocationManager.authorizationStatus()
         if authStatus == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
+            SwiftLoader.hide()
             return
         }
 
         if authStatus == .Denied || authStatus == .Restricted {
             showLocationServicesDeniedAlert()
+            SwiftLoader.hide()
             return
         }
 
         if updatingLocation {
+
             stopLocationManager()
 
         } else {
+            //SwiftLoader.hide()
             location = nil
             lastLocationError = nil
             placemark = nil
@@ -210,47 +257,63 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable location services for this app in Settings", preferredStyle: .Alert)
         let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
 
+        //alert.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60)
+
+        //alert.view.tintColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
+
         alert.addAction(okAction)
 
         presentViewController(alert, animated: true, completion: nil)
     }
 
     func updateLabels() {
+
+
+
+
         if let location = location {
             if let placemark = placemark {
                 addressTextField.text = stringFromPlacemark(placemark)
             }
             else if performingReverseGeocoding {
                 messageLabel.text = "Searching for Address..."
+                SwiftLoader.show(title: "Searching for Address...", animated: true)
+
             }
             else if lastGeocodingError != nil {
                 messageLabel.text = "Error Finding Address"
 
+
             } else {
                 messageLabel.text = "Reverse GEOLocating..."
-            }
+                            }
 
         } else {
             addressTextField.text = ""
             messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
+            //SwiftLoader.hide()
 
             var statusMessage: String
             if let error = lastLocationError {
                 if error.domain == kCLErrorDomain && error.code == CLError.Denied.rawValue {
                     statusMessage = "Location Services Disabled"
+                    //SwiftLoader.hide()
 
                 } else {
                     statusMessage = "Error Getting Location"
+                    //SwiftLoader.hide()
                 }
             }
             else if !CLLocationManager.locationServicesEnabled() {
                 statusMessage = "Location Services Disabled"
+                //SwiftLoader.hide()
             }
             else if updatingLocation {
                 statusMessage = "Searching..."
 
             } else {
                 statusMessage = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
+                //SwiftLoader.hide()
             }
 
             messageLabel.text = statusMessage
@@ -263,6 +326,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
+
         }
     }
 
@@ -271,15 +335,28 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             locationManager.stopUpdatingLocation()
             locationManager.delegate = nil
             updatingLocation = false
+
         }
     }
 
     func configureGetLocationButton() {
+
+
         if updatingLocation {
             locationButton.setTitle("Searching...", forState: UIControlState.Normal)
+
+            SwiftLoader.show(title: "Searching for Address...", animated: true)
+
+
+
         } else {
             locationButton.setTitle("Get Location", forState: UIControlState.Normal)
             messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
+            RKDropdownAlert.title("Address Search Completed!", message: "Address search has completed. If incorrect address tap Get Location again or enter correct address", backgroundColor: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60), textColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0))
+
+            SwiftLoader.hide()
+            //halo.repeatCount = 0
+
         }
     }
 
@@ -373,7 +450,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         lastLocationError = nil
         placemark = nil
         lastGeocodingError = nil
-        imageView.image = UIImage(named: "plus.png")
+        imageView.image = UIImage(named: "")
         addressTextField.text = ""
         addressTextField.endEditing(true)
         messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"

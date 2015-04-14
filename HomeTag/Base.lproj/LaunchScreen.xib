@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,41 +10,28 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Ly9-C6-fZy">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="asM-49-n9G">
+                    <rect key="frame" x="161" y="113" width="158" height="105"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="105" id="Dvb-YE-jkR"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="ZJa-WC-K3W">
-                    <rect key="frame" x="120" y="120" width="240" height="240"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="Rx9-IZ-aS3">
+                    <rect key="frame" x="215" y="377" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="0Pq-oc-S17"/>
+                        <constraint firstAttribute="height" constant="50" id="uCe-32-8Qa"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="keeping your home search organized" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="440" width="441" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.19215686269999999" green="0.76862745099999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeTag" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="13" width="441" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" red="0.19215686269999999" green="0.76862745099999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.22352941176470587" green="0.24705882352941178" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="-125.5" id="5cJ-9S-tgC"/>
-                <constraint firstAttribute="trailing" secondItem="Ly9-C6-fZy" secondAttribute="trailing" id="BCk-Wf-DGi"/>
-                <constraint firstAttribute="bottom" secondItem="Ly9-C6-fZy" secondAttribute="bottom" id="Eds-HR-PGv"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="ZJa-WC-K3W" secondAttribute="bottom" constant="80" id="FPf-a1-Np8"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="19" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstItem="ZJa-WC-K3W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="120" id="VcI-V6-q3x"/>
-                <constraint firstItem="ZJa-WC-K3W" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="64" id="XCC-Ip-amE"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
-                <constraint firstItem="Ly9-C6-fZy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jph-NJ-HE6"/>
-                <constraint firstItem="Ly9-C6-fZy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qJ1-aW-ifU"/>
-                <constraint firstAttribute="trailing" secondItem="ZJa-WC-K3W" secondAttribute="trailing" constant="120" id="wKq-y6-htX"/>
+                <constraint firstItem="asM-49-n9G" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="161" id="iUH-Cv-KxV"/>
+                <constraint firstItem="asM-49-n9G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="113" id="ip1-ID-DES"/>
+                <constraint firstAttribute="bottom" secondItem="Rx9-IZ-aS3" secondAttribute="bottom" constant="53" id="uuB-KB-uh1"/>
+                <constraint firstAttribute="trailing" secondItem="Rx9-IZ-aS3" secondAttribute="trailing" constant="215" id="vOt-Tg-J2q"/>
+                <constraint firstItem="Rx9-IZ-aS3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="215" id="wZD-Pa-lIX"/>
+                <constraint firstAttribute="trailing" secondItem="asM-49-n9G" secondAttribute="trailing" constant="161" id="zPh-PU-f4x"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -53,7 +39,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Background" width="750" height="1334"/>
-        <image name="plus" width="500" height="500"/>
+        <image name="loading" width="105" height="105"/>
+        <image name="logo-white" width="304" height="211"/>
     </resources>
 </document>
