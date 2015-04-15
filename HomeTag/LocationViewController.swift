@@ -33,12 +33,28 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var enterAddress: UIButton!
+    @IBOutlet weak var blurView: UIView!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        enterAddress.layer.cornerRadius = 5
+        enterAddress.layer.borderWidth = 1
+        enterAddress.layer.borderColor = UIColor.lightGrayColor().CGColor
 
-        config.size = 150
+        locationButton.layer.cornerRadius = 5
+        locationButton.layer.borderWidth = 1
+        locationButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+
+        addressTextField.layer.cornerRadius = 5
+        addressTextField.layer.borderWidth = 1
+        addressTextField.layer.borderColor = UIColor.lightGrayColor().CGColor
+
+        //navigationController?.navigationBar = UIColor.blackColor()
+        title = "Get Location"
+
+        config.size = 100
         config.spinnerColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
         config.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60)
         config.titleTextColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
@@ -61,7 +77,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 
 
 
-
+        addressTextField.attributedPlaceholder = NSAttributedString(string: "Ex. 4000 Clarewood Way Sacramento Ca", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
 
         //addressTextField.setValue(UIColor.whiteColor(), forKey: "_placeholderLabel.textColor")
         //addressTextField.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
@@ -89,6 +105,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         super.didReceiveMemoryWarning()
     }
 
+    @IBAction func enterAddress(sender: UIButton) {
+        addressTextField.userInteractionEnabled = true
+        addressTextField.enabled = true
+    }
+
     @IBAction func saveHome(sender: AnyObject) {
         if addressTextField.text == "" {
 
@@ -99,7 +120,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 //            alert.addAction(cancelAction)
 //            presentViewController(alert, animated: true, completion: nil)
         }
-        else if imageView.image == UIImage(named: "") {
+        else if imageView.image == UIImage(named: "1") || imageView.image == UIImage(named: "") {
+
+            //blurView.backgroundColor = UIColor.clearColor()
+
             let shareMenu = UIAlertController(title: nil, message: "Please add a Picture", preferredStyle: .ActionSheet)
             let cameraAction = UIAlertAction(title: "Take Picture", style: .Default, handler: { (action:UIAlertAction!) -> Void in
                 if UIImagePickerController.isSourceTypeAvailable(.Camera) {
@@ -143,7 +167,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     }
 
     @IBAction func getLocation(sender: AnyObject) {
-
+        addressTextField.enabled = false
+        SwiftLoader.show(title: "Finding Location...", animated: true)
 
 //        var config: SwiftLoader.Config = SwiftLoader.Config()
 //        config.size = 150
@@ -180,7 +205,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             stopLocationManager()
 
         } else {
-            //SwiftLoader.hide()
+            SwiftLoader.hide()
             location = nil
             lastLocationError = nil
             placemark = nil
@@ -189,10 +214,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         }
         updateLabels()
         configureGetLocationButton()
-        saveButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        //saveButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         saveButton.enabled = true
         saveButton.title = "Save"
-        cancelButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        //cancelButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         cancelButton.enabled = true
         cancelButton.title = "Cancel"
 
@@ -277,7 +302,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             }
             else if performingReverseGeocoding {
                 messageLabel.text = "Searching for Address..."
-                SwiftLoader.show(title: "Searching for Address...", animated: true)
+                //SwiftLoader.show(title: "Searching for Address...", animated: true)
 
             }
             else if lastGeocodingError != nil {
@@ -345,16 +370,16 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         if updatingLocation {
             locationButton.setTitle("Searching...", forState: UIControlState.Normal)
 
-            SwiftLoader.show(title: "Searching for Address...", animated: true)
+            //SwiftLoader.show(title: "Searching for Address...", animated: true)
 
 
 
         } else {
             locationButton.setTitle("Get Location", forState: UIControlState.Normal)
             messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
-            RKDropdownAlert.title("Address Search Completed!", message: "Address search has completed. If incorrect address tap Get Location again or enter correct address", backgroundColor: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60), textColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0))
+            RKDropdownAlert.title("Address Search Completed!", message: "Address search has completed. If incorrect address tap Get Location again or enter correct address", backgroundColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0), textColor: UIColor.blackColor())
 
-            SwiftLoader.hide()
+            //SwiftLoader.hide()
             //halo.repeatCount = 0
 
         }
@@ -450,23 +475,23 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         lastLocationError = nil
         placemark = nil
         lastGeocodingError = nil
-        imageView.image = UIImage(named: "")
+        imageView.image = UIImage(named: "1")
         addressTextField.text = ""
         addressTextField.endEditing(true)
         messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
         saveButton.title = ""
         saveButton.enabled = false
-        saveButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        //saveButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
         cancelButton.title = ""
         cancelButton.enabled = false
-        cancelButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        //cancelButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
     }
 
     func textFieldDidBeginEditing(textField: UITextField) {
-        saveButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        //saveButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         saveButton.enabled = true
         saveButton.title = "Save"
-        cancelButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        //cancelButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         cancelButton.enabled = true
         cancelButton.title = "Cancel"
     }

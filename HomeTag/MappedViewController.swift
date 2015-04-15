@@ -52,6 +52,7 @@ class MappedViewController: GAITrackedViewController, MKMapViewDelegate {
                         annotation.title = home.streetName
                         annotation.subtitle = home.tag
                         annotation.coordinate = placemark.location.coordinate
+                        
 
                         self.mapview.showAnnotations([annotation], animated: true)
                         self.mapview.selectAnnotation(annotation, animated: true)
@@ -92,11 +93,11 @@ class MappedViewController: GAITrackedViewController, MKMapViewDelegate {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView.canShowCallout = true
         }
-        /*
+
         let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
-        leftIconView.image = UIImage(data: home.image)
+        leftIconView.image = UIImage(named: "icon")
         annotationView.leftCalloutAccessoryView = leftIconView
-        */
+
         return annotationView
     }
     */

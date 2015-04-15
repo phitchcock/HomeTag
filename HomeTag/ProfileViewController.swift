@@ -11,13 +11,14 @@ import Parse
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
 
-    @IBOutlet weak var profileImageView: UIImageView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
+        imageView.layer.cornerRadius = imageView.frame.size.width / 2
     }
 
     override func didReceiveMemoryWarning() {

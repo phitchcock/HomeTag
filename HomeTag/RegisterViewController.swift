@@ -14,14 +14,19 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var signupButton: UIButton!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        signupButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        signupButton.layer.borderWidth = 1
+        signupButton.layer.cornerRadius = 5
+
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,9 +51,9 @@ class RegisterViewController: UIViewController {
         //user["phone"] = "415-392-0202"
 
         var config: SwiftLoader.Config = SwiftLoader.Config()
-        config.size = 150
+        config.size = 100
         config.spinnerColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
-        config.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60)
+        config.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
         config.titleTextColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
         config.spinnerLineWidth = 1
 
@@ -69,7 +74,7 @@ class RegisterViewController: UIViewController {
                 SwiftLoader.hide()
                 //let errorString = error.userInfo[""] as String
                 if let message: AnyObject = error!.userInfo!["error"] {
-                    RKDropdownAlert.title("ERROR", message: "\(message)".capitalizedString, backgroundColor: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60), textColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0))
+                    RKDropdownAlert.title("ERROR", message: "\(message)".capitalizedString, backgroundColor: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0), textColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0))
                 }
             }
         }

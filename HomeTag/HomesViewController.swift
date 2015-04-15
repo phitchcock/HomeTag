@@ -100,6 +100,8 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as HomeCellTableViewCell
 
+        
+
         if segmentedControl.selectedSegmentIndex == 0 {
             let home = homes[indexPath.row]
             cell.addressLabel.text = home.streetName

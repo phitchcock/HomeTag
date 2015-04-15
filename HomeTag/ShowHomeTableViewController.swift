@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 import MessageUI
+import MapKit
 
-class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
+class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MKMapViewDelegate {
 
     // MARK: - Variables
     var home:Home!
@@ -26,9 +27,11 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //mapView.delegate = self
         //title = home.streetName
         buttonState()
 
@@ -55,6 +58,26 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.separatorColor = UIColor.clearColor()
+
+//        let geoCoder = CLGeocoder()
+//        geoCoder.geocodeAddressString(home.streetName, completionHandler: { placemarks, error in
+//
+//            if error != nil {
+//                println(error)
+//                return
+//            }
+//            if placemarks != nil && placemarks.count > 0 {
+//                let placemark = placemarks[0] as CLPlacemark
+//
+//                let annotation = MKPointAnnotation()
+//                annotation.title = self.home.streetName
+//                //annotation.subtitle = self.home.city
+//                annotation.coordinate = placemark.location.coordinate
+//
+//                self.mapView.showAnnotations([annotation], animated: true)
+//                self.mapView.selectAnnotation(annotation, animated: true)
+//            }
+//        })
 
     }
 

@@ -19,7 +19,7 @@ class MapViewController: GAITrackedViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        title = home.streetName
+        //title = home.streetName
         mapView.showsPointsOfInterest = true
         //mapView.pitchEnabled = true
         mapView.showsUserLocation = true

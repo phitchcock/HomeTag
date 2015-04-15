@@ -24,6 +24,14 @@
 		D08615611ADC3C640083315D /* MultiplePulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D086155E1ADC3C640083315D /* MultiplePulsingHaloLayer.m */; };
 		D08615621ADC3C640083315D /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D08615601ADC3C640083315D /* PulsingHaloLayer.m */; };
 		D08615671ADC4BF90083315D /* SwiftLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08615661ADC4BF90083315D /* SwiftLoader.swift */; };
+		D0AE40491ADDED0600D668CA /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40401ADDED0600D668CA /* Montserrat-Black.otf */; };
+		D0AE404A1ADDED0600D668CA /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40411ADDED0600D668CA /* Montserrat-Bold.otf */; };
+		D0AE404B1ADDED0600D668CA /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40421ADDED0600D668CA /* Montserrat-Hairline.otf */; };
+		D0AE404C1ADDED0600D668CA /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40431ADDED0600D668CA /* Montserrat-Light.otf */; };
+		D0AE404D1ADDED0600D668CA /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40441ADDED0600D668CA /* Montserrat-Regular.otf */; };
+		D0AE404E1ADDED0600D668CA /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40451ADDED0600D668CA /* SIL Open Font License.txt */; };
+		D0AE404F1ADDED0600D668CA /* NixieOne-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40471ADDED0600D668CA /* NixieOne-Regular.otf */; };
+		D0AE40501ADDED0600D668CA /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40481ADDED0600D668CA /* SIL Open Font License.txt */; };
 		D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F771A0EAFE90072B68F /* MappedViewController.swift */; };
 		D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F891A116EA30072B68F /* CoreData.framework */; };
 		D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8B1A116EB40072B68F /* SystemConfiguration.framework */; };
@@ -101,6 +109,14 @@
 		D086155F1ADC3C640083315D /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
 		D08615601ADC3C640083315D /* PulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulsingHaloLayer.m; sourceTree = "<group>"; };
 		D08615661ADC4BF90083315D /* SwiftLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftLoader.swift; sourceTree = "<group>"; };
+		D0AE40401ADDED0600D668CA /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		D0AE40411ADDED0600D668CA /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		D0AE40421ADDED0600D668CA /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		D0AE40431ADDED0600D668CA /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		D0AE40441ADDED0600D668CA /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		D0AE40451ADDED0600D668CA /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		D0AE40471ADDED0600D668CA /* NixieOne-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NixieOne-Regular.otf"; sourceTree = "<group>"; };
+		D0AE40481ADDED0600D668CA /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
 		D0B78F771A0EAFE90072B68F /* MappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappedViewController.swift; sourceTree = "<group>"; };
 		D0B78F7F1A116E650072B68F /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		D0B78F801A116E650072B68F /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -293,6 +309,37 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		D0AE403E1ADDED0600D668CA /* font */ = {
+			isa = PBXGroup;
+			children = (
+				D0AE403F1ADDED0600D668CA /* montserrat */,
+				D0AE40461ADDED0600D668CA /* nixie-one */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		D0AE403F1ADDED0600D668CA /* montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				D0AE40401ADDED0600D668CA /* Montserrat-Black.otf */,
+				D0AE40411ADDED0600D668CA /* Montserrat-Bold.otf */,
+				D0AE40421ADDED0600D668CA /* Montserrat-Hairline.otf */,
+				D0AE40431ADDED0600D668CA /* Montserrat-Light.otf */,
+				D0AE40441ADDED0600D668CA /* Montserrat-Regular.otf */,
+				D0AE40451ADDED0600D668CA /* SIL Open Font License.txt */,
+			);
+			path = montserrat;
+			sourceTree = "<group>";
+		};
+		D0AE40461ADDED0600D668CA /* nixie-one */ = {
+			isa = PBXGroup;
+			children = (
+				D0AE40471ADDED0600D668CA /* NixieOne-Regular.otf */,
+				D0AE40481ADDED0600D668CA /* SIL Open Font License.txt */,
+			);
+			path = "nixie-one";
+			sourceTree = "<group>";
+		};
 		D0B78F7E1A116E650072B68F /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +405,7 @@
 		D0F48B261A03ED7F005003C0 = {
 			isa = PBXGroup;
 			children = (
+				D0AE403E1ADDED0600D668CA /* font */,
 				D08615651ADC4BF90083315D /* SwiftLoader */,
 				D08615631ADC3C740083315D /* Dropdown */,
 				D08615641ADC3D600083315D /* Halo */,
@@ -564,10 +612,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AE404E1ADDED0600D668CA /* SIL Open Font License.txt in Resources */,
+				D0AE404A1ADDED0600D668CA /* Montserrat-Bold.otf in Resources */,
 				D0F814181AD856FA0098AE71 /* OpenSans-Italic.ttf in Resources */,
 				D0F8141E1AD856FA0098AE71 /* open-sans.zip in Resources */,
+				D0AE404D1ADDED0600D668CA /* Montserrat-Regular.otf in Resources */,
 				D0F814151AD856FA0098AE71 /* OpenSans-BoldItalic.ttf in Resources */,
 				D0F48B3D1A03ED7F005003C0 /* Main.storyboard in Resources */,
+				D0AE404C1ADDED0600D668CA /* Montserrat-Light.otf in Resources */,
+				D0AE40491ADDED0600D668CA /* Montserrat-Black.otf in Resources */,
+				D0AE404B1ADDED0600D668CA /* Montserrat-Hairline.otf in Resources */,
 				D0F8141C1AD856FA0098AE71 /* OpenSans-Semibold.ttf in Resources */,
 				D0F814161AD856FA0098AE71 /* OpenSans-ExtraBold.ttf in Resources */,
 				D0F814131AD856FA0098AE71 /* Apache License.txt in Resources */,
@@ -575,6 +629,8 @@
 				D0F48B421A03ED7F005003C0 /* LaunchScreen.xib in Resources */,
 				D0F814141AD856FA0098AE71 /* OpenSans-Bold.ttf in Resources */,
 				D0F48B3F1A03ED7F005003C0 /* Images.xcassets in Resources */,
+				D0AE40501ADDED0600D668CA /* SIL Open Font License.txt in Resources */,
+				D0AE404F1ADDED0600D668CA /* NixieOne-Regular.otf in Resources */,
 				D0F8141D1AD856FA0098AE71 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				D0F814191AD856FA0098AE71 /* OpenSans-Light.ttf in Resources */,
 				D0F8141B1AD856FA0098AE71 /* OpenSans-Regular.ttf in Resources */,
