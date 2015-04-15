@@ -19,10 +19,10 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var showTableView: UITableView!
-    @IBOutlet weak var addressTextField: UITextField!
+
     @IBOutlet weak var favoriteSwitch: UISwitch!
     @IBOutlet weak var updateButton: UIBarButtonItem!
-    @IBOutlet weak var tagTextField: UITextField!
+
     @IBOutlet weak var smsButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
@@ -235,6 +235,10 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
             let destinationViewController = segue.destinationViewController as UpdateHomeViewController
             destinationViewController.home = home
         }
+    }
+
+    @IBAction func unwindShowHome(segue: UIStoryboardSegue) {
+
     }
 
 

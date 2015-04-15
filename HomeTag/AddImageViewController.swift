@@ -14,12 +14,17 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
     var picture: Picture!
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if home != nil {
             println(home.streetName)
         }
+
+        imageButton.layer.cornerRadius = 5
+        imageButton.layer.borderWidth = 1
+        imageButton.layer.borderColor = UIColor.lightGrayColor().CGColor
     }
 
     override func didReceiveMemoryWarning() {

@@ -25,7 +25,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         textView.text = home.note
         doneButton.title = ""
         doneButton.enabled = false
-        doneButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        //doneButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -40,8 +40,9 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         saveHome()
         doneButton.title = ""
         doneButton.enabled = false
-        doneButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
+        //doneButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
         textView.resignFirstResponder()
+        navigationController?.popViewControllerAnimated(true)
     }
 
     // MARK: - CoreData
@@ -59,7 +60,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
     }
     func textViewDidBeginEditing(textView: UITextView) {
         println("touched")
-        doneButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
+        //doneButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
         doneButton.enabled = true 
         doneButton.title = "Done"
     }

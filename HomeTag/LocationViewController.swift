@@ -108,6 +108,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     @IBAction func enterAddress(sender: UIButton) {
         addressTextField.userInteractionEnabled = true
         addressTextField.enabled = true
+        addressTextField.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        addressTextField.becomeFirstResponder()
     }
 
     @IBAction func saveHome(sender: AnyObject) {

@@ -78,4 +78,8 @@ class MapViewController: GAITrackedViewController, MKMapViewDelegate {
         return annotationView
     }
 
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+
 }
