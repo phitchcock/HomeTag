@@ -56,8 +56,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 
         config.size = 100
         config.spinnerColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
-        config.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.60)
-        config.titleTextColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
+        config.backgroundColor = UIColor.whiteColor()
+        config.titleTextColor = UIColor.blackColor()
         config.spinnerLineWidth = 1
 
         SwiftLoader.setConfig(config)
@@ -115,7 +115,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     @IBAction func saveHome(sender: AnyObject) {
         if addressTextField.text == "" {
 
-            RKDropdownAlert.title("Hold On!", message: "Please Enter Address or Tap Get Location", backgroundColor: UIColor(red: 255/255, green: 128/255, blue: 0/255, alpha: 1.0), textColor: UIColor.whiteColor())
+            RKDropdownAlert.title("Hold On!", message: "Please Enter Address or Tap Get Location", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
 
 //            var alert = UIAlertController(title: "Hold On!", message: "Please Enter Address or Tap Get Location", preferredStyle: UIAlertControllerStyle.Alert)
 //            var cancelAction = UIAlertAction(title: "Got It", style: UIAlertActionStyle.Cancel, handler: nil)
@@ -379,7 +379,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         } else {
             locationButton.setTitle("Get Location", forState: UIControlState.Normal)
             messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
-            RKDropdownAlert.title("Address Search Completed!", message: "Address search has completed. If incorrect address tap Get Location again or enter correct address", backgroundColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0), textColor: UIColor.blackColor())
+            RKDropdownAlert.title("SEARCH COMPLETED", message: "Address search has completed. If incorrect address tap Get Location again or enter correct address", backgroundColor: UIColor.whiteColor(), textColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0))
 
             //SwiftLoader.hide()
             //halo.repeatCount = 0
