@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import MessageUI
+import Parse
 
 class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 

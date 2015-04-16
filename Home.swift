@@ -14,7 +14,7 @@ import CoreData
 class Home: NSManagedObject {
 
     @NSManaged var image: NSData
-    @NSManaged var isFavorite: NSNumber
+    @NSManaged var isFavorite: Bool
     @NSManaged var note: String
     @NSManaged var streetName: String
     @NSManaged var tag: String
@@ -22,5 +22,6 @@ class Home: NSManagedObject {
     @NSManaged var pictures: NSSet
     @NSManaged var latitude: NSNumber
     @NSManaged var longitude: NSNumber
+    @NSManaged var objectId: String
 
 }

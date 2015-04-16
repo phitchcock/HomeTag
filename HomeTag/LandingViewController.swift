@@ -29,7 +29,6 @@ class LandingViewController: UIViewController {
 
     @IBAction func unwind(segue: UIStoryboardSegue) {}
 
-
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
@@ -37,6 +36,4 @@ class LandingViewController: UIViewController {
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         view.endEditing(true)
     }
-
-
 }

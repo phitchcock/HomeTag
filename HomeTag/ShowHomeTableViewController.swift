@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import MessageUI
 import MapKit
+import Parse
 
 class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MKMapViewDelegate {
 
@@ -31,6 +32,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         //mapView.delegate = self
         //title = home.streetName
         buttonState()
@@ -85,6 +87,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         addressLabel.text = home.streetName
         tagLabel.text = home.tag
         imageView.image = UIImage(data: home.image)
+        //println("home id: \(home.objectId)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,17 +95,6 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     }
 
     // MARK: - @IBActions
-    @IBAction func saveAction(sender: AnyObject) {
-        //saveHome()
-        //saveImage()
-        //saveTag()
-        //addressTextField.endEditing(true)
-        //tagTextField.endEditing(true)
-        //updateButton.title = ""
-        //updateButton.enabled = false
-        //updateButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
-
-    }
 
     @IBAction func updateIsVisited(sender: AnyObject) {
 
@@ -173,14 +165,37 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         }
     }
 
-    @IBAction func unwindToShowHome(sender: UIStoryboardSegue) {
+    @IBAction func unwindShowHome(segue: UIStoryboardSegue) {
 
     }
 
     func saveFavorite() {
+
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
             if home != nil {
                 home.isFavorite = isFavorite
+                println(self.home.isFavorite)
+                var query = PFQuery(className:"Home")
+                query.getObjectInBackgroundWithId(home.objectId, block: { (parseHome: PFObject!, error: NSError!) -> Void in
+                    if error == nil && parseHome != nil {
+
+                        parseHome["isFavorite"] = self.home.isFavorite
+
+                        parseHome.saveInBackgroundWithBlock {
+                            (success: Bool, error: NSError!) -> Void in
+                            if (success) {
+                                // The object has been saved.
+
+                            } else {
+                                // There was a problem, check error.description
+                            }
+                        }
+                    } else {
+                        println(error)
+                    }
+                })
+                
+
             }
 
             var e: NSError?
@@ -237,30 +252,6 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         }
     }
 
-    @IBAction func unwindShowHome(segue: UIStoryboardSegue) {
-
-    }
-
-
-    func textFieldDidBeginEditing(textField: UITextField) {
-        //updateButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
-        //updateButton.enabled = true
-        //updateButton.title = "Done"
-        //addressLabel.text = "Update Address"
-        //tagLabel.text = "Update Tag"
-    
-    }
-
-    func textFieldDidEndEditing(textField: UITextField) {
-        //addressLabel.text = "Address"
-        //tagLabel.text = "Tag"
-    }
-
-    func setSaveButton() {
-        //updateButton.tintColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0)
-        //updateButton.enabled = true
-        //updateButton.title = "Save"
-    }
 
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         switch result.value {
@@ -291,6 +282,4 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
-
-
 }
