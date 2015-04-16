@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var fbButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +23,12 @@ class LoginViewController: UIViewController {
         loginButton.layer.borderWidth = 1
         loginButton.layer.borderColor = UIColor.lightGrayColor().CGColor
 
+        fbButton.layer.cornerRadius = 5
+        fbButton.layer.borderWidth = 1
+        fbButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -37,23 +38,45 @@ class LoginViewController: UIViewController {
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         view.endEditing(true)
     }
+    
+    @IBAction func fbLogin(sender: UIButton) {
+        let permissions = ["public_profile"]
+        
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, {
+            (user: PFUser!, error: NSError!) -> Void in
+            if let user = user {
+                if user.isNew {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.performSegueWithIdentifier("loginSegue", sender: self)
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.performSegueWithIdentifier("loginSegue", sender: self)
+                    }
+                }
+            } else {
+                println("Uh oh. The user cancelled the Facebook login.")
+            }
+        })
+
+    }
 
     @IBAction func signinAction(sender: AnyObject) {
         var config: SwiftLoader.Config = SwiftLoader.Config()
         config.size = 100
         config.spinnerColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
-        config.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
-        config.titleTextColor = UIColor.whiteColor()
+        config.backgroundColor = UIColor.whiteColor()
+        config.titleTextColor = UIColor.blackColor()
         config.spinnerLineWidth = 1
 
         SwiftLoader.setConfig(config)
-        SwiftLoader.show(title: "Trying to login...", animated: true)
+        SwiftLoader.show(title: "Logging In...", animated: true)
 
         PFUser.logInWithUsernameInBackground(usernameTextField.text, password: passwordTextField.text) {
             (user: PFUser!, error: NSError!) -> Void in
             if user != nil {
                 SwiftLoader.hide()
-                // Do stuff after successful login.
+                
                 dispatch_async(dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("loginSegue", sender: self)
                 }
@@ -62,7 +85,7 @@ class LoginViewController: UIViewController {
                 SwiftLoader.hide()
 
                 if let message: AnyObject = error!.userInfo!["error"] {
-                    RKDropdownAlert.title("ERROR", message: "\(message)".capitalizedString, backgroundColor: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0), textColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0))
+                    RKDropdownAlert.title("ERROR", message: "\(message)".capitalizedString, backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
                 }
             }
         }

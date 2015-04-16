@@ -28,7 +28,7 @@
                                 <constraint firstAttribute="height" constant="68" id="jEm-Ni-5oy"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo5" translatesAutoresizingMaskIntoConstraints="NO" id="nsw-jf-0ec">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeHub" translatesAutoresizingMaskIntoConstraints="NO" id="nsw-jf-0ec">
                             <rect key="frame" x="96" y="128" width="288" height="74"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="74" id="iO9-qb-ZSD"/>
@@ -69,8 +69,8 @@
         </view>
     </objects>
     <resources>
+        <image name="HomeHub" width="560" height="145"/>
         <image name="Loading-1" width="152" height="133"/>
-        <image name="Logo5" width="560" height="145"/>
         <image name="s" width="960" height="540"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

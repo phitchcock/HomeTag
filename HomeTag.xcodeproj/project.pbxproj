@@ -32,6 +32,15 @@
 		D0AE404E1ADDED0600D668CA /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40451ADDED0600D668CA /* SIL Open Font License.txt */; };
 		D0AE404F1ADDED0600D668CA /* NixieOne-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40471ADDED0600D668CA /* NixieOne-Regular.otf */; };
 		D0AE40501ADDED0600D668CA /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40481ADDED0600D668CA /* SIL Open Font License.txt */; };
+		D0AE40541ADF598E00D668CA /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE40511ADF598E00D668CA /* ParseCrashReporting.framework */; };
+		D0AE40561ADF598E00D668CA /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE40531ADF598E00D668CA /* ParseFacebookUtilsV4.framework */; };
+		D0AE405F1ADF5C1C00D668CA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE40591ADF5C1C00D668CA /* FacebookSDK.framework */; };
+		D0AE40601ADF5C1C00D668CA /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE405A1ADF5C1C00D668CA /* FBAudienceNetwork.framework */; };
+		D0AE40611ADF5C1C00D668CA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE405B1ADF5C1C00D668CA /* FBSDKCoreKit.framework */; };
+		D0AE40621ADF5C1C00D668CA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE405C1ADF5C1C00D668CA /* FBSDKLoginKit.framework */; };
+		D0AE40631ADF5C1C00D668CA /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE405D1ADF5C1C00D668CA /* FBSDKMessengerShareKit.framework */; };
+		D0AE40641ADF5C1C00D668CA /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE405E1ADF5C1C00D668CA /* FBSDKShareKit.framework */; };
+		D0AE40661ADF5C1D00D668CA /* FacebookSDK.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0AE40651ADF5C1D00D668CA /* FacebookSDK.strings */; };
 		D0B78F781A0EAFE90072B68F /* MappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78F771A0EAFE90072B68F /* MappedViewController.swift */; };
 		D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F891A116EA30072B68F /* CoreData.framework */; };
 		D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78F8B1A116EB40072B68F /* SystemConfiguration.framework */; };
@@ -117,6 +126,15 @@
 		D0AE40451ADDED0600D668CA /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
 		D0AE40471ADDED0600D668CA /* NixieOne-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NixieOne-Regular.otf"; sourceTree = "<group>"; };
 		D0AE40481ADDED0600D668CA /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		D0AE40511ADF598E00D668CA /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		D0AE40531ADF598E00D668CA /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		D0AE40591ADF5C1C00D668CA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		D0AE405A1ADF5C1C00D668CA /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBAudienceNetwork.framework; sourceTree = "<group>"; };
+		D0AE405B1ADF5C1C00D668CA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D0AE405C1ADF5C1C00D668CA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		D0AE405D1ADF5C1C00D668CA /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		D0AE405E1ADF5C1C00D668CA /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		D0AE40651ADF5C1D00D668CA /* FacebookSDK.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FacebookSDK.strings; sourceTree = "<group>"; };
 		D0B78F771A0EAFE90072B68F /* MappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappedViewController.swift; sourceTree = "<group>"; };
 		D0B78F7F1A116E650072B68F /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		D0B78F801A116E650072B68F /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -188,17 +206,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0F8143B1AD85AF80098AE71 /* libsqlite3.dylib in Frameworks */,
+				D0AE405F1ADF5C1C00D668CA /* FacebookSDK.framework in Frameworks */,
+				D0AE40541ADF598E00D668CA /* ParseCrashReporting.framework in Frameworks */,
+				D0AE40611ADF5C1C00D668CA /* FBSDKCoreKit.framework in Frameworks */,
+				D0AE40631ADF5C1C00D668CA /* FBSDKMessengerShareKit.framework in Frameworks */,
 				D0F814321AD85AED0098AE71 /* AudioToolbox.framework in Frameworks */,
+				D0AE40621ADF5C1C00D668CA /* FBSDKLoginKit.framework in Frameworks */,
 				D0F814331AD85AED0098AE71 /* CFNetwork.framework in Frameworks */,
 				D0F814341AD85AED0098AE71 /* CoreGraphics.framework in Frameworks */,
 				D0F814351AD85AED0098AE71 /* CoreLocation.framework in Frameworks */,
 				D0F814361AD85AED0098AE71 /* MobileCoreServices.framework in Frameworks */,
 				D0F814371AD85AED0098AE71 /* QuartzCore.framework in Frameworks */,
+				D0AE40641ADF5C1C00D668CA /* FBSDKShareKit.framework in Frameworks */,
 				D0F814381AD85AED0098AE71 /* Security.framework in Frameworks */,
 				D0F814391AD85AED0098AE71 /* StoreKit.framework in Frameworks */,
 				D0300E3D1A15443800C66E6C /* libz.dylib in Frameworks */,
+				D0AE40601ADF5C1C00D668CA /* FBAudienceNetwork.framework in Frameworks */,
 				D0B78F8C1A116EB40072B68F /* SystemConfiguration.framework in Frameworks */,
 				D0B78FAB1A12789E0072B68F /* CloudKit.framework in Frameworks */,
+				D0AE40561ADF598E00D668CA /* ParseFacebookUtilsV4.framework in Frameworks */,
 				D0B78F8A1A116EA30072B68F /* CoreData.framework in Frameworks */,
 				D0B78F941A11747C0072B68F /* libGoogleAnalyticsServices.a in Frameworks */,
 				D06E7DD41A0415EB00EA81E1 /* MapKit.framework in Frameworks */,
@@ -361,6 +387,15 @@
 		D0B78F951A1175420072B68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0AE40651ADF5C1D00D668CA /* FacebookSDK.strings */,
+				D0AE40591ADF5C1C00D668CA /* FacebookSDK.framework */,
+				D0AE405A1ADF5C1C00D668CA /* FBAudienceNetwork.framework */,
+				D0AE405B1ADF5C1C00D668CA /* FBSDKCoreKit.framework */,
+				D0AE405C1ADF5C1C00D668CA /* FBSDKLoginKit.framework */,
+				D0AE405D1ADF5C1C00D668CA /* FBSDKMessengerShareKit.framework */,
+				D0AE405E1ADF5C1C00D668CA /* FBSDKShareKit.framework */,
+				D0AE40511ADF598E00D668CA /* ParseCrashReporting.framework */,
+				D0AE40531ADF598E00D668CA /* ParseFacebookUtilsV4.framework */,
 				D0F8143A1AD85AF80098AE71 /* libsqlite3.dylib */,
 				D0F8142A1AD85AED0098AE71 /* AudioToolbox.framework */,
 				D0F8142B1AD85AED0098AE71 /* CFNetwork.framework */,
@@ -619,6 +654,7 @@
 				D0AE404D1ADDED0600D668CA /* Montserrat-Regular.otf in Resources */,
 				D0F814151AD856FA0098AE71 /* OpenSans-BoldItalic.ttf in Resources */,
 				D0F48B3D1A03ED7F005003C0 /* Main.storyboard in Resources */,
+				D0AE40661ADF5C1D00D668CA /* FacebookSDK.strings in Resources */,
 				D0AE404C1ADDED0600D668CA /* Montserrat-Light.otf in Resources */,
 				D0AE40491ADDED0600D668CA /* Montserrat-Black.otf in Resources */,
 				D0AE404B1ADDED0600D668CA /* Montserrat-Hairline.otf in Resources */,

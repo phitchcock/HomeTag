@@ -13,7 +13,6 @@ class LandingViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
-    @IBOutlet weak var facebookButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +25,10 @@ class LandingViewController: UIViewController {
         signupButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         signupButton.layer.borderWidth = 1
 
-        facebookButton.layer.cornerRadius = 5
-        facebookButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-        facebookButton.layer.borderWidth = 1
-
-
     }
 
-    @IBAction func unwind(segue: UIStoryboardSegue) {
-    }
+    @IBAction func unwind(segue: UIStoryboardSegue) {}
+
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
@@ -43,5 +37,6 @@ class LandingViewController: UIViewController {
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         view.endEditing(true)
     }
+
 
 }
