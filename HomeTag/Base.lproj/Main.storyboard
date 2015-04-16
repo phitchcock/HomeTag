@@ -455,6 +455,10 @@
                                 </imageView>
                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGs-cT-DTd">
                                     <rect key="frame" x="263" y="156" width="51" height="31"/>
+                                    <color key="onTintColor" red="0.1764705882" green="0.19215686269999999" blue="0.25490196079999999" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="updateIsVisited:" destination="SFQ-Il-W1R" eventType="valueChanged" id="gpk-m6-bvf"/>
+                                    </connections>
                                 </switch>
                             </subviews>
                             <color key="backgroundColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -475,14 +479,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zdk-Sh-ft4" id="qUu-dr-ukc">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcR-3M-N5M">
-                                                    <rect key="frame" x="8" y="8" width="304" height="17"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="iFF-2x-w0X"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBF-xk-vED">
                                                     <rect key="frame" x="8" y="33" width="304" height="15"/>
                                                     <constraints>
@@ -642,6 +638,14 @@
                                                         <constraint firstItem="SJm-p1-R0f" firstAttribute="top" secondItem="aJO-de-2GM" secondAttribute="bottom" constant="8" id="ybX-da-Jfr"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcR-3M-N5M">
+                                                    <rect key="frame" x="8" y="8" width="304" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="iFF-2x-w0X"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="L6H-hs-cne" firstAttribute="leading" secondItem="qUu-dr-ukc" secondAttribute="leadingMargin" constant="8" id="0Zk-6h-EGD"/>
@@ -1710,7 +1714,7 @@
             </objects>
             <point key="canvasLocation" x="1248" y="1610"/>
         </scene>
-        <!--Dashboard-->
+        <!--Profile-->
         <scene sceneID="Ixw-Hr-9TE">
             <objects>
                 <viewController id="5AJ-G0-vlj" customClass="ProfileViewController" customModule="HomeTag" customModuleProvider="target" sceneMemberID="viewController">
@@ -1751,7 +1755,7 @@
                             <constraint firstItem="elL-tL-LT2" firstAttribute="top" secondItem="xm6-OA-CUm" secondAttribute="bottom" id="hVq-dN-PSL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="Gva-l0-Fg1">
+                    <navigationItem key="navigationItem" title="Profile" id="Gva-l0-Fg1">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="ebo-4G-FXt">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
