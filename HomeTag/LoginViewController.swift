@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -35,15 +35,28 @@ class LoginViewController: UIViewController {
         return .LightContent
     }
 
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == usernameTextField {
+            passwordTextField.becomeFirstResponder()
+            usernameTextField.resignFirstResponder()
+        }
+        else if textField == passwordTextField {
+            passwordTextField.resignFirstResponder()
+            login()
+        }
+
+        return true
+    }
+
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         view.endEditing(true)
     }
     
     @IBAction func fbLogin(sender: UIButton) {
         let permissions = ["public_profile"]
         
-        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, {
-            (user: PFUser!, error: NSError!) -> Void in
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {
+            (user: PFUser?, error: NSError?) -> Void in
             if let user = user {
                 if user.isNew {
                     dispatch_async(dispatch_get_main_queue()) {
@@ -62,6 +75,10 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func signinAction(sender: AnyObject) {
+        login()
+    }
+
+    func login() {
         var config: SwiftLoader.Config = SwiftLoader.Config()
         config.size = 100
         config.spinnerColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
@@ -73,10 +90,10 @@ class LoginViewController: UIViewController {
         SwiftLoader.show(title: "Logging In...", animated: true)
 
         PFUser.logInWithUsernameInBackground(usernameTextField.text, password: passwordTextField.text) {
-            (user: PFUser!, error: NSError!) -> Void in
+            (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 SwiftLoader.hide()
-                
+
                 dispatch_async(dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("loginSegue", sender: self)
                 }

@@ -53,7 +53,7 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell: ImageCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as ImageCollectionViewCell
+        let cell: ImageCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ImageCollectionViewCell
         picture = pictures[indexPath.row]
         
         cell.imageView.image = UIImage(data: picture.image)
@@ -84,7 +84,7 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
 
     func getArray() {
         let request = NSFetchRequest(entityName: "Picture")
-        let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let context:NSManagedObjectContext = appDelegate.managedObjectContext!
         feedArray = context.executeFetchRequest(request, error: nil)!
         println(feedArray)
@@ -97,13 +97,13 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
         //let predicate = NSPredicate(format: "home.pictures == %@", "picture")
         //fetchRequest.predicate = predicate
 
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
             fetchResultController.delegate = self
 
             var e: NSError?
             var result = fetchResultController.performFetch(&e)
-            pictures = fetchResultController.fetchedObjects as [Picture]
+            pictures = fetchResultController.fetchedObjects as! [Picture]
 
             if result != true {
                 println(e?.localizedDescription)
@@ -121,14 +121,14 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addImage" {
-            let destinationController = segue.destinationViewController as AddImageViewController
+            let destinationController = segue.destinationViewController as! AddImageViewController
             destinationController.home = home
         }
 
         
 
         if segue.identifier == "showImage" {
-            let destinationController = segue.destinationViewController as ShowImageViewController
+            let destinationController = segue.destinationViewController as! ShowImageViewController
             destinationController.picture = picture
         }
 
@@ -175,7 +175,7 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
 
         let shareMenu = UIAlertController(title: nil, message: "Actions", preferredStyle: .ActionSheet)
             let deleteAction = UIAlertAction(title: "Delete", style: .Default, handler: { (action:UIAlertAction!) -> Void in
-            if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+            if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
                 //let homeToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
                 //let imagesToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
                 //managedObjectContext.deleteObject(homeToDelete)
@@ -227,8 +227,8 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
             self.presentViewController(shareMenu, animated: true, completion: nil)
         })
         var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
-                let homeToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
+            if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+                let homeToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as! Home
                 //let imagesToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
                 managedObjectContext.deleteObject(homeToDelete)
 

@@ -18,6 +18,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var notesImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         textView.text = home.note
         doneButton.title = ""
         doneButton.enabled = false
+        notesImageView.image = UIImage(data: home.image)
         //doneButton.tintColor = UIColor(red: 0.263, green: 0.596, blue: 0.847, alpha: 0.10)
     }
 
@@ -47,7 +49,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
 
     // MARK: - CoreData
     func saveHome() {
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             if home != nil {
                 home.note = textView.text
             }

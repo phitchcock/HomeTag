@@ -68,7 +68,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
         webView.reload()
     }
     
-    func webView(webView: UIWebView!, didFailLoadWithError error: NSError!) {
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
         print("Webview fail with error \(error)");
     }
 
@@ -76,11 +76,11 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
         return true
     }
 
-    func webViewDidStartLoad(webView: UIWebView!) {
+    func webViewDidStartLoad(webView: UIWebView) {
         print("Webview started Loading")
     }
 
-    func webViewDidFinishLoad(webView: UIWebView!) {
+    func webViewDidFinishLoad(webView: UIWebView) {
         print("Webview did finish load")
     }
 

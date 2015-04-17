@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
         PFUser.logOut()
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("LandingViewController") as UIViewController
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LandingViewController") as! UIViewController
         presentViewController(vc, animated: true, completion: nil)
     }
 

@@ -30,14 +30,14 @@ class MappedViewController: GAITrackedViewController, MKMapViewDelegate {
         screenName = "Mapped"
 
         let request = NSFetchRequest(entityName: "Home")
-        let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let context:NSManagedObjectContext = appDelegate.managedObjectContext!
         var error:NSError?
         let homes = context.executeFetchRequest(request, error: &error)
         println(error)
 
         if homes!.count > 0 {
-            for home in homes as [Home!] {
+            for home in homes as! [Home!] {
                 let geoCoder = CLGeocoder()
                 geoCoder.geocodeAddressString(home.streetName, completionHandler: { placemarks, error in
 
@@ -46,7 +46,7 @@ class MappedViewController: GAITrackedViewController, MKMapViewDelegate {
                         return
                     }
                     if placemarks != nil && placemarks.count > 0 {
-                        let placemark = placemarks[0] as CLPlacemark
+                        let placemark = placemarks[0] as! CLPlacemark
 
                         let annotation = MKPointAnnotation()
                         annotation.title = home.streetName

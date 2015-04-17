@@ -42,7 +42,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 
         resetTagHome()
 
-        SwiftLoader.setConfig(config)
+
 
         enterAddress.layer.cornerRadius = 5
         enterAddress.layer.borderWidth = 1
@@ -63,6 +63,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         config.backgroundColor = UIColor.whiteColor()
         config.titleTextColor = UIColor.blackColor()
         config.spinnerLineWidth = 1
+
+        SwiftLoader.setConfig(config)
 
 
 
@@ -95,6 +97,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     }
 
     override func viewWillAppear(animated: Bool) {
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -155,8 +158,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             self.presentViewController(shareMenu, animated: true, completion: nil)        } else {
             saveHome()
             resetTagHome()
-            //tabBarController?.selectedIndex = 0
-            performSegueWithIdentifier("hubSegue", sender: self)
+            tabBarController?.selectedIndex = 0
+            //performSegueWithIdentifier("hubSegue", sender: self)
         }
 
     }
@@ -167,6 +170,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 
     @IBAction func getLocation(sender: AnyObject) {
         addressTextField.enabled = false
+
+
         SwiftLoader.show(title: "Finding Location...", animated: true)
 
         let authStatus: CLAuthorizationStatus = CLLocationManager.authorizationStatus()
@@ -183,17 +188,18 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         }
 
         if updatingLocation {
-
+            //SwiftLoader.show(title: "Finding Location...", animated: true)
             stopLocationManager()
 
         } else {
-            SwiftLoader.hide()
+            //SwiftLoader.show(title: "Finding Location...", animated: true)
             location = nil
             lastLocationError = nil
             placemark = nil
             lastGeocodingError = nil
             startLocationManager()
         }
+        SwiftLoader.hide()
         updateLabels()
         configureGetLocationButton()
 
@@ -217,7 +223,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     }
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        let newLocation = locations.last as CLLocation
+
+        //SwiftLoader.show(title: "Finding Location...", animated: true)
+
+        let newLocation = locations.last as! CLLocation
         println("didUpdateLocations \(newLocation)")
 
         if newLocation.timestamp.timeIntervalSinceNow < -5 {
@@ -233,12 +242,16 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 
             if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
                 println("*** We are done!")
+                //SwiftLoader.hide()
                 stopLocationManager()
                 configureGetLocationButton()
             }
 
             if !performingReverseGeocoding {
                 println("*** Going to geocode")
+
+                //SwiftLoader.show(title: "Reverse GEO...", animated: true)
+
                 performingReverseGeocoding = true
                 geocoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error in
                     println("*** Found placemarks: \(placemarks), error: \(error)")
@@ -254,6 +267,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
                     self.updateLabels()
 
                 })
+
+                //SwiftLoader.hide()
             }
         }
     }
@@ -273,15 +288,19 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             }
             else if performingReverseGeocoding {
                 messageLabel.text = "Searching for Address..."
+                RKDropdownAlert.title("Searching for Address", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
+
 
             }
             else if lastGeocodingError != nil {
                 messageLabel.text = "Error Finding Address"
-
+                RKDropdownAlert.title("Error finding Address", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
 
             } else {
                 messageLabel.text = "Reverse GEOLocating..."
-                            }
+                RKDropdownAlert.title("Reverse GEO", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
+
+            }
 
         } else {
             addressTextField.text = ""
@@ -291,19 +310,25 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             if let error = lastLocationError {
                 if error.domain == kCLErrorDomain && error.code == CLError.Denied.rawValue {
                     statusMessage = "Location Services Disabled"
+                    RKDropdownAlert.title("Location Services Disabled", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
 
                 } else {
                     statusMessage = "Error Getting Location"
+                     RKDropdownAlert.title("Error Getting Location", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
                 }
             }
             else if !CLLocationManager.locationServicesEnabled() {
                 statusMessage = "Location Services Disabled"
+                RKDropdownAlert.title("Location Services Disabled", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
             }
             else if updatingLocation {
                 statusMessage = "Searching..."
+                RKDropdownAlert.title("Searching", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
+
 
             } else {
                 statusMessage = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"
+                //SwiftLoader.hide()
             }
             messageLabel.text = statusMessage
         }
@@ -341,6 +366,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         } else {
             locationButton.setTitle("Get Location", forState: UIControlState.Normal)
             messageLabel.text = "Address search has completed. If incorrect address tap Get Location again or enter correct address"
+
             RKDropdownAlert.title("SEARCH COMPLETED", message: "Address search has completed. If incorrect address tap Get Location again or enter correct address", backgroundColor: UIColor.whiteColor(), textColor: UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0))
 
             //SwiftLoader.hide()
@@ -356,8 +382,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     func saveHome() {
         //COREDATA
 
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
-            home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as Home
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+            home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as! Home
             home.streetName = addressTextField.text
             home.image = UIImageJPEGRepresentation(imageView.image, 0.1)
             //home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
@@ -389,11 +415,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             parseHome["user_id"] = PFUser.currentUser()
 
             parseHome.saveInBackgroundWithBlock {
-                (success: Bool, error: NSError!) -> Void in
+                (success: Bool, error: NSError?) -> Void in
                 if (success) {
                     // The object has been saved.
-                    self.home.objectId = parseHome.objectId
-                    println("parseID: \(parseHome.objectId)")
+                    self.home.objectId = parseHome.objectId!
+                    println("parseID: \(parseHome.objectId!)")
                     //println("object saved")
                 } else {
                     // There was a problem, check error.description
@@ -405,7 +431,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 
     }
 
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
 
         imageView.image = image
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -438,7 +464,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "hubSegue" {
-            let destinationController = segue.destinationViewController as ShowHomeTableViewController
+            let destinationController = segue.destinationViewController as! ShowHomeTableViewController
             destinationController.home = home
         }
     }

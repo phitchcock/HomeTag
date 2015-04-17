@@ -11,7 +11,7 @@ import CoreData
 import MessageUI
 import Parse
 
-class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Variables
     var homes: [Home] = []
@@ -99,7 +99,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as HomeCellTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! HomeCellTableViewCell
 
         
 
@@ -129,13 +129,13 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
         let sortDescriptor = NSSortDescriptor(key: "streetName", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
 
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
             fetchResultController.delegate = self
 
             var e: NSError?
             var result = fetchResultController.performFetch(&e)
-            homes = fetchResultController.fetchedObjects as [Home]
+            homes = fetchResultController.fetchedObjects as! [Home]
 
             if result != true {
                 println(e?.localizedDescription)
@@ -150,13 +150,13 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
         let predicate = NSPredicate(format: "isFavorite == true")
         fetchRequest.predicate = predicate
 
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
             fetchResultController.delegate = self
 
             var e: NSError?
             var result = fetchResultController.performFetch(&e)
-            favorites = fetchResultController.fetchedObjects as [Home]
+            favorites = fetchResultController.fetchedObjects as! [Home]
 
             if result != true {
                 println(e?.localizedDescription)
@@ -164,26 +164,26 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
         }
     }
 
-    func controllerWillChangeContent(controller: NSFetchedResultsController!) {
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
         tableView.beginUpdates()
     }
 
-    func controller(controller: NSFetchedResultsController!, didChangeObject anObject: AnyObject!, atIndexPath indexPath: NSIndexPath!, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath!) {
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Insert:
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
         case .Delete:
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
         case .Update:
-            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
         default:
             tableView.reloadData()
         }
-        homes = controller.fetchedObjects as [Home]
-        favorites = controller.fetchedObjects as [Home]
+        homes = controller.fetchedObjects as! [Home]
+        favorites = controller.fetchedObjects as! [Home]
     }
 
-    func controllerDidChangeContent(controller: NSFetchedResultsController!) {
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.endUpdates()
     }
 
@@ -197,26 +197,65 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        var getHome = homes[indexPath.row]
 
         var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
 
             let shareMenu = UIAlertController(title: nil, message: "Share Using", preferredStyle: .ActionSheet)
-            let facebookAction = UIAlertAction(title: "Facebook", style: .Default, handler: nil)
+            let facebookAction = UIAlertAction(title: "TODO Facebook", style: .Default, handler: nil)
             let emailAction = UIAlertAction(title: "Email", style: .Default, handler: { (action:UIAlertAction!) -> Void in
-                self.sendEmail()
+
+                if MFMailComposeViewController.canSendMail() {
+                    //return
+                }
+
+                let emailTitle = "Great Home!"
+                let messageBody = "Check out this home!"
+                let toRecipients = ["eprleads@gmail.com"]
+
+                var composer = MFMailComposeViewController()
+                composer.mailComposeDelegate = self
+                composer.setSubject(emailTitle)
+                composer.setMessageBody(messageBody, isHTML: false)
+                composer.setToRecipients(toRecipients)
+
+                //composer.navigationBar.tintColor = UIColor.whiteColor()
+                //var htmlMsg = "<html><body><p>\(getHome.streetName)</p></body><html>"
+                //composer.setMessageBody(htmlMsg, isHTML: true)
+
+                self.presentViewController(composer, animated: true, completion: nil)
             })
+
+            let smsAction = UIAlertAction(title: "SMS", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+
+                if !MFMessageComposeViewController.canSendText() {
+                    let alertMessage = UIAlertController(title: "SMS Unavailable", message: "Device is not capable of sending SMS", preferredStyle: .Alert)
+                    alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    self.presentViewController(alertMessage, animated: true, completion: nil)
+                }
+
+                let messageController = MFMessageComposeViewController()
+                messageController.messageComposeDelegate = self
+                messageController.recipients = ["9168470003"]
+                messageController.body = "Checkout this home"
+
+                self.presentViewController(messageController, animated: true, completion: nil)
+            })
+
 
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
 
             shareMenu.addAction(facebookAction)
             shareMenu.addAction(emailAction)
+            shareMenu.addAction(smsAction)
             shareMenu.addAction(cancelAction)
 
             self.presentViewController(shareMenu, animated: true, completion: nil)
+            println(getHome.streetName)
         })
         var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
-                let homeToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
+            if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+                let homeToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as! Home
                 //let imagesToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
                 managedObjectContext.deleteObject(homeToDelete)
 
@@ -229,7 +268,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
         })
         shareAction.backgroundColor = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
 
-        return [deleteAction]
+        return [deleteAction, shareAction]
     }
 
     @IBAction func unwind(segue: UIStoryboardSegue) {
@@ -241,17 +280,17 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
         if segue.identifier == "showHomeSegue" {
             if let row = tableView.indexPathForSelectedRow()?.row {
                 if segmentedControl.selectedSegmentIndex == 0 {
-                    let destinationController = segue.destinationViewController as ShowHomeTableViewController
+                    let destinationController = segue.destinationViewController as! ShowHomeTableViewController
                     destinationController.home = homes[row]
                 }
                 if segmentedControl.selectedSegmentIndex == 1 {
-                    let destinationController = segue.destinationViewController as ShowHomeTableViewController
+                    let destinationController = segue.destinationViewController as! ShowHomeTableViewController
                     destinationController.home = favorites[row]
                 }
             }
         }
     }
-
+    /*
     func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
             var composer = MFMailComposeViewController()
@@ -265,17 +304,21 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
             presentViewController(composer, animated: true, completion: nil)
         }
     }
-
+    */
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         switch result.value {
         case MFMailComposeResultCancelled.value:
             println("Mail Cancelled")
+            RKDropdownAlert.title("Mail Cancelled", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
         case MFMailComposeResultSaved.value:
             println("Mail Saved")
+            RKDropdownAlert.title("Mail Saved", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
         case MFMailComposeResultSent.value:
             println("Mail Sent")
+            RKDropdownAlert.title("Mail Sent", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
         case MFMailComposeResultFailed.value:
             println("Failed to send mail")
+            RKDropdownAlert.title("Failed to send mail", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
         default:
             break
         }
@@ -285,4 +328,40 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     @IBAction func segueTest(sender: AnyObject) {
         //performSegueWithIdentifier("googleSegue", sender: AnyObject.self)
     }
+
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+        switch result.value {
+        case MessageComposeResultCancelled.value:
+            println("SMS Cancelled")
+            RKDropdownAlert.title("SMS Cancelled", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
+
+        case MessageComposeResultFailed.value:
+            let alertMessage = UIAlertController(title: "Failure", message: "Failed to send message", preferredStyle: .Alert)
+            alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+
+        case MessageComposeResultSent.value:
+            println("SMS sent")
+            RKDropdownAlert.title("SMS Sent", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
+
+        default: break
+
+        }
+
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

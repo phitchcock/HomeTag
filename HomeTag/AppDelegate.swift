@@ -25,7 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("UpP3ASvAOH4uLsyNedeGG4NSJWw7klsYreBVZr0I",
             clientKey: "zMCLeJUi4PDNz2gWNg6j7pu8ndaHkD9JSup4yp0F")
 
-        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        if let launchOptions = launchOptions {
+            PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        } else {
+            //PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions([])
+        }
 
         UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
         UINavigationBar.appearance().translucent = false
@@ -82,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.petehitchcock.HomeTag" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -105,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")

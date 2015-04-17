@@ -40,7 +40,7 @@ class UpdateHomeViewController: UIViewController, UIImagePickerControllerDelegat
         // Dispose of any resources that can be recreated.
     }
 
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         imageView.image = image
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
@@ -92,7 +92,7 @@ class UpdateHomeViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     func saveHome() {
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             if home != nil {
                 home.streetName = addressTextField.text
             }
@@ -107,7 +107,7 @@ class UpdateHomeViewController: UIViewController, UIImagePickerControllerDelegat
 
 
     func saveImage() {
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             if home != nil {
                 home.image = UIImageJPEGRepresentation(imageView.image, 0.1)
                 //home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
@@ -122,7 +122,7 @@ class UpdateHomeViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     func saveTag() {
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             if home != nil {
                 home.tag = tagTextField.text
             }

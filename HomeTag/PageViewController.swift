@@ -28,13 +28,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
 
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        var index = (viewController as PageContentViewController).index
+        var index = (viewController as! PageContentViewController).index
         index++
         return viewControllerAtIndex(index)
     }
 
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        var index = (viewController as PageContentViewController).index
+        var index = (viewController as! PageContentViewController).index
         index--
         return viewControllerAtIndex(index)
     }

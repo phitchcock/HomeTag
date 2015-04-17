@@ -52,6 +52,8 @@
 		D0B78FA61A11CD290072B68F /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78FA51A11CD290072B68F /* ImageCollectionViewCell.swift */; };
 		D0B78FA81A11D60B0072B68F /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B78FA71A11D60B0072B68F /* AddImageViewController.swift */; };
 		D0B78FAB1A12789E0072B68F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B78FAA1A12789E0072B68F /* CloudKit.framework */; };
+		D0BF61161AE162AB002FAFF7 /* WalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF61151AE162AB002FAFF7 /* WalkViewController.swift */; };
+		D0BF61191AE166AC002FAFF7 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF61181AE166AC002FAFF7 /* Alamofire.swift */; };
 		D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B341A03ED7F005003C0 /* AppDelegate.swift */; };
 		D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F48B361A03ED7F005003C0 /* HomeTag.xcdatamodeld */; };
 		D0F48B3D1A03ED7F005003C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F48B3B1A03ED7F005003C0 /* Main.storyboard */; };
@@ -160,6 +162,9 @@
 		D0B78FA71A11D60B0072B68F /* AddImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 		D0B78FA91A1278890072B68F /* HomeTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTag.entitlements; sourceTree = "<group>"; };
 		D0B78FAA1A12789E0072B68F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		D0BF61151AE162AB002FAFF7 /* WalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkViewController.swift; sourceTree = "<group>"; };
+		D0BF61171AE166AC002FAFF7 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
+		D0BF61181AE166AC002FAFF7 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		D0F48B2F1A03ED7F005003C0 /* HomeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F48B331A03ED7F005003C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0F48B341A03ED7F005003C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -428,6 +433,23 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		D0BF61141AE16291002FAFF7 /* WalkScore */ = {
+			isa = PBXGroup;
+			children = (
+				D0BF61151AE162AB002FAFF7 /* WalkViewController.swift */,
+			);
+			name = WalkScore;
+			sourceTree = "<group>";
+		};
+		D0BF611A1AE166B2002FAFF7 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				D0BF61171AE166AC002FAFF7 /* Alamofire.h */,
+				D0BF61181AE166AC002FAFF7 /* Alamofire.swift */,
+			);
+			name = Alamofire;
+			sourceTree = "<group>";
+		};
 		D0C6BE641A0AA6260059E400 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +462,7 @@
 		D0F48B261A03ED7F005003C0 = {
 			isa = PBXGroup;
 			children = (
+				D0BF611A1AE166B2002FAFF7 /* Alamofire */,
 				D0AE403E1ADDED0600D668CA /* font */,
 				D08615651ADC4BF90083315D /* SwiftLoader */,
 				D08615631ADC3C740083315D /* Dropdown */,
@@ -509,6 +532,7 @@
 		D0F48B5B1A03EFA3005003C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0BF61141AE16291002FAFF7 /* WalkScore */,
 				D08615571AD87B4E0083315D /* Profile */,
 				D0B78F981A1184BC0072B68F /* Images */,
 				D0C6BE641A0AA6260059E400 /* Pages */,
@@ -705,6 +729,7 @@
 				D03741811A0934F2001AE640 /* NotesViewController.swift in Sources */,
 				D0B78F911A116EDB0072B68F /* Bridge.m in Sources */,
 				D0F48B351A03ED7F005003C0 /* AppDelegate.swift in Sources */,
+				D0BF61161AE162AB002FAFF7 /* WalkViewController.swift in Sources */,
 				D08615611ADC3C640083315D /* MultiplePulsingHaloLayer.m in Sources */,
 				D0F48B381A03ED7F005003C0 /* HomeTag.xcdatamodeld in Sources */,
 				D0775DF91A1A92F4002C4684 /* ShowHomeTableViewController.swift in Sources */,
@@ -717,6 +742,7 @@
 				D08615591AD87B620083315D /* ProfileViewController.swift in Sources */,
 				D0B78FA41A11CA790072B68F /* ImagesViewController.swift in Sources */,
 				D06E7DDD1A07D72D00EA81E1 /* GoogleViewController.swift in Sources */,
+				D0BF61191AE166AC002FAFF7 /* Alamofire.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,7 +874,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HomeTag/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -875,7 +901,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HomeTag/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

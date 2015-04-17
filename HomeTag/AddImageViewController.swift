@@ -40,7 +40,7 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
         selectImage()
     }
 
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         imageView.image = image
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
@@ -49,15 +49,15 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
     }
 
     func saveImage() {
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             let entityDescription = NSEntityDescription.entityForName("Picture", inManagedObjectContext: managedObjectContext)
             let picture = Picture(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
             picture.image = UIImageJPEGRepresentation(imageView.image, 0.1)
 
-            var pictures = home.pictures.mutableCopy() as NSMutableSet
+            var pictures = home.pictures.mutableCopy() as! NSMutableSet
             pictures.addObject(picture)
 
-            home.pictures = pictures.copy() as NSSet
+            home.pictures = pictures.copy() as! NSSet
 
             var e: NSError?
             if managedObjectContext.save(&e) != true {

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     var user = PFUser()
     var config: SwiftLoader.Config = SwiftLoader.Config()
@@ -43,8 +43,8 @@ class RegisterViewController: UIViewController {
     @IBAction func fbSignup(sender: UIButton) {
         let permissions = ["public_profile"]
 
-        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, {
-            (user: PFUser!, error: NSError!) -> Void in
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {
+            (user: PFUser?, error: NSError?) -> Void in
             if let user = user {
                 if user.isNew {
                     println("User signed up and logged in through Facebook!")
@@ -63,9 +63,27 @@ class RegisterViewController: UIViewController {
         })
 
     }
-    
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         view.endEditing(true)
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+
+        if textField == emailTextField {
+            usernameTextField.becomeFirstResponder()
+            emailTextField.resignFirstResponder()
+        }
+        else if textField == usernameTextField {
+            passwordTextField.becomeFirstResponder()
+            usernameTextField.resignFirstResponder()
+        }
+        else if textField == passwordTextField {
+            passwordTextField.resignFirstResponder()
+            signup()
+        }
+
+        return true
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -87,7 +105,7 @@ class RegisterViewController: UIViewController {
         SwiftLoader.show(title: "Trying to signup...", animated: true)
 
         user.signUpInBackgroundWithBlock {
-            (succeeded: Bool!, error: NSError!) -> Void in
+            (succeeded: Bool, error: NSError?) -> Void in
             if error == nil {
                 SwiftLoader.hide()
 

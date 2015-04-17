@@ -171,30 +171,30 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
 
     func saveFavorite() {
 
-        if let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext {
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             if home != nil {
                 home.isFavorite = isFavorite
                 println(self.home.isFavorite)
-                var query = PFQuery(className:"Home")
-                query.getObjectInBackgroundWithId(home.objectId, block: { (parseHome: PFObject!, error: NSError!) -> Void in
-                    if error == nil && parseHome != nil {
+//                var query = PFQuery(className:"Home")
+//                query.getObjectInBackgroundWithId(home.objectId, block: { (parseHome: PFObject?, error: NSError?) -> Void in
+//                    if error == nil && parseHome != nil {
+//
+//                        parseHome["isFavorite"] = self.home.isFavorite
+//
+//                        parseHome.saveInBackgroundWithBlock {
+//                            (success: Bool, error: NSError!) -> Void in
+//                            if (success) {
+//                                // The object has been saved.
+//
+//                            } else {
+//                                // There was a problem, check error.description
+//                            }
+//                        }
+//                    } else {
+//                        println(error)
+//                    }
+//                })
 
-                        parseHome["isFavorite"] = self.home.isFavorite
-
-                        parseHome.saveInBackgroundWithBlock {
-                            (success: Bool, error: NSError!) -> Void in
-                            if (success) {
-                                // The object has been saved.
-
-                            } else {
-                                // There was a problem, check error.description
-                            }
-                        }
-                    } else {
-                        println(error)
-                    }
-                })
-                
 
             }
 
@@ -222,32 +222,32 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
     // MARK: - prepareForSegue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "mapSegue" {
-            let destinationController = segue.destinationViewController as MapViewController
+            let destinationController = segue.destinationViewController as! MapViewController
             destinationController.home = home
         }
 
         if segue.identifier == "webSegue" {
-            let destinationController = segue.destinationViewController as WebViewController
+            let destinationController = segue.destinationViewController as! WebViewController
             destinationController.home = home
         }
 
         if segue.identifier == "googleSegue" {
-            let destinationController = segue.destinationViewController as GoogleViewController
+            let destinationController = segue.destinationViewController as! GoogleViewController
             destinationController.home = home
         }
 
         if segue.identifier == "notesSegue" {
-            let destinationViewController = segue.destinationViewController as NotesViewController
+            let destinationViewController = segue.destinationViewController as! NotesViewController
             destinationViewController.home = home
         }
 
         if segue.identifier == "imageSegue" {
-            let destinationViewController = segue.destinationViewController as ImagesViewController
+            let destinationViewController = segue.destinationViewController as! ImagesViewController
             destinationViewController.home = home
         }
 
         if segue.identifier == "updateSegue" {
-            let destinationViewController = segue.destinationViewController as UpdateHomeViewController
+            let destinationViewController = segue.destinationViewController as! UpdateHomeViewController
             destinationViewController.home = home
         }
     }
