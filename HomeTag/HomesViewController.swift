@@ -26,8 +26,8 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
+
+
         tabBarController?.selectedIndex = 1
 
         //tableView.rowHeight = 265
@@ -77,7 +77,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
 
             var imageNotification = UIImage(named: "plus.png")
             var imageView = UIImageView(image: imageNotification)
-            
+
             imageView.backgroundColor = UIColor(red: 0.102, green: 0.129, blue: 0.141, alpha: 1.0)
             imageView.contentMode = UIViewContentMode.ScaleAspectFill
             imageView.clipsToBounds = true
@@ -101,7 +101,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! HomeCellTableViewCell
 
-        
+
 
         if segmentedControl.selectedSegmentIndex == 0 {
             let home = homes[indexPath.row]
@@ -195,7 +195,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
-    
+
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         var getHome = homes[indexPath.row]
 
@@ -264,7 +264,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
                     println("delete error: \(e!.localizedDescription)")
                 }
             }
-            
+
         })
         shareAction.backgroundColor = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
 
@@ -272,7 +272,7 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     }
 
     @IBAction func unwind(segue: UIStoryboardSegue) {
-        
+
     }
 
     // MARK: - prepareForSegue
@@ -292,17 +292,14 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
     }
     /*
     func sendEmail() {
-        if MFMailComposeViewController.canSendMail() {
-            var composer = MFMailComposeViewController()
-            composer.mailComposeDelegate = self
-            composer.navigationBar.tintColor = UIColor.whiteColor()
-
-            var htmlMsg = "<html><body><p>\(home.streetName)</p></body><html>"
-
-            composer.setMessageBody(htmlMsg, isHTML: true)
-
-            presentViewController(composer, animated: true, completion: nil)
-        }
+    if MFMailComposeViewController.canSendMail() {
+    var composer = MFMailComposeViewController()
+    composer.mailComposeDelegate = self
+    composer.navigationBar.tintColor = UIColor.whiteColor()
+    var htmlMsg = "<html><body><p>\(home.streetName)</p></body><html>"
+    composer.setMessageBody(htmlMsg, isHTML: true)
+    presentViewController(composer, animated: true, completion: nil)
+    }
     }
     */
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
@@ -339,29 +336,29 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
             let alertMessage = UIAlertController(title: "Failure", message: "Failed to send message", preferredStyle: .Alert)
             alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alertMessage, animated: true, completion: nil)
-
+            
         case MessageComposeResultSent.value:
             println("SMS sent")
             RKDropdownAlert.title("SMS Sent", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
-
+            
         default: break
-
+            
         }
-
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

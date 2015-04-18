@@ -14,7 +14,7 @@ import Parse
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIScrollViewDelegate {
 
-    var home: Home!
+    var home: Home?
     let locationManager = CLLocationManager()
     var location: CLLocation?
     var updatingLocation = false
@@ -383,50 +383,56 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         //COREDATA
 
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
-            home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as! Home
-            home.streetName = addressTextField.text
-            home.image = UIImageJPEGRepresentation(imageView.image, 0.1)
-            //home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
-            home.note = "Add Notes"
-            home.isFavorite = false
-            home.tag = "Tagged"
-            home.latitude = locationManager.location.coordinate.latitude
-            home.longitude = locationManager.location.coordinate.longitude
 
-            var e: NSError?
-            if managedObjectContext.save(&e) != true {
-                println("insert error: \(e!.localizedDescription)")
-                return
-            }
+            //if home != nil {
 
-            var parseHome = PFObject(className: "Home")
-            let point = PFGeoPoint(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
-            let imageData = UIImageJPEGRepresentation(imageView.image, 0.1)
-            let imageFile = PFFile(name: "image.jpeg", data:imageData)
+                home = NSEntityDescription.insertNewObjectForEntityForName("Home", inManagedObjectContext: managedObjectContext) as? Home
 
-            parseHome["streetName"] = addressTextField.text
-            parseHome["note"] = "Add Notes"
-            parseHome["isFavorite"] = false
-            parseHome["tag"] = "Tagged"
-            parseHome["latitude"] = locationManager.location.coordinate.latitude
-            parseHome["longitude"] = locationManager.location.coordinate.longitude
-            parseHome["location"] = point
-            parseHome["initialImage"] = imageFile
-            parseHome["user_id"] = PFUser.currentUser()
+                home!.streetName = addressTextField.text
+                home!.image = UIImageJPEGRepresentation(imageView.image, 0.1)
+                //home.thumbNail = UIImageJPEGRepresentation(imageView.image, 0.1)
+                home!.note = "Add Notes"
+                home!.isFavorite = false
+                home!.tag = "Tagged"
+                home!.latitude = locationManager.location.coordinate.latitude
+                home!.longitude = locationManager.location.coordinate.longitude
 
-            parseHome.saveInBackgroundWithBlock {
-                (success: Bool, error: NSError?) -> Void in
-                if (success) {
-                    // The object has been saved.
-                    self.home.objectId = parseHome.objectId!
-                    println("parseID: \(parseHome.objectId!)")
-                    //println("object saved")
-                } else {
-                    // There was a problem, check error.description
+                var e: NSError?
+                if managedObjectContext.save(&e) != true {
+                    println("insert error: \(e!.localizedDescription)")
+                    return
                 }
+
+            //}
+        }
+
+
+        var parseHome = PFObject(className: "Home")
+        let point = PFGeoPoint(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
+        let imageData = UIImageJPEGRepresentation(imageView.image, 0.1)
+        let imageFile = PFFile(name: "image.jpeg", data:imageData)
+
+        parseHome["streetName"] = addressTextField.text
+        parseHome["note"] = "Add Notes"
+        parseHome["isFavorite"] = false
+        parseHome["tag"] = "Tagged"
+        parseHome["latitude"] = locationManager.location.coordinate.latitude
+        parseHome["longitude"] = locationManager.location.coordinate.longitude
+        parseHome["location"] = point
+        parseHome["initialImage"] = imageFile
+        parseHome["user_id"] = PFUser.currentUser()
+
+        parseHome.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                // The object has been saved.
+                //self.home!.objectId = parseHome.objectId!
+                //println("parseID: \(parseHome.objectId!)")
+                println("object saved")
+            } else {
+                // There was a problem, check error.description
             }
         }
-        
 
 
     }

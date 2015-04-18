@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.becomeFirstResponder()
 
         signupButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         signupButton.layer.borderWidth = 1
