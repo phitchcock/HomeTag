@@ -23,7 +23,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     var placemark: CLPlacemark?
     var performingReverseGeocoding = false
     var lastGeocodingError: NSError?
-    var halo = PulsingHaloLayer()
     var config: SwiftLoader.Config = SwiftLoader.Config()
 
     @IBOutlet weak var messageLabel: UILabel!
@@ -32,7 +31,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var enterAddress: UIButton!
     @IBOutlet weak var blurView: UIView!
 
@@ -41,8 +39,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         super.viewDidLoad()
 
         resetTagHome()
-
-
 
         enterAddress.layer.cornerRadius = 5
         enterAddress.layer.borderWidth = 1
@@ -57,7 +53,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         addressTextField.layer.borderColor = UIColor.lightGrayColor().CGColor
         addressTextField.attributedPlaceholder = NSAttributedString(string: "Ex. 4000 Clarewood Way Sacramento Ca", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
 
-
         config.size = 100
         config.spinnerColor = UIColor(red: 49/255, green: 196/255, blue: 255/255, alpha: 1.0)
         config.backgroundColor = UIColor.whiteColor()
@@ -65,8 +60,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         config.spinnerLineWidth = 1
 
         SwiftLoader.setConfig(config)
-
-
 
         let defaults = NSUserDefaults.standardUserDefaults()
         let hasViewedWalkthrough = defaults.boolForKey("hasViewedWalkthrough")

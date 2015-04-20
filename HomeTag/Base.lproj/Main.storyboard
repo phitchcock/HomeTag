@@ -526,6 +526,9 @@
                                                             <state key="normal" image="Feed-1">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="shareHome:" destination="SFQ-Il-W1R" eventType="touchUpInside" id="z3V-qw-R8h"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ick-tO-MPv">
                                                             <rect key="frame" x="114" y="188" width="61" height="82"/>
@@ -634,17 +637,15 @@
                     <navigationItem key="navigationItem" title="Home Hub" id="2Vj-YZ-MNq"/>
                     <connections>
                         <outlet property="addressLabel" destination="UcR-3M-N5M" id="DeC-gw-B37"/>
-                        <outlet property="emailButton" destination="Ick-tO-MPv" id="Jpa-KW-B7D"/>
                         <outlet property="favoriteSwitch" destination="fGs-cT-DTd" id="ff9-Mn-3Vq"/>
                         <outlet property="imageView" destination="0fc-17-sD2" id="eec-Zl-jYY"/>
                         <outlet property="showTableView" destination="Pul-Fg-EWc" id="ari-9h-sik"/>
-                        <outlet property="smsButton" destination="SJm-p1-R0f" id="Yip-It-wEa"/>
                         <outlet property="tagLabel" destination="GBF-xk-vED" id="qIo-1r-EAU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvn-L8-sH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2560" y="897"/>
+            <point key="canvasLocation" x="2555" y="880"/>
         </scene>
         <!--Walk View Controller-->
         <scene sceneID="8Mj-w3-kKH">
@@ -1249,42 +1250,32 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfI-i1-Mfp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="F8a-sW-8hD">
-                                        <rect key="frame" x="16" y="246" width="288" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="tQF-rM-qJr"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="GNg-gY-znc" id="cNq-Mg-MVN"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username or Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fNY-wL-V0C">
-                                        <rect key="frame" x="16" y="160" width="288" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="qgT-Qe-81u"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="GNg-gY-znc" id="tgg-Nc-Vyc"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
                                 <color key="backgroundColor" red="0.1764705882" green="0.19215686269999999" blue="0.25490196079999999" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="F8a-sW-8hD" firstAttribute="centerX" secondItem="BfI-i1-Mfp" secondAttribute="centerX" id="8hJ-hI-rit"/>
-                                    <constraint firstItem="F8a-sW-8hD" firstAttribute="top" secondItem="BfI-i1-Mfp" secondAttribute="top" constant="246" id="KUV-hS-dhG"/>
-                                    <constraint firstItem="fNY-wL-V0C" firstAttribute="trailing" secondItem="F8a-sW-8hD" secondAttribute="trailing" id="Lxh-Hz-pz5"/>
-                                    <constraint firstItem="fNY-wL-V0C" firstAttribute="leading" secondItem="F8a-sW-8hD" secondAttribute="leading" id="QGU-nH-TNy"/>
-                                    <constraint firstItem="F8a-sW-8hD" firstAttribute="top" secondItem="fNY-wL-V0C" secondAttribute="bottom" constant="56" id="aaC-NW-SWU"/>
-                                    <constraint firstItem="F8a-sW-8hD" firstAttribute="leading" secondItem="BfI-i1-Mfp" secondAttribute="leading" constant="16" id="o5H-wC-QpX"/>
-                                </constraints>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="F8a-sW-8hD">
+                                <rect key="frame" x="16" y="245" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ffo-A3-sK4"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GNg-gY-znc" id="cNq-Mg-MVN"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username or Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fNY-wL-V0C">
+                                <rect key="frame" x="16" y="160" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rOB-LE-1ri"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GNg-gY-znc" id="tgg-Nc-Vyc"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcM-Yx-mik">
                                 <rect key="frame" x="114" y="522" width="92" height="26"/>
                                 <constraints>
@@ -1370,7 +1361,7 @@
                                 </constraints>
                             </view>
                             <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYU-VV-hsC">
-                                <rect key="frame" x="16" y="284" width="288" height="1"/>
+                                <rect key="frame" x="16" y="283" width="288" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="gM2-Sd-BRM"/>
@@ -1381,18 +1372,20 @@
                             <constraint firstItem="u2F-5f-0aj" firstAttribute="top" secondItem="W6T-jL-cEQ" secondAttribute="bottom" constant="14" id="1M0-CR-TXO"/>
                             <constraint firstItem="c6g-gH-sPO" firstAttribute="top" secondItem="kGf-7K-Gjz" secondAttribute="bottom" constant="75" id="72L-qd-pCn"/>
                             <constraint firstItem="e1X-be-1S2" firstAttribute="top" secondItem="l11-fZ-UUR" secondAttribute="bottom" id="9ts-BE-40T"/>
-                            <constraint firstItem="EYU-VV-hsC" firstAttribute="centerY" secondItem="BfI-i1-Mfp" secondAttribute="centerY" id="DgI-TY-d22"/>
+                            <constraint firstItem="F8a-sW-8hD" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" id="Clb-8X-OhE"/>
+                            <constraint firstItem="EYU-VV-hsC" firstAttribute="top" secondItem="F8a-sW-8hD" secondAttribute="bottom" constant="8" id="E2t-Tn-BQ4"/>
                             <constraint firstItem="obd-Lt-PKT" firstAttribute="top" secondItem="9ub-gR-wbM" secondAttribute="bottom" constant="8" id="EsL-Um-kSn"/>
-                            <constraint firstItem="BfI-i1-Mfp" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" constant="-16" id="EtL-Ip-bhb"/>
+                            <constraint firstItem="c6g-gH-sPO" firstAttribute="top" secondItem="fNY-wL-V0C" secondAttribute="bottom" constant="8" id="Hq1-UW-BY5"/>
                             <constraint firstItem="dcM-Yx-mik" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" constant="98" id="ILb-50-H0f"/>
                             <constraint firstItem="l11-fZ-UUR" firstAttribute="top" secondItem="bdS-Z0-U0u" secondAttribute="topMargin" id="Kop-Yk-vTF"/>
+                            <constraint firstItem="fNY-wL-V0C" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" id="L29-yj-VQK"/>
+                            <constraint firstItem="BfI-i1-Mfp" firstAttribute="top" secondItem="bdS-Z0-U0u" secondAttribute="topMargin" id="Ls2-f3-ePi"/>
                             <constraint firstItem="QDf-jn-yPc" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" id="MVb-mK-1t0"/>
+                            <constraint firstItem="e1X-be-1S2" firstAttribute="top" secondItem="BfI-i1-Mfp" secondAttribute="bottom" id="NnM-iL-mn2"/>
                             <constraint firstItem="ke2-bV-UNW" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" id="Oo1-Rk-hjd"/>
-                            <constraint firstItem="e1X-be-1S2" firstAttribute="top" secondItem="BfI-i1-Mfp" secondAttribute="bottom" id="OyD-W3-x9R"/>
                             <constraint firstItem="9ub-gR-wbM" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" constant="123" id="QUS-G0-g0U"/>
-                            <constraint firstItem="BfI-i1-Mfp" firstAttribute="top" secondItem="bdS-Z0-U0u" secondAttribute="topMargin" id="TLO-KZ-ojZ"/>
                             <constraint firstItem="l11-fZ-UUR" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" constant="-16" id="VUS-Ih-Lnq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BfI-i1-Mfp" secondAttribute="trailing" constant="-16" id="Yh6-JM-rW6"/>
+                            <constraint firstItem="fNY-wL-V0C" firstAttribute="trailing" secondItem="bdS-Z0-U0u" secondAttribute="trailingMargin" id="Wdk-Av-XHV"/>
                             <constraint firstAttribute="centerX" secondItem="kGf-7K-Gjz" secondAttribute="centerX" id="aIv-hP-MSe"/>
                             <constraint firstItem="EYU-VV-hsC" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" id="dab-Su-7CR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9ub-gR-wbM" secondAttribute="trailing" constant="123" id="eh0-g2-IPU"/>
@@ -1401,12 +1394,16 @@
                             <constraint firstItem="c6g-gH-sPO" firstAttribute="trailing" secondItem="bdS-Z0-U0u" secondAttribute="trailingMargin" id="hGV-cI-fGL"/>
                             <constraint firstItem="QDf-jn-yPc" firstAttribute="trailing" secondItem="bdS-Z0-U0u" secondAttribute="trailingMargin" id="i8y-xL-Gqb"/>
                             <constraint firstAttribute="centerX" secondItem="u2F-5f-0aj" secondAttribute="centerX" id="km2-6s-dmq"/>
+                            <constraint firstItem="F8a-sW-8hD" firstAttribute="top" secondItem="c6g-gH-sPO" secondAttribute="bottom" constant="46" id="ldO-kG-Pa0"/>
                             <constraint firstItem="EYU-VV-hsC" firstAttribute="trailing" secondItem="bdS-Z0-U0u" secondAttribute="trailingMargin" id="naz-aG-V7s"/>
                             <constraint firstItem="kGf-7K-Gjz" firstAttribute="top" secondItem="u2F-5f-0aj" secondAttribute="bottom" constant="8" id="p1V-Jf-3wr"/>
                             <constraint firstItem="c6g-gH-sPO" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" id="qhw-8e-sjb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dcM-Yx-mik" secondAttribute="trailing" constant="98" id="qwQ-TS-Gld"/>
+                            <constraint firstItem="BfI-i1-Mfp" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" constant="-16" id="sk3-zX-whb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BfI-i1-Mfp" secondAttribute="trailing" constant="-16" id="syH-px-46U"/>
                             <constraint firstItem="9ub-gR-wbM" firstAttribute="top" secondItem="QDf-jn-yPc" secondAttribute="bottom" constant="8" id="tB4-gH-QUI"/>
                             <constraint firstItem="e1X-be-1S2" firstAttribute="top" secondItem="dcM-Yx-mik" secondAttribute="bottom" constant="20" id="tRo-OW-Dhv"/>
+                            <constraint firstItem="F8a-sW-8hD" firstAttribute="trailing" secondItem="bdS-Z0-U0u" secondAttribute="trailingMargin" id="vIG-08-cwy"/>
                             <constraint firstItem="obd-Lt-PKT" firstAttribute="leading" secondItem="bdS-Z0-U0u" secondAttribute="leadingMargin" id="wlT-lf-jrF"/>
                             <constraint firstItem="dcM-Yx-mik" firstAttribute="top" secondItem="obd-Lt-PKT" secondAttribute="bottom" constant="8" id="xwU-GE-8xj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l11-fZ-UUR" secondAttribute="trailing" constant="-16" id="z0S-3W-Qpd"/>
@@ -2186,6 +2183,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TCf-or-9bP"/>
+        <segue reference="ETN-iy-hFR"/>
     </inferredMetricsTieBreakers>
 </document>

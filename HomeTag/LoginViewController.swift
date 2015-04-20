@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        usernameTextField.becomeFirstResponder()
+        //usernameTextField.becomeFirstResponder()
 
         loginButton.layer.cornerRadius = 5
         loginButton.layer.borderWidth = 1

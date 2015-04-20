@@ -43,7 +43,7 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         //tagTextField.layer.borderColor = UIColor(red: 0.192, green: 0.192, blue: 0.192, alpha: 1.0).CGColor
         //tagTextField.layer.borderWidth = 1.0
         
-        tableView.rowHeight = 44
+        //tableView.rowHeight = 44
         addressLabel.text = home.streetName
         tagLabel.text = home.tag
         //imageView.layer.cornerRadius = 50.0
@@ -116,53 +116,59 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         }
     }
 
-    @IBAction func sendEmail(sender: AnyObject) {
-        if MFMailComposeViewController.canSendMail() {
+    @IBAction func shareHome(sender: AnyObject) {
+
+        let shareMenu = UIAlertController(title: nil, message: "Share Using", preferredStyle: .ActionSheet)
+        let facebookAction = UIAlertAction(title: "TODO Facebook", style: .Default, handler: nil)
+        let emailAction = UIAlertAction(title: "Email", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+
+            if MFMailComposeViewController.canSendMail() {
+                //return
+            }
+
+            let emailTitle = "Great Home!"
+            let messageBody = "Check out this home!"
+            let toRecipients = ["eprleads@gmail.com"]
+
             var composer = MFMailComposeViewController()
             composer.mailComposeDelegate = self
-            composer.navigationBar.tintColor = UIColor.whiteColor()
-            composer.setSubject("Check Out this Home!")
+            composer.setSubject(emailTitle)
+            composer.setMessageBody(messageBody, isHTML: false)
+            composer.setToRecipients(toRecipients)
 
-            var text = home.streetName
-            var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-
-
-            var htmlMsg = "<html><body><p>\(home.streetName)</p><p><a href="  + "http://www.zillow.com/homes/" + encodeText! + "_rb" + ">Zillow Link</a></p><a <p><a href="  + "http://www.google.com/search?q=" + encodeText! + ">Google Link</a></p></body><html>"
-            composer.setMessageBody(htmlMsg, isHTML: true)
-
-            //var image = UIImage(data: home.image)
-            //var imageData = UIImagePNGRepresentation(image)
-            //composer.addAttachmentData(image, mimeType: "image/png", fileName: "home.png")
-
-
-            presentViewController(composer, animated: true, completion: nil)
-        }
-    }
-
-    @IBAction func sendSMS(sender: AnyObject) {
-        if MFMessageComposeViewController.canSendText() {
-            var composer = MFMessageComposeViewController()
-            var text = home.streetName
-            var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-            composer.messageComposeDelegate = self
-            composer.navigationBar.tintColor = UIColor.whiteColor()
-            //composer.subject = "Checkout this Home!"
-            composer.body = "Check out this home!\n \nMap: \(home.streetName) \n \nZillow http://www.zillow.com/homes/" + encodeText! + "_rb"
-
-            //var text = addressTextField.text
-            //var encodeText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
-
-
-            //var htmlMsg = "<html><body><p>\(home.streetName)</p><p><a href="  + "http://www.zillow.com/homes/" + encodeText! + "_rb" + ">Zillow Link</a></p><a <p><a href="  + "http://www.google.com/search?q=" + encodeText! + ">Google Link</a></p></body><html>"
+            //composer.navigationBar.tintColor = UIColor.whiteColor()
+            //var htmlMsg = "<html><body><p>\(getHome.streetName)</p></body><html>"
             //composer.setMessageBody(htmlMsg, isHTML: true)
 
-            //var image = UIImage(data: home.image)
-            //var imageData = UIImagePNGRepresentation(image)
-            //composer.addAttachmentData(image, mimeType: "image/png", fileName: "home.png")
+            self.presentViewController(composer, animated: true, completion: nil)
+        })
+
+        let smsAction = UIAlertAction(title: "SMS", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+
+            if !MFMessageComposeViewController.canSendText() {
+                let alertMessage = UIAlertController(title: "SMS Unavailable", message: "Device is not capable of sending SMS", preferredStyle: .Alert)
+                alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+            }
+
+            let messageController = MFMessageComposeViewController()
+            messageController.messageComposeDelegate = self
+            messageController.recipients = ["9168470003"]
+            messageController.body = "Checkout this home"
+
+            self.presentViewController(messageController, animated: true, completion: nil)
+        })
 
 
-            presentViewController(composer, animated: true, completion: nil)
-        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+        shareMenu.addAction(facebookAction)
+        shareMenu.addAction(emailAction)
+        shareMenu.addAction(smsAction)
+        shareMenu.addAction(cancelAction)
+
+        self.presentViewController(shareMenu, animated: true, completion: nil)
+
     }
 
     @IBAction func unwindShowHome(segue: UIStoryboardSegue) {
@@ -257,29 +263,42 @@ class ShowHomeTableViewController: UITableViewController, UITextFieldDelegate, U
         switch result.value {
         case MFMailComposeResultCancelled.value:
             println("Mail Cancelled")
+            RKDropdownAlert.title("Mail Cancelled", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
         case MFMailComposeResultSaved.value:
             println("Mail Saved")
+            RKDropdownAlert.title("Mail Saved", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
         case MFMailComposeResultSent.value:
             println("Mail Sent")
+            RKDropdownAlert.title("Mail Sent", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
         case MFMailComposeResultFailed.value:
             println("Failed to send mail")
+            RKDropdownAlert.title("Failed to send mail", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
         default:
             break
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+
     func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
         switch result.value {
         case MessageComposeResultCancelled.value:
             println("SMS Cancelled")
+            RKDropdownAlert.title("SMS Cancelled", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
+
         case MessageComposeResultFailed.value:
-            println("SMS Failed")
+            let alertMessage = UIAlertController(title: "Failure", message: "Failed to send message", preferredStyle: .Alert)
+            alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+
         case MessageComposeResultSent.value:
-            break
-        default:
-            break
+            println("SMS sent")
+            RKDropdownAlert.title("SMS Sent", message: "", backgroundColor: UIColor.whiteColor(), textColor: UIColor.blackColor())
+
+        default: break
+
         }
+
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

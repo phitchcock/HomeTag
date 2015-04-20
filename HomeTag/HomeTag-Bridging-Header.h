@@ -14,7 +14,7 @@
 #import "GAITrackedViewController.h"
 #import "GAITracker.h"
 #import "RKDropdownAlert.h"
-#import "PulsingHaloLayer.h"
+/*#import "PulsingHaloLayer.h"*/
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
