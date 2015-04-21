@@ -33,6 +33,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
     }
 
+    override func viewDidAppear(animated: Bool) {
+        if PFUser.currentUser() != nil {
+            performSegueWithIdentifier("loginSegue", sender: self)
+        }
+    }
+
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }

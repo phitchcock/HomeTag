@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s" translatesAutoresizingMaskIntoConstraints="NO" id="e4x-eN-yWL">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e4x-eN-yWL">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKg-aT-NWf">
@@ -53,6 +53,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="YKg-aT-NWf" secondAttribute="trailing" id="2Fz-tg-XGf"/>
                 <constraint firstItem="e4x-eN-yWL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JBW-yh-vib"/>
@@ -71,7 +72,6 @@
     <resources>
         <image name="HomeHub" width="560" height="145"/>
         <image name="Loading-1" width="152" height="133"/>
-        <image name="s" width="960" height="540"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

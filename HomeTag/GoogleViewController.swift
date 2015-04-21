@@ -21,6 +21,12 @@ class GoogleViewController: UIViewController, UIWebViewDelegate, UISearchBarDele
         super.viewDidLoad()
         searchBar.delegate = self
         searchBar.text = home.streetName
+
+        var leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.rightBarButtonItem = leftNavBarButton
+
+        //tabBarController?.tabBar.hidden = true
+        
         clickBar()
     }
 

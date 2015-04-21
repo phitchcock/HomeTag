@@ -13,7 +13,7 @@ import CoreData
 
 class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    var home: Home!
+    var home: Home?
     var pictures: [Picture] = []
     var feedArray: [AnyObject] = []
     var picture: Picture!
@@ -31,15 +31,18 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
         //fetchRequest = coreDataStack.model.f
         //fetchAndReload()
         //getArray()
-        getFavorite()
+        //getFavorite()
         //println(pictures.count)
     }
 
     override func viewWillAppear(animated: Bool) {
         getFavorite()
-        println(home.streetName)
-        println(home.pictures.count)
-        println(pictures.count)
+        if home != nil {
+            println(home!.streetName)
+            println(home!.pictures.count)
+            println(pictures.count)
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +52,11 @@ class ImagesViewController: UIViewController, NSFetchedResultsControllerDelegate
     // MARK: UICollectionViewDataSource
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return home.pictures.count
+        if home != nil {
+            return home!.pictures.count
+        } else {
+            return 1
+        }
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

@@ -259,6 +259,23 @@ class HomesViewController: UIViewController, NSFetchedResultsControllerDelegate,
                 //let imagesToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as Home
                 managedObjectContext.deleteObject(homeToDelete)
 
+
+
+                if getHome.objectId != "" {
+
+                    var query = PFQuery(className: "Home")
+                    query.getObjectInBackgroundWithId(getHome.objectId, block: { (obj: PFObject?, error: NSError?) -> Void in
+                        if error == nil && obj != nil {
+                            obj?.deleteInBackground()
+                        } else {
+                            println(error)
+                        }
+                    })
+
+                }
+                
+
+
                 var e: NSError?
                 if managedObjectContext.save(&e) != true {
                     println("delete error: \(e!.localizedDescription)")

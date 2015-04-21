@@ -11,14 +11,19 @@ import Parse
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
 
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        imageView.layer.cornerRadius = imageView.frame.size.width / 2
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        profileImageView.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,15 +38,5 @@ class ProfileViewController: UIViewController {
         let vc = storyboard.instantiateViewControllerWithIdentifier("LandingViewController") as! UIViewController
         presentViewController(vc, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

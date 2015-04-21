@@ -38,6 +38,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBarHidden = false
+
         resetTagHome()
 
         enterAddress.layer.cornerRadius = 5
@@ -419,8 +421,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 // The object has been saved.
-                //self.home!.objectId = parseHome.objectId!
-                //println("parseID: \(parseHome.objectId!)")
+                self.home!.objectId = parseHome.objectId!
+                println("parseID: \(parseHome.objectId!)")
                 println("object saved")
             } else {
                 // There was a problem, check error.description
@@ -473,7 +475,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UIIma
         lastLocationError = nil
         placemark = nil
         lastGeocodingError = nil
-        imageView.image = UIImage(named: "1")
+        imageView.image = nil //UIImage(named: "1")
         addressTextField.text = ""
         addressTextField.endEditing(true)
         messageLabel.text = "Tap + to Take a Picture \nTap Get Location to Start Searching for Address"

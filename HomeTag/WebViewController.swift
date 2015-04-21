@@ -13,13 +13,18 @@ class WebViewController: UIViewController, UIWebViewDelegate, UISearchBarDelegat
     // MARK: - Variables
     var home:Home!
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar! = UISearchBar(frame: CGRectMake(0, 0, 200, 20))
     @IBOutlet weak var webView: UIWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         searchBar.text = home.streetName
+        var leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.rightBarButtonItem = leftNavBarButton
+
+        //tabBarController?.tabBar.hidden = true
+
         clickBar()
     }
 

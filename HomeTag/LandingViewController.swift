@@ -27,6 +27,12 @@ class LandingViewController: UIViewController {
 
     }
 
+    override func viewDidAppear(animated: Bool) {
+        if PFUser.currentUser() != nil {
+           performSegueWithIdentifier("userSegue", sender: self)
+        }
+    }
+
     @IBAction func unwind(segue: UIStoryboardSegue) {}
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

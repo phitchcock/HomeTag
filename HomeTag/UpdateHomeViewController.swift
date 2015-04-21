@@ -22,12 +22,18 @@ class UpdateHomeViewController: UIViewController, UIImagePickerControllerDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = UIImage(data: home.image)
+        //imageView.image = UIImage(data: home.image)
         addressTextField.text = home.streetName
         tagTextField.text = home.tag
 
-        imageButton.layer.borderColor = UIColor(red: 0.086, green: 0.494, blue: 0.655, alpha: 1.0).CGColor
+        imageButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         imageButton.layer.borderWidth = 1.0
+        imageButton.layer.cornerRadius = 5
+
+        updateButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        updateButton.layer.borderWidth = 1
+        updateButton.layer.cornerRadius = 5
+
 
     }
 
@@ -86,9 +92,9 @@ class UpdateHomeViewController: UIViewController, UIImagePickerControllerDelegat
 
     @IBAction func update(sender: AnyObject) {
         saveHome()
-        saveImage()
+        //saveImage()
         saveTag()
-
+        navigationController?.popViewControllerAnimated(true)
     }
 
     func saveHome() {
